@@ -1,0 +1,89 @@
+{
+  "buildFiles": [
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\cmake\\build-info.cmake",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\cmake\\common.cmake",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\cmake\\license.cmake",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\cmake\\llama-config.cmake.in",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\ggml\\cmake\\common.cmake",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\ggml\\cmake\\ggml-config.cmake.in",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\ggml\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\ggml\\src\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\ggml\\src\\ggml-cpu\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\src\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\tools\\mtmd\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\apoos\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\apoos\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "sakasama_vlm::@6890427a1f51a3e7e1df": {
+      "artifactName": "sakasama_vlm",
+      "abi": "x86",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\build\\sakasama_vlm\\intermediates\\cxx\\Debug\\2p4o694v\\obj\\x86\\libsakasama_vlm.so",
+      "runtimeFiles": [
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libllama.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-cpu.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-base.so"
+      ]
+    },
+    "ggml::@c3576ecaca8316145c0a": {
+      "artifactName": "ggml",
+      "abi": "x86",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml.so",
+      "runtimeFiles": [
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-cpu.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-base.so"
+      ]
+    },
+    "llama::@f18c97d372e01737396d": {
+      "artifactName": "llama",
+      "abi": "x86",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libllama.so",
+      "runtimeFiles": [
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-cpu.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-base.so"
+      ]
+    },
+    "ggml-base::@c3576ecaca8316145c0a": {
+      "artifactName": "ggml-base",
+      "abi": "x86",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-base.so",
+      "runtimeFiles": []
+    },
+    "ggml-cpu::@c3576ecaca8316145c0a": {
+      "artifactName": "ggml-cpu",
+      "abi": "x86",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-cpu.so",
+      "runtimeFiles": [
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-base.so",
+        "C:\\Users\\apoos\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib\\clang\\18\\lib\\linux\\i386\\libomp.so"
+      ]
+    },
+    "mtmd::@b9d7f123e09c1cd64d24": {
+      "artifactName": "mtmd",
+      "abi": "x86",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\build\\sakasama_vlm\\intermediates\\cxx\\Debug\\2p4o694v\\obj\\x86\\libmtmd.so",
+      "runtimeFiles": [
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libllama.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-cpu.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\x86\\bin\\libggml-base.so"
+      ]
+    }
+  }
+}

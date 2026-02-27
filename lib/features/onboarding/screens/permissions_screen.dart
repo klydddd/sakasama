@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:sakasama/core/constants/app_colors.dart';
 import 'package:sakasama/core/constants/app_dimensions.dart';
 import 'package:sakasama/core/constants/app_strings.dart';
+import 'package:sakasama/core/routing/app_router.dart';
+import 'package:sakasama/data/providers/database_providers.dart';
 
 /// Permissions rationale screen — fourth and final step of onboarding.
 ///
 /// Explains why camera, microphone, and storage permissions are needed,
 /// then actually requests them via the OS dialogs.
-class PermissionsScreen extends StatefulWidget {
+class PermissionsScreen extends ConsumerStatefulWidget {
   const PermissionsScreen({super.key});
 
   @override
-  State<PermissionsScreen> createState() => _PermissionsScreenState();
+  ConsumerState<PermissionsScreen> createState() => _PermissionsScreenState();
 }
 
-class _PermissionsScreenState extends State<PermissionsScreen> {
+class _PermissionsScreenState extends ConsumerState<PermissionsScreen> {
   final Map<Permission, bool> _granted = {
     Permission.camera: false,
     Permission.microphone: false,
@@ -59,9 +64,10 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
         setState(() => _granted[Permission.microphone] = micResult.isGranted);
       }
 
-      // Navigate to dashboard after requesting
+      // Mark onboarding as completed and navigate to dashboard
       if (mounted) {
-        context.go('/');
+        await _completeOnboarding();
+        if (mounted) context.go('/');
       }
     } finally {
       if (mounted) setState(() => _isRequesting = false);
@@ -94,6 +100,25 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
   }
 
   bool get _allGranted => _granted.values.every((v) => v);
+
+  /// Persist onboarding completion to SharedPreferences and local DB.
+  Future<void> _completeOnboarding() async {
+    // Save to SharedPreferences for fast router checks
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('onboarding_completed', true);
+    AppRouter.onboardingCompleted = true;
+
+    // Also save to local DB
+    final userId = Supabase.instance.client.auth.currentUser?.id;
+    if (userId != null) {
+      await ref
+          .read(userProfileDaoProvider)
+          .markOnboardingCompleted(
+            userId,
+            email: Supabase.instance.client.auth.currentUser?.email,
+          );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -239,7 +264,10 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
                   onPressed: _isRequesting
                       ? null
                       : _allGranted
-                      ? () => context.go('/')
+                      ? () async {
+                          await _completeOnboarding();
+                          if (mounted) context.go('/');
+                        }
                       : _requestAll,
                   child: _isRequesting
                       ? const SizedBox(
@@ -272,7 +300,10 @@ class _PermissionsScreenState extends State<PermissionsScreen> {
               // ── Skip Option ───────────────────────────────────────
               Center(
                 child: TextButton(
-                  onPressed: () => context.go('/'),
+                  onPressed: () async {
+                    await _completeOnboarding();
+                    if (mounted) context.go('/');
+                  },
                   child: const Text('Mamaya na lang'),
                 ),
               ),

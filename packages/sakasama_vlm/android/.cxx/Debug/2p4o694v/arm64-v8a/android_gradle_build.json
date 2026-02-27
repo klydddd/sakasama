@@ -1,0 +1,107 @@
+{
+  "buildFiles": [
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\cmake\\build-info.cmake",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\cmake\\common.cmake",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\cmake\\license.cmake",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\cmake\\llama-config.cmake.in",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\ggml\\cmake\\common.cmake",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\ggml\\cmake\\ggml-config.cmake.in",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\ggml\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\ggml\\src\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\ggml\\src\\ggml-cpu\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\src\\CMakeLists.txt",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\src\\main\\cpp\\llama.cpp\\tools\\mtmd\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\apoos\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\apoos\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "ggml::@c3576ecaca8316145c0a": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "ggml",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml.so",
+      "runtimeFiles": [
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-cpu.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-base.so"
+      ]
+    },
+    "ggml-base::@c3576ecaca8316145c0a": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "ggml-base",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-base.so",
+      "runtimeFiles": []
+    },
+    "ggml-cpu::@c3576ecaca8316145c0a": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "ggml-cpu",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-cpu.so",
+      "runtimeFiles": [
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-base.so",
+        "C:\\Users\\apoos\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\lib\\clang\\18\\lib\\linux\\aarch64\\libomp.so"
+      ]
+    },
+    "llama::@f18c97d372e01737396d": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "llama",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libllama.so",
+      "runtimeFiles": [
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-cpu.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-base.so"
+      ]
+    },
+    "mtmd::@b9d7f123e09c1cd64d24": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "mtmd",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\build\\sakasama_vlm\\intermediates\\cxx\\Debug\\2p4o694v\\obj\\arm64-v8a\\libmtmd.so",
+      "runtimeFiles": [
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libllama.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-cpu.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-base.so"
+      ]
+    },
+    "sakasama_vlm::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "sakasama_vlm",
+      "output": "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\build\\sakasama_vlm\\intermediates\\cxx\\Debug\\2p4o694v\\obj\\arm64-v8a\\libsakasama_vlm.so",
+      "runtimeFiles": [
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libllama.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-cpu.so",
+        "D:\\apoos\\Documents\\aye you eff\\Sakasama\\sakasama\\packages\\sakasama_vlm\\android\\.cxx\\Debug\\2p4o694v\\arm64-v8a\\bin\\libggml-base.so"
+      ]
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "C:\\Users\\apoos\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "C:\\Users\\apoos\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

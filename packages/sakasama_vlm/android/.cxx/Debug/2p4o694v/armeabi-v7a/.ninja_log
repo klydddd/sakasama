@@ -1,0 +1,229 @@
+# ninja log v5
+5431	9782	7938766321504753	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/amx.cpp.o	31069f181ca389bf
+4240	9237	7938766315884240	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/traits.cpp.o	90508660874a4740
+97	2427	7938766247327233	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o	e83445457365c9c0
+9549	15576	7938766379281810	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-adapter.cpp.o	ca8cd4cf0b170415
+32	1013	7938766233308546	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-base.dir/ggml-alloc.c.o	20b60b56f2cae47
+58	2988	7938766252965022	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-base.dir/ggml-threading.cpp.o	7c21e54dddd28382
+13	2228	7938766245370085	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o	c6ab5feeb34e6d5
+5	2732	7938766250461809	CMakeFiles/sakasama_vlm.dir/src/main/cpp/got_ocr_bridge.cpp.o	8fd5f95688d1cb05
+3033	4567	7938766269207631	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/quants.c.o	b97082af910b9337
+2742	3032	7938766254179729	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/hbm.cpp.o	d4c685abc62b23c9
+22	3708	7938766260569480	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-base.dir/ggml.cpp.o	1f6bc60c9d1e9808
+2428	9642	7938766319870128	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/repack.cpp.o	40896f404eaf1be5
+2229	4240	7938766265558731	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.c.o	9ade9b7d133085a6
+1016	5379	7938766276623490	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml-backend-dl.cpp.o	e2f9d98d18edb7e2
+109	6118	7938766284751914	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml.dir/ggml-backend-reg.cpp.o	7c18b36362b6ccef
+45	5431	7938766277804454	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-base.dir/ggml-backend.cpp.o	66d6edf7e501460
+71	6941	7938766292467224	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-base.dir/ggml-opt.cpp.o	22f49705cbfd056e
+2989	8614	7938766309436065	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.cpp.o	389c8aac5079b9a2
+4567	9410	7938766317399605	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/mmq.cpp.o	e2bbf16019a631c5
+5380	13118	7938766354688976	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/unary-ops.cpp.o	6fd68ba27f5de5d9
+3710	9548	7938766318994821	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/binary-ops.cpp.o	e93c267ef9f6e5a4
+8615	10792	7938766331424683	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/arm/quants.c.o	58ca601a02e3dd9
+84	10869	7938766331520617	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-base.dir/gguf.cpp.o	9a801b571ea94bce
+9238	12889	7938766352102613	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/vec.cpp.o	b14149cbfcc395af
+9411	13277	7938766356268428	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/arm/repack.cpp.o	17f3adca8f07c1c
+9643	14597	7938766369542175	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-arch.cpp.o	1d6e7e1142a20844
+6943	15378	7938766377219086	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ops.cpp.o	eb5dd30287ad2e8b
+9783	15632	7938766379900495	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama.cpp.o	febf6efbd6672dfc
+69	212	7938767361218551	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/hbm.cpp.o	ce1496ce8337cf46
+16	1115	7938767367342488	bin/libggml-base.so	74d3cac7cdb505da
+95	1153	7938767370512831	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/quants.c.o	f65e999392c59bfb
+45	1183	7938767370492690	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.c.o	a923696fa84beeec
+127	1911	7938767377851486	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/arm/quants.c.o	cc940ff5b9b633da
+30	3809	7938767397016471	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/traits.cpp.o	ebe153e119db2ca3
+220	3899	7938767397930774	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/mmq.cpp.o	d40e8285bc08f8a7
+108	3943	7938767398468024	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/amx.cpp.o	f40974687f918b47
+56	4440	7938767403222052	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.cpp.o	2d65ca12490b3f1
+1153	5338	7938767410430720	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/vec.cpp.o	c8f734d9414cb5b8
+1183	6060	7938767419659970	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/binary-ops.cpp.o	ca680f274ea5e883
+82	6230	7938767421021095	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/repack.cpp.o	5d017fe30c1beb18
+1912	6314	7938767422236276	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/arm/repack.cpp.o	16282021287cf629
+197	6798	7938767426033709	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/unary-ops.cpp.o	db25d4377566e7cf
+3899	7994	7938767439079981	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-memory.cpp.o	a4054c92fb437c6c
+5340	8148	7938767440550659	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-io.cpp.o	340328075c3405e5
+3809	8280	7938767441713225	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-impl.cpp.o	f532b053da34c0e3
+7994	8450	7938767443622959	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-cparams.cpp.o	2a8c45f88613aa10
+1115	9190	7938767450474177	src/main/cpp/llama.cpp/ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ops.cpp.o	fb785bd43645fefc
+3944	10640	7938767465299081	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-kv-cache-iswa.cpp.o	75bc0fe4af434b72
+9191	10804	7938767465359184	bin/libggml-cpu.so	cc4f13f1d64c85bf
+8450	10930	7938767467973530	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-hparams.cpp.o	228ee72c6a47cc98
+6314	11774	7938767476429882	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-chat.cpp.o	2f3b06904e96d3da
+4440	12173	7938767479282444	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-memory-hybrid.cpp.o	bdd3611822cdc85b
+10805	13766	7938767493704456	bin/libggml.so	6ab64f420915338f
+10641	16197	7938767520910599	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-mmap.cpp.o	501f4411e11cd49f
+8149	17575	7938767534175842	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-batch.cpp.o	eab5aa67dd1c302
+6231	18193	7938767539493662	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-grammar.cpp.o	7297a62d9163642a
+6060	18421	7938767542427111	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-kv-cache.cpp.o	54721554383ff2ac
+8281	19103	7938767549253265	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-graph.cpp.o	77ed7030f65e30a7
+6799	19754	7938767555574727	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-context.cpp.o	6979a9e6cf19da12
+12174	20599	7938767564719728	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-memory-recurrent.cpp.o	75456783e49aa546
+10931	20754	7938767566157177	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-memory-hybrid-iswa.cpp.o	ac3448941ebfbbc1
+13766	21382	7938767572360252	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-model-saver.cpp.o	8bcfe769f8e43488
+11774	23914	7938767597279048	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-model-loader.cpp.o	57e5357f2c396073
+20756	26692	7938767624285371	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/apertus.cpp.o	dffce0020e55d27c
+20599	27707	7938767635901186	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/afmoe.cpp.o	b398b20d5752a3b2
+21383	28483	7938767643201871	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/codeshell.cpp.o	1f824ef1b9122053
+18421	28624	7938767645066064	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/unicode-data.cpp.o	f5053e76f1bbe829
+16198	29916	7938767657228901	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-vocab.cpp.o	4f938e2a7a555bf4
+23915	31021	7938767668826739	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/cogvlm.cpp.o	6d4555b56283f9b0
+18194	33281	7938767689634859	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-quant.cpp.o	be788d28de24158b
+26693	33702	7938767695987553	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/bloom.cpp.o	373ea92474003c34
+17576	33867	7938767696243530	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/unicode.cpp.o	46d421899018f1d0
+19756	34232	7938767700000516	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-sampler.cpp.o	c1d71ab158a59843
+27707	34600	7938767704934458	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/chameleon.cpp.o	e94f785b27df97e5
+28484	35022	7938767708802738	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/chatglm.cpp.o	7d92181f838c7478
+28624	35152	7938767710197842	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/bitnet.cpp.o	a17d04153c2b301d
+29917	36074	7938767719514267	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/bailingmoe.cpp.o	12a15782b74730d0
+31021	36798	7938767726865562	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/arwkv7.cpp.o	ec6d99ea2d4602
+33315	38569	7938767744706148	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/arcee.cpp.o	406f47652afd7b0b
+33703	39041	7938767749241911	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/baichuan.cpp.o	5d92fda87cb9a900
+33867	39457	7938767753485783	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/arctic.cpp.o	2853d832c90c762d
+34233	39666	7938767755562166	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/bailingmoe2.cpp.o	959a7a3965112bb1
+34601	40186	7938767760860660	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/bert.cpp.o	6d5c6af5133f98d3
+35152	40882	7938767767512174	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/cohere2-iswa.cpp.o	79500ea0e8637109
+35023	41742	7938767776121177	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/deepseek2.cpp.o	55b9360b3bca264
+36798	41881	7938767777318240	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/deci.cpp.o	81d84bace45fc3b
+36075	42319	7938767781700611	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/dbrx.cpp.o	43b8517c2bb47353
+38570	45148	7938767810282768	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/command-r.cpp.o	85c7d42527a83267
+39041	45241	7938767811182371	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/deepseek.cpp.o	a48eaf0e7b22f036
+39666	45968	7938767818723457	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/ernie4-5-moe.cpp.o	13db102ed6643fea
+39458	46157	7938767820480335	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/dots1.cpp.o	6deda78f4b92bcfe
+40187	46932	7938767827991773	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/ernie4-5.cpp.o	c91e861cb0ee26a3
+41882	47605	7938767834919210	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/eurobert.cpp.o	11f6013eea654c3f
+41742	47640	7938767835039947	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/dream.cpp.o	4d98ec79d53976d0
+40883	47984	7938767838672445	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/delta-net-base.cpp.o	4aa23fcdd2d62e8d
+42319	48373	7938767842582476	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/exaone-moe.cpp.o	f16eb5b51d5b1831
+19104	49024	7938767846883115	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/llama-model.cpp.o	ce40803350bb6fe0
+45148	50133	7938767860297046	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/exaone4.cpp.o	896bd690cb56742a
+45242	50226	7938767860930093	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/falcon-h1.cpp.o	83d7b88282bb54aa
+45968	50956	7938767867614967	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/gemma-embedding.cpp.o	c286ad060b313b35
+47605	52627	7938767885043180	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/gemma.cpp.o	50c2e1f5c291d7d0
+47641	52824	7938767887149971	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/gpt2.cpp.o	87032ac588558308
+46932	53136	7938767890080181	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/falcon.cpp.o	bb8dc701b801fda9
+47985	53238	7938767891108187	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/gptneox.cpp.o	4de57b9ecaa9d7ac
+48373	53960	7938767898172523	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/glm4-moe.cpp.o	3078191b96251b25
+46158	54274	7938767901457287	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/gemma2-iswa.cpp.o	5e00d18cd15ca546
+49025	54360	7938767902356762	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/gemma3n-iswa.cpp.o	56ebcd6870518895
+50228	55819	7938767917286281	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/gemma3.cpp.o	f585cbdc731f84ef
+50134	55930	7938767917784234	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/glm4.cpp.o	4b58f827ce7ca642
+50957	56246	7938767921495039	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/exaone.cpp.o	f44f92707c69aed5
+52627	57637	7938767935209414	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/nemotron.cpp.o	4694315f395a5993
+53137	57883	7938767937429256	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/minimax-m2.cpp.o	74a5cbea35bafeb7
+52825	57994	7938767938895866	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/modern-bert.cpp.o	ed4d2c7051b7fdfc
+53238	59151	7938767950394979	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/mpt.cpp.o	b6f5507b18c1dd43
+53961	59325	7938767952147266	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/mistral3.cpp.o	67943852c89857df
+54275	59667	7938767955289196	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/nemotron-h.cpp.o	17c3c1c77b478678
+54360	60328	7938767962222789	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/granite-hybrid.cpp.o	9e37e6aa1d82f29a
+55931	60359	7938767962046776	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/granite.cpp.o	d524f763e493ad68
+55820	61409	7938767972959713	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/hunyuan-moe.cpp.o	bcaaabd485a9725d
+56247	61804	7938767976788256	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/grovemoe.cpp.o	a60a2da23bc1edd9
+57638	62669	7938767984927350	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/hunyuan-dense.cpp.o	c93a391975174b8
+57883	63046	7938767988820559	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/grok.cpp.o	31708a4305d36052
+57994	64304	7938768000817983	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/jais.cpp.o	2d3c0ab418a47976
+59152	64373	7938768002131226	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/internlm2.cpp.o	4726d16f1ba7f926
+59668	64662	7938768005660353	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/jais2.cpp.o	a086e3afa8556fc3
+60360	65453	7938768012195690	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/kimi-linear.cpp.o	c3724b8b910d6d29
+59325	65624	7938768015109355	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/lfm2.cpp.o	9d9837e097d13d6f
+60328	65982	7938768018707645	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/jamba.cpp.o	e714ebe967142d6a
+61410	66520	7938768024293334	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/maincoder.cpp.o	e9f0e83daf58fc2c
+62669	67867	7938768036915038	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/llama-iswa.cpp.o	be5c98632b19305b
+61804	67982	7938768038709152	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/mamba-base.cpp.o	e6339e76b0558ba8
+63047	68384	7938768042900235	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/llada-moe.cpp.o	ece66d902a785ca3
+64305	69945	7938768058460220	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/llada.cpp.o	3a39977379ca2d6e
+64663	70290	7938768061737682	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/minicpm3.cpp.o	d22496434af521f1
+64417	70380	7938768062759639	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/llama.cpp.o	18bdbf5cdd511da1
+65625	71014	7938768069216511	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/mimo2-iswa.cpp.o	ebcc651d98042d6d
+65454	71162	7938768070727465	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/mamba.cpp.o	26ffeb6bbceba975
+65983	71574	7938768074141938	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen2moe.cpp.o	fab93a1a1a0e9c6b
+66521	72092	7938768079420832	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen3.cpp.o	78cde4d56937c1b4
+67868	72784	7938768086637354	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen2vl.cpp.o	36c1b11edfd25639
+67983	73498	7938768093924641	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen2.cpp.o	3de34eb79737c90a
+68385	73924	7938768097990877	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/plm.cpp.o	e91c27d9f1000542
+69946	74733	7938768105863504	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen.cpp.o	696e25afface8e2d
+70380	75764	7938768116749496	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen35moe.cpp.o	65f57d6fdf766617
+70292	75876	7938768117739234	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen3next.cpp.o	b06e080b67c3a75e
+71163	76112	7938768120230146	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen3moe.cpp.o	accbc4d88cd4e2a8
+71574	76793	7938768126710032	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen3vl-moe.cpp.o	da3f4cd2f5bf1588
+71014	77212	7938768131131982	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen35.cpp.o	dad264232d86750
+72093	77396	7938768132988021	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/qwen3vl.cpp.o	90f7e8636f46e726
+72784	77543	7938768134506602	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/olmo2.cpp.o	4615465755e74bb5
+73499	78291	7938768141555912	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/olmoe.cpp.o	947b7dbd25032cf1
+73924	79065	7938768149695002	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/openai-moe-iswa.cpp.o	77a91b4022128f2f
+74734	79787	7938768156985671	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/neo-bert.cpp.o	577902c4acf5f0e2
+76113	80508	7938768164144572	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/pangu-embedded.cpp.o	2d27b68632611c43
+75876	80720	7938768166156681	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/openelm.cpp.o	c9859c62ccfc1938
+75764	80949	7938768167993771	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/olmo.cpp.o	4ef9ca04841da9f0
+76793	82054	7938768179497490	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/phi3.cpp.o	7885ca2ef503f930
+77544	82349	7938768182498158	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/orion.cpp.o	d2d051e829df141
+77213	82516	7938768183707273	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/paddleocr.cpp.o	8e2241069e24dd7b
+77397	82845	7938768187072121	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/phi2.cpp.o	4911d5e8b87e7e5c
+78291	84147	7938768200415252	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/plamo3.cpp.o	875e2cc3134e40ce
+79065	84980	7938768208586229	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/plamo2.cpp.o	d2c6e616c8d2a06e
+79788	85420	7938768213191980	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/plamo.cpp.o	7a47104c76275756
+80508	85689	7938768215888836	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/wavtokenizer-dec.cpp.o	6e58ea03817aea69
+80721	85919	7938768218232755	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/t5-enc.cpp.o	3b37b96a2a27799b
+80950	86452	7938768223526868	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/xverse.cpp.o	c1d671489daf0a1c
+82845	88481	7938768243462257	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/rwkv6-base.cpp.o	71f7bff8604dbfdf
+84147	89918	7938768258149990	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/refact.cpp.o	3ff4c689de1cba99
+82350	90330	7938768262184511	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/mtmd-audio.cpp.o	97102caec7663d25
+82055	90375	7938768262340493	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/mtmd.cpp.o	debe018adf73f0c1
+84981	90848	7938768267437592	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/rnd1.cpp.o	42fd10c31089d3ed
+85420	91382	7938768272394747	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/rwkv6qwen2.cpp.o	fb58c48b5e9d9a6
+85920	92021	7938768278252562	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/rwkv6.cpp.o	4b6be179a80695e3
+85690	92112	7938768279999230	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/rwkv7-base.cpp.o	9f554b75c3db3765
+86453	92297	7938768281951547	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/seed-oss.cpp.o	88adfa2a7f9d43af
+88481	93964	7938768298297786	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/stablelm.cpp.o	d629d1e41b6b26c6
+89919	95347	7938768312165101	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/rwkv7.cpp.o	b85868a1cec56be8
+90331	95678	7938768315825865	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/starcoder.cpp.o	c36ddd9ca3e077ac
+90376	95974	7938768318275161	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/smollm3.cpp.o	491f5a7f5fa2ae5
+90849	96218	7938768320760848	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/smallthinker.cpp.o	1e553515fb8ced19
+91383	97031	7938768329210503	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/starcoder2.cpp.o	a0dfed5b8ce1da21
+92022	97485	7938768333822744	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/step35-iswa.cpp.o	5f30ccdf8b8df3eb
+92298	97581	7938768334431390	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/cogvlm.cpp.o	87dc6bf192397362
+92113	97983	7938768338636191	src/main/cpp/llama.cpp/src/CMakeFiles/llama.dir/models/t5-dec.cpp.o	7830175507275fc8
+82516	98403	7938768341944135	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/mtmd-helper.cpp.o	e5e60d36b2c336d
+93965	99473	7938768353754467	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/internvl.cpp.o	e9ba52508c67d476
+95347	100936	7938768368317417	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/conformer.cpp.o	7860e3f3ad585a86
+97984	101221	7938768363663398	bin/libllama.so	616b11e9b9a17a59
+95974	101681	7938768375613804	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/glm4v.cpp.o	f243e2b882fc04b6
+96219	102310	7938768381993926	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/kimivl.cpp.o	7c19b023ab5f8c74
+97032	102487	7938768383878302	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/llava.cpp.o	de7a3e254c0a6c8b
+97486	103518	7938768393712943	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/minicpmv.cpp.o	a07b1cb437621326
+97581	103757	7938768395620499	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/nemotron-v2-vl.cpp.o	8a7e4feb221ca132
+98403	104296	7938768401793519	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/llama4.cpp.o	59854ab047848963
+99473	105585	7938768414618690	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/kimik25.cpp.o	24164f22eee16b0c
+100937	106807	7938768426620309	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/siglip.cpp.o	4e0e16048b773eb4
+101682	106987	7938768428877537	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/whisper-enc.cpp.o	f212991903199ee0
+101222	107599	7938768434920444	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/paddleocr.cpp.o	233e241f13b9d301
+95679	107855	7938768436846511	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/clip.cpp.o	bfa02d5c09debbd0
+102487	108231	7938768440997619	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/pixtral.cpp.o	ac647e0fd0d68924
+102311	108281	7938768441528079	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/qwen3vl.cpp.o	11e205ff8f7408f
+103518	108848	7938768447615158	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/qwen2vl.cpp.o	42e17131336a4b84
+103758	109042	7938768449515536	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/mobilenetv5.cpp.o	3cd77031c540b6c6
+104297	109055	7938768449641159	src/main/cpp/llama.cpp/tools/mtmd/CMakeFiles/mtmd.dir/models/youtuvl.cpp.o	8ec9a7bbb41b6dad
+109056	109266	7938768451702948	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+109267	109477	7938768453988073	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+21	1308	7938772603944399	CMakeFiles/sakasama_vlm.dir/src/main/cpp/got_ocr_bridge.cpp.o	8fd5f95688d1cb05
+1309	1488	7938772605726478	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+41	782	7938781833444384	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+783	1222	7938781838028138	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+31	330	7938788375002361	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+330	592	7938788377869998	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+48	533	7938803374582033	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+534	835	7938803378044029	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+68	824	7938818378655385	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+825	1578	7938818384999911	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+74	738	7938924981164452	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+739	1464	7938924987857158	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+50	865	7938931863878251	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+865	1722	7938931872675403	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+73	825	7938937974820679	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+826	1363	7938937980788560	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+41	506	7938949012141247	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+506	881	7938949015336853	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+64	656	7938971957969880	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+657	908	7938971960868761	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc
+58	875	7939009569865683	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libmtmd.so	b22997cb9bfc9465
+875	1355	7939009574498803	D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/armeabi-v7a/libsakasama_vlm.so	42c94fd15ec699bc

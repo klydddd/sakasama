@@ -7,6 +7,7 @@ import 'package:sakasama/data/local/app_database.dart';
 import 'package:sakasama/data/local/daos/farm_dao.dart';
 import 'package:sakasama/data/local/daos/activity_dao.dart';
 import 'package:sakasama/data/local/daos/compliance_dao.dart';
+import 'package:sakasama/data/local/daos/user_profile_dao.dart';
 import 'package:sakasama/data/repositories/farm_repository.dart';
 import 'package:sakasama/data/repositories/activity_repository.dart';
 import 'package:sakasama/data/repositories/compliance_repository.dart';
@@ -21,6 +22,10 @@ final databaseProvider = Provider<AppDatabase>((ref) {
 });
 
 // ── DAOs ──────────────────────────────────────────────────────────────
+
+final userProfileDaoProvider = Provider<UserProfileDao>((ref) {
+  return ref.watch(databaseProvider).userProfileDao;
+});
 
 final farmDaoProvider = Provider<FarmDao>((ref) {
   return ref.watch(databaseProvider).farmDao;

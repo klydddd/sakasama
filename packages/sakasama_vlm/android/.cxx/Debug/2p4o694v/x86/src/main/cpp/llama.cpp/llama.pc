@@ -1,0 +1,10 @@
+prefix=C:/Program Files (x86)/sakasama_vlm
+exec_prefix=C:/Program Files (x86)/sakasama_vlm
+libdir=C:/Program Files (x86)/sakasama_vlm/lib
+includedir=C:/Program Files (x86)/sakasama_vlm/include
+
+Name: llama
+Description: Port of Facebook's LLaMA model in C/C++
+Version: 0.0.1
+Libs: -L${libdir} -lggml -lggml-base -lllama
+Cflags: -I${includedir}

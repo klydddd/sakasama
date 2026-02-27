@@ -31,6 +31,10 @@ import 'package:sakasama/features/voice_assistant/screens/voice_assistant_screen
 class AppRouter {
   AppRouter._();
 
+  /// Set by main.dart after reading SharedPreferences.
+  /// Used by the redirect to skip onboarding on hot restart.
+  static bool onboardingCompleted = false;
+
   static final GlobalKey<NavigatorState> _rootNavigatorKey =
       GlobalKey<NavigatorState>(debugLabel: 'root');
   static final GlobalKey<NavigatorState> _shellNavigatorKey =
@@ -44,15 +48,21 @@ class AppRouter {
       final isAuthRoute =
           state.matchedLocation == '/login' ||
           state.matchedLocation == '/register';
+      final isOnboardingRoute = state.matchedLocation.startsWith('/onboarding');
 
       // Not logged in → force to login (unless already there)
       if (!isLoggedIn && !isAuthRoute) {
         return '/login';
       }
 
-      // Logged in but on auth route → go to onboarding or home
+      // Logged in but on auth route → check onboarding status
       if (isLoggedIn && isAuthRoute) {
-        return '/onboarding';
+        return onboardingCompleted ? '/' : '/onboarding';
+      }
+
+      // Logged in, onboarding completed, but navigating to onboarding → skip
+      if (isLoggedIn && onboardingCompleted && isOnboardingRoute) {
+        return '/';
       }
 
       return null; // no redirect

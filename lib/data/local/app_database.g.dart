@@ -3134,6 +3134,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $ActivityLogsTable activityLogs = $ActivityLogsTable(this);
   late final $ComplianceRecordsTable complianceRecords =
       $ComplianceRecordsTable(this);
+  late final UserProfileDao userProfileDao = UserProfileDao(
+    this as AppDatabase,
+  );
   late final FarmDao farmDao = FarmDao(this as AppDatabase);
   late final ActivityDao activityDao = ActivityDao(this as AppDatabase);
   late final ComplianceDao complianceDao = ComplianceDao(this as AppDatabase);

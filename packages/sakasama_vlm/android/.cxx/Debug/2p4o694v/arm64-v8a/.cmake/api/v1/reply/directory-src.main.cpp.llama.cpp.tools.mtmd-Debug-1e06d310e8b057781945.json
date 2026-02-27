@@ -1,0 +1,56 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"src/main/cpp/llama.cpp/tools/mtmd/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 65,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"D:/apoos/Documents/aye you eff/Sakasama/sakasama/build/sakasama_vlm/intermediates/cxx/Debug/2p4o694v/obj/arm64-v8a/libmtmd.so"
+			],
+			"targetId" : "mtmd::@b9d7f123e09c1cd64d24",
+			"targetIndex" : 4,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "include",
+			"paths" : 
+			[
+				"src/main/cpp/llama.cpp/tools/mtmd/mtmd.h",
+				"src/main/cpp/llama.cpp/tools/mtmd/mtmd-helper.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "src/main/cpp/llama.cpp/tools/mtmd",
+		"source" : "src/main/cpp/llama.cpp/tools/mtmd"
+	}
+}

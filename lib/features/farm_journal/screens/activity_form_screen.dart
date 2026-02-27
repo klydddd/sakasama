@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:sakasama/core/constants/app_colors.dart';
 import 'package:sakasama/core/constants/app_dimensions.dart';
 import 'package:sakasama/core/constants/app_strings.dart';
+import 'package:sakasama/data/providers/database_providers.dart';
 
 /// Activity entry form screen for logging farm activities.
 ///
 /// Large input fields (18sp+) with Filipino labels.
 /// Fields: date, activity type, product, quantity, unit, notes, photo.
-class ActivityFormScreen extends StatefulWidget {
+class ActivityFormScreen extends ConsumerStatefulWidget {
   const ActivityFormScreen({super.key});
 
   @override
-  State<ActivityFormScreen> createState() => _ActivityFormScreenState();
+  ConsumerState<ActivityFormScreen> createState() => _ActivityFormScreenState();
 }
 
-class _ActivityFormScreenState extends State<ActivityFormScreen> {
+class _ActivityFormScreenState extends ConsumerState<ActivityFormScreen> {
   final _formKey = GlobalKey<FormState>();
   DateTime _selectedDate = DateTime.now();
   String? _selectedActivityType;
@@ -24,6 +27,7 @@ class _ActivityFormScreenState extends State<ActivityFormScreen> {
   final _quantityController = TextEditingController();
   String? _selectedUnit;
   final _notesController = TextEditingController();
+  bool _isSaving = false;
 
   static const List<String> _activityTypes = [
     AppStrings.fertilization,
@@ -73,6 +77,62 @@ class _ActivityFormScreenState extends State<ActivityFormScreen> {
     );
     if (picked != null) {
       setState(() => _selectedDate = picked);
+    }
+  }
+
+  Future<void> _saveActivity() async {
+    if (_selectedActivityType == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Pumili muna ng uri ng aktibidad')),
+      );
+      return;
+    }
+
+    setState(() => _isSaving = true);
+
+    try {
+      final userId = Supabase.instance.client.auth.currentUser?.id;
+      final quantityText = _quantityController.text.trim();
+      final quantity = quantityText.isNotEmpty
+          ? double.tryParse(quantityText)
+          : null;
+
+      await ref
+          .read(activityRepositoryProvider)
+          .create(
+            activityDate: _selectedDate,
+            activityType: _selectedActivityType!,
+            productUsed: _productController.text.trim().isNotEmpty
+                ? _productController.text.trim()
+                : null,
+            quantity: quantity,
+            unit: _selectedUnit,
+            notes: _notesController.text.trim().isNotEmpty
+                ? _notesController.text.trim()
+                : null,
+            userId: userId,
+          );
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Na-save na ang aktibidad! ✅'),
+            backgroundColor: AppColors.primaryGreen,
+          ),
+        );
+        context.pop();
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Hindi na-save: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _isSaving = false);
     }
   }
 
@@ -261,12 +321,18 @@ class _ActivityFormScreenState extends State<ActivityFormScreen> {
                 width: double.infinity,
                 height: AppDimensions.primaryButtonHeight,
                 child: ElevatedButton.icon(
-                  onPressed: () {
-                    // Save to database in future
-                    context.pop();
-                  },
-                  icon: const Icon(Icons.check_rounded),
-                  label: Text(AppStrings.save),
+                  onPressed: _isSaving ? null : _saveActivity,
+                  icon: _isSaving
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: AppColors.white,
+                          ),
+                        )
+                      : const Icon(Icons.check_rounded),
+                  label: Text(_isSaving ? 'Sine-save...' : AppStrings.save),
                 ),
               ).animate().fadeIn(delay: 600.ms, duration: 300.ms),
 

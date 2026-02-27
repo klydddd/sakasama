@@ -1,0 +1,237 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						6
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp",
+					"childIndexes" : 
+					[
+						2,
+						5
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src.main.cpp.llama.cpp-Debug-8583ef1bba69255dbad3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "src/main/cpp/llama.cpp"
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp/ggml",
+					"childIndexes" : 
+					[
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src.main.cpp.llama.cpp.ggml-Debug-4ee280c73fb11074961f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "src/main/cpp/llama.cpp/ggml"
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp/ggml/src",
+					"childIndexes" : 
+					[
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src.main.cpp.llama.cpp.ggml.src-Debug-3d0332e21ffe74e8bdf6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "src/main/cpp/llama.cpp/ggml/src",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp/ggml/src/ggml-cpu",
+					"jsonFile" : "directory-src.main.cpp.llama.cpp.ggml.src.ggml-cpu-Debug-4fb3099b1f5ddc5113fe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "src/main/cpp/llama.cpp/ggml/src/ggml-cpu"
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp/src",
+					"jsonFile" : "directory-src.main.cpp.llama.cpp.src-Debug-8014f8769e0f2dff7492.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "src/main/cpp/llama.cpp/src",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp/tools/mtmd",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src.main.cpp.llama.cpp.tools.mtmd-Debug-65b14576d5e118916800.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/main/cpp/llama.cpp/tools/mtmd",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						6
+					],
+					"name" : "sakasama_vlm",
+					"targetIndexes" : 
+					[
+						4,
+						5
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						1,
+						5
+					],
+					"name" : "llama.cpp",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3,
+						4
+					],
+					"name" : "ggml",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "ggml::@c3576ecaca8316145c0a",
+					"jsonFile" : "target-ggml-Debug-e4c8c8d6ba32974ac48d.json",
+					"name" : "ggml",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "ggml-base::@c3576ecaca8316145c0a",
+					"jsonFile" : "target-ggml-base-Debug-b2349436c73e3c83b31a.json",
+					"name" : "ggml-base",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "ggml-cpu::@c3576ecaca8316145c0a",
+					"jsonFile" : "target-ggml-cpu-Debug-2924924f39083b7d378b.json",
+					"name" : "ggml-cpu",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "llama::@f18c97d372e01737396d",
+					"jsonFile" : "target-llama-Debug-e071c8a66e1e80cc18c3.json",
+					"name" : "llama",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "mtmd::@b9d7f123e09c1cd64d24",
+					"jsonFile" : "target-mtmd-Debug-fe79430dc0a768186ebc.json",
+					"name" : "mtmd",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sakasama_vlm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sakasama_vlm-Debug-80df82833717409d9940.json",
+					"name" : "sakasama_vlm",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/apoos/Documents/aye you eff/Sakasama/sakasama/packages/sakasama_vlm/android/.cxx/Debug/2p4o694v/x86_64",
+		"source" : "D:/apoos/Documents/aye you eff/Sakasama/sakasama/packages/sakasama_vlm/android"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

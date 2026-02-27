@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sakasama/core/constants/app_colors.dart';
 import 'package:sakasama/core/constants/app_dimensions.dart';
 import 'package:sakasama/core/constants/app_strings.dart';
+import 'package:sakasama/data/providers/activity_providers.dart';
 import 'package:sakasama/data/providers/farm_providers.dart';
 import 'package:sakasama/features/dashboard/widgets/action_button_card.dart';
 import 'package:sakasama/features/dashboard/widgets/progress_card.dart';
@@ -13,6 +14,7 @@ import 'package:sakasama/features/dashboard/widgets/progress_card.dart';
 ///
 /// Shows a time-aware greeting with the farmer's real name from the DB,
 /// progress card with days logged, and 4 large action buttons.
+/// All stats are pulled from the local DB (reactive).
 class DashboardScreen extends ConsumerWidget {
   const DashboardScreen({super.key});
 
@@ -26,12 +28,27 @@ class DashboardScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final farmProfileAsync = ref.watch(activeFarmProfileProvider);
+    final activityCountAsync = ref.watch(activityCountProvider);
+    final daysLoggedAsync = ref.watch(daysLoggedProvider);
 
     // Extract farmer name from profile, fallback to 'Magsasaka'
     final farmerName = farmProfileAsync.when(
       data: (farm) => farm?.farmerName ?? 'Magsasaka',
       loading: () => 'Magsasaka',
       error: (_, __) => 'Magsasaka',
+    );
+
+    // Extract live stats
+    final entryCount = activityCountAsync.when(
+      data: (count) => count,
+      loading: () => 0,
+      error: (_, __) => 0,
+    );
+
+    final daysLogged = daysLoggedAsync.when(
+      data: (days) => days,
+      loading: () => 0,
+      error: (_, __) => 0,
     );
 
     return Scaffold(
@@ -97,8 +114,8 @@ class DashboardScreen extends ConsumerWidget {
 
             const SizedBox(height: AppDimensions.sectionSpacing),
 
-            // ── Progress Card ─────────────────────────────────────────
-            const ProgressCard(daysLogged: 12, totalDays: 90),
+            // ── Progress Card (live data) ─────────────────────────────
+            ProgressCard(daysLogged: daysLogged, totalDays: 90),
 
             const SizedBox(height: AppDimensions.sectionSpacing),
 
@@ -174,7 +191,7 @@ class DashboardScreen extends ConsumerWidget {
 
             const SizedBox(height: AppDimensions.sectionSpacing),
 
-            // ── Quick Stats ───────────────────────────────────────────
+            // ── Quick Stats (live data) ───────────────────────────────
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(AppDimensions.cardPadding),
@@ -191,18 +208,25 @@ class DashboardScreen extends ConsumerWidget {
               ),
               child: Row(
                 children: [
-                  _buildStatItem(context, '12', 'Entry', Icons.edit_rounded),
-                  _buildDivider(),
                   _buildStatItem(
                     context,
-                    '3',
-                    'Scan',
-                    Icons.camera_alt_rounded,
+                    '$entryCount',
+                    'Entry',
+                    Icons.edit_rounded,
                   ),
                   _buildDivider(),
                   _buildStatItem(
                     context,
-                    '78%',
+                    '$daysLogged',
+                    'Araw',
+                    Icons.calendar_today_rounded,
+                  ),
+                  _buildDivider(),
+                  _buildStatItem(
+                    context,
+                    entryCount > 0
+                        ? '${((daysLogged / 90) * 100).round()}%'
+                        : '0%',
                     'Kumpleto',
                     Icons.check_circle_rounded,
                   ),
