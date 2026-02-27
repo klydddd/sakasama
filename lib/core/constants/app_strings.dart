@@ -39,7 +39,7 @@ class AppStrings {
   static const String goodEvening = 'Magandang gabi';
   static const String daysLogged = 'Araw na Naka-log';
   static const String of90Days = 'sa 90 Araw';
-  static const String scanReceipt = 'I-Scan ang Resibo';
+  static const String scanReceipt = 'I-Scan ang Produkto';
   static const String logActivity = 'Mag-log ng Aktibidad';
   static const String askSaka = 'Tanungin si Saka';
   static const String exportReport = 'I-export ang Ulat';
@@ -77,8 +77,9 @@ class AppStrings {
   static const String other = 'Iba pa';
 
   // ── OCR Scan ────────────────────────────────────────────────────────────
-  static const String scanTitle = 'I-Scan ang Resibo';
-  static const String scanInstruction = 'Itutok ang camera sa resibo o label';
+  static const String scanTitle = 'I-Scan ang Produkto';
+  static const String scanInstruction =
+      'Itutok ang camera sa label ng produkto';
   static const String processing = 'Kinukuha ang impormasyon...';
   static const String reviewTitle = 'Suriin ang mga Nakuha';
   static const String confirmAndSave = 'Kumpirmahin at I-save';
@@ -86,8 +87,12 @@ class AppStrings {
   static const String detected = 'Nakita';
   static const String uncertain = 'Hindi sigurado';
   static const String productName = 'Pangalan ng Produkto';
-  static const String price = 'Presyo';
-  static const String supplier = 'Supplier';
+  static const String activeIngredient = 'Aktibong Sangkap';
+  static const String dosage = 'Dosis / Takaran';
+  static const String manufacturer = 'Manufacturer';
+  static const String netWeight = 'Net Weight / Laman';
+  static const String expiryDate = 'Expiry Date';
+  static const String registrationNo = 'Registration No.';
 
   // ── Voice Assistant ─────────────────────────────────────────────────────
   static const String voiceAssistantTitle = 'Tanungin si Saka';

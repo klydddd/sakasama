@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:sakasama/core/constants/app_colors.dart';
 import 'package:sakasama/core/constants/app_dimensions.dart';
 import 'package:sakasama/core/constants/app_strings.dart';
+import 'package:sakasama/data/providers/ocr_providers.dart';
 import 'package:sakasama/features/ocr_scan/widgets/scan_overlay_painter.dart';
 
 /// Camera scan screen — OCR receipt/label scanner.
@@ -34,6 +35,7 @@ class _CameraScanScreenState extends ConsumerState<CameraScanScreen>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _initCamera();
+    _ensureOcrReady();
   }
 
   @override
@@ -82,6 +84,14 @@ class _CameraScanScreenState extends ConsumerState<CameraScanScreen>
       }
     } catch (e) {
       setState(() => _initError = 'Hindi ma-access ang camera: $e');
+    }
+  }
+
+  /// Start OCR strategy detection in background.
+  void _ensureOcrReady() {
+    final initState = ref.read(ocrInitProvider);
+    if (initState.status == OcrInitStatus.notReady) {
+      ref.read(ocrInitProvider.notifier).initialize();
     }
   }
 
@@ -150,6 +160,9 @@ class _CameraScanScreenState extends ConsumerState<CameraScanScreen>
 
   @override
   Widget build(BuildContext context) {
+    // Watch OCR strategy initialization state
+    final initState = ref.watch(ocrInitProvider);
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -165,6 +178,34 @@ class _CameraScanScreenState extends ConsumerState<CameraScanScreen>
           icon: const Icon(Icons.close_rounded),
           onPressed: () => context.pop(),
         ),
+        actions: [
+          if (initState.status == OcrInitStatus.initializing)
+            Padding(
+              padding: const EdgeInsets.only(right: 12),
+              child: Center(
+                child: SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: AppColors.white.withValues(alpha: 0.7),
+                  ),
+                ),
+              ),
+            ),
+          if (initState.status == OcrInitStatus.ready)
+            Padding(
+              padding: const EdgeInsets.only(right: 12),
+              child: Tooltip(
+                message: initState.activeStrategy,
+                child: const Icon(
+                  Icons.check_circle_rounded,
+                  color: AppColors.primaryGreen,
+                  size: 22,
+                ),
+              ),
+            ),
+        ],
       ),
       body: Column(
         children: [

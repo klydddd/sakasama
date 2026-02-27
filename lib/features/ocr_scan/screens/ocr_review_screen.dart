@@ -93,10 +93,18 @@ class _OcrReviewScreenState extends ConsumerState<OcrReviewScreen> {
                 const SizedBox(height: AppDimensions.sectionSpacing),
 
                 // ── Processing States ───────────────────────────────────
+                if (ocrState.status == OcrStatus.initializing)
+                  _buildStatusCard(
+                    icon: Icons.memory_rounded,
+                    message: 'Sinusuri ang OCR engine...',
+                    isLoading: true,
+                  ),
+
                 if (ocrState.status == OcrStatus.processing)
                   _buildStatusCard(
                     icon: Icons.document_scanner_rounded,
-                    message: AppStrings.processing,
+                    message:
+                        '${AppStrings.processing}${ocrState.activeStrategy != null ? ' (${ocrState.activeStrategy})' : ''}',
                     isLoading: true,
                   ),
 
@@ -235,35 +243,47 @@ class _OcrReviewScreenState extends ConsumerState<OcrReviewScreen> {
   List<Widget> _buildFieldCards() {
     final result = _editableResult!;
     final fields = <_FieldEntry>[
-      if (result.date != null)
-        _FieldEntry(
-          AppStrings.date,
-          result.date!,
-          result.isFieldConfident('date'),
-        ),
       if (result.product != null)
         _FieldEntry(
           AppStrings.productName,
           result.product!,
           result.isFieldConfident('product'),
         ),
-      if (result.quantity != null)
+      if (result.activeIngredient != null)
         _FieldEntry(
-          AppStrings.quantity,
-          result.quantity!,
-          result.isFieldConfident('quantity'),
+          AppStrings.activeIngredient,
+          result.activeIngredient!,
+          result.isFieldConfident('activeIngredient'),
         ),
-      if (result.price != null)
+      if (result.dosage != null)
         _FieldEntry(
-          AppStrings.price,
-          result.price!,
-          result.isFieldConfident('price'),
+          AppStrings.dosage,
+          result.dosage!,
+          result.isFieldConfident('dosage'),
         ),
-      if (result.supplier != null)
+      if (result.manufacturer != null)
         _FieldEntry(
-          AppStrings.supplier,
-          result.supplier!,
-          result.isFieldConfident('supplier'),
+          AppStrings.manufacturer,
+          result.manufacturer!,
+          result.isFieldConfident('manufacturer'),
+        ),
+      if (result.netWeight != null)
+        _FieldEntry(
+          AppStrings.netWeight,
+          result.netWeight!,
+          result.isFieldConfident('netWeight'),
+        ),
+      if (result.expiryDate != null)
+        _FieldEntry(
+          AppStrings.expiryDate,
+          result.expiryDate!,
+          result.isFieldConfident('expiryDate'),
+        ),
+      if (result.registrationNo != null)
+        _FieldEntry(
+          AppStrings.registrationNo,
+          result.registrationNo!,
+          result.isFieldConfident('registrationNo'),
         ),
     ];
 

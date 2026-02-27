@@ -44,6 +44,12 @@ dependencies:
   # On-Device Text Recognition (ML Kit)
   google_mlkit_text_recognition: ^0.14.0
 
+  # On-Device Gemini Nano (primary OCR strategy)
+  gemini_nano_android: ^1.0.1
+
+  # On-Device LLM Inference — GGUF fallback strategy (swappable models)
+  flutter_llama:
+    path: plugins/flutter_llama
 
   # Camera & Image
   camera: ^0.11.0+2
@@ -60,3 +66,4 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+

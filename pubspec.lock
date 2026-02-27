@@ -414,6 +414,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.0"
+  flutter_llama:
+    dependency: "direct main"
+    description:
+      path: "plugins/flutter_llama"
+      relative: true
+    source: path
+    version: "1.1.2"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -472,6 +479,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  gemini_nano_android:
+    dependency: "direct main"
+    description:
+      name: gemini_nano_android
+      sha256: "0ea6fa231d9d759a23c1d292f6634702c7f20baac57107476f9ea544d5c8ea93"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   glob:
     dependency: transitive
     description:
