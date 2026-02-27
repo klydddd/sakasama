@@ -1,0 +1,62 @@
+name: sakasama
+description: "Zero-friction offline-first PhilGAP compliance companion for Filipino smallholder farmers."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.6.1
+
+  # Navigation
+  go_router: ^14.8.1
+
+  # UI Components
+  google_fonts: ^6.2.1
+  flutter_animate: ^4.5.2
+  gap: ^3.0.1
+  shimmer: ^3.0.0
+  flutter_svg: ^2.0.17
+
+  # Utilities
+  shared_preferences: ^2.5.3
+  permission_handler: ^11.3.1
+
+  # Database — Supabase (cloud + auth)
+  supabase_flutter: ^2.5.0
+
+  # Database — Drift (local SQLite)
+  drift: ^2.18.0
+  drift_flutter: ^0.2.0
+  sqlite3_flutter_libs: ^0.5.24
+
+  # Filesystem & Networking
+  path_provider: ^2.1.3
+  path: ^1.9.0
+  connectivity_plus: ^6.0.3
+  uuid: ^4.4.0
+
+  # On-Device Text Recognition (ML Kit)
+  google_mlkit_text_recognition: ^0.14.0
+
+
+  # Camera & Image
+  camera: ^0.11.0+2
+  image_picker: ^1.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+  # Drift code generation
+  drift_dev: ^2.18.0
+  build_runner: ^2.4.11
+
+flutter:
+  uses-material-design: true

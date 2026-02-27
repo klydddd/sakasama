@@ -46,3 +46,5 @@ app.*.map.json
 
 # Large model files
 *.gguf
+
+plugins/flutter_llama
