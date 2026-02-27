@@ -52,7 +52,7 @@ class AppStrings {
 
   // ── Farm Journal ────────────────────────────────────────────────────────
   static const String farmJournal = 'Farm Journal';
-  static const String addEntry = 'Magdagdag ng Entry';
+  static const String addEntry = 'Add';
   static const String emptyJournalTitle = 'Wala pang entry';
   static const String emptyJournalMessage =
       'Magsimula ng pag-log ng iyong mga aktibidad sa bukid!';

@@ -93,7 +93,7 @@ class AppRouter {
         builder: (context, state) => const PermissionsScreen(),
       ),
 
-      // ── Main Shell (Bottom Nav) ─────────────────────────────────────
+      // ── Main Shell ───────────────────────────────────────────────────
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
         builder: (context, state, child) => MainShell(child: child),
@@ -103,22 +103,21 @@ class AppRouter {
             pageBuilder: (context, state) =>
                 const NoTransitionPage(child: DashboardScreen()),
           ),
-          GoRoute(
-            path: '/journal',
-            pageBuilder: (context, state) =>
-                const NoTransitionPage(child: JournalListScreen()),
-          ),
-          GoRoute(
-            path: '/voice',
-            pageBuilder: (context, state) =>
-                const NoTransitionPage(child: VoiceAssistantScreen()),
-          ),
-          GoRoute(
-            path: '/export',
-            pageBuilder: (context, state) =>
-                const NoTransitionPage(child: ExportScreen()),
-          ),
         ],
+      ),
+
+      // ── Top-Level Screens ───────────────────────────────────────────
+      GoRoute(
+        path: '/journal',
+        builder: (context, state) => const JournalListScreen(),
+      ),
+      GoRoute(
+        path: '/voice',
+        builder: (context, state) => const VoiceAssistantScreen(),
+      ),
+      GoRoute(
+        path: '/export',
+        builder: (context, state) => const ExportScreen(),
       ),
 
       // ── Standalone Routes ───────────────────────────────────────────

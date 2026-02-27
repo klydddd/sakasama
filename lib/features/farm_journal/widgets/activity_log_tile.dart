@@ -37,7 +37,7 @@ class ActivityLogTile extends StatelessWidget {
           ),
           padding: const EdgeInsets.symmetric(
             horizontal: AppDimensions.cardPadding,
-            vertical: AppDimensions.smallSpacing + 2,
+            vertical: 18,
           ),
           decoration: BoxDecoration(
             color: AppColors.white,
@@ -51,18 +51,11 @@ class ActivityLogTile extends StatelessWidget {
             ],
           ),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // ── Activity Icon ─────────────────────────────────────
-              Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: iconColor.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(icon, color: iconColor, size: 24),
-              ),
-              const SizedBox(width: AppDimensions.smallSpacing + 4),
+              Icon(icon, color: iconColor, size: 36),
+              const SizedBox(width: 24),
 
               // ── Details ───────────────────────────────────────────
               Expanded(
@@ -90,18 +83,12 @@ class ActivityLogTile extends StatelessWidget {
               ),
 
               // ── Date & Chevron ────────────────────────────────────
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    date,
-                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: AppColors.textGrey,
-                      fontSize: 13,
-                    ),
-                  ),
-                ],
+              Text(
+                date,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: AppColors.textGrey,
+                  fontSize: 11,
+                ),
               ),
               const SizedBox(width: 4),
               const Icon(
