@@ -41,19 +41,20 @@ dependencies:
   connectivity_plus: ^6.0.3
   uuid: ^4.4.0
 
-  # On-Device Text Recognition (ML Kit)
-  google_mlkit_text_recognition: ^0.14.0
+  # (Removed ML Kit text recognition)
 
   # On-Device Gemini Nano (primary OCR strategy)
   gemini_nano_android: ^1.0.1
 
-  # On-Device LLM Inference — GGUF fallback strategy (swappable models)
-  flutter_llama:
-    path: plugins/flutter_llama
+  # Custom Local Native VLM Engine (Replaces flutter_llama)
+  sakasama_vlm:
+    path: packages/sakasama_vlm
 
   # Camera & Image
   camera: ^0.11.0+2
   image_picker: ^1.1.2
+  image: ^4.8.0
+  dio: ^5.9.1
 
 dev_dependencies:
   flutter_test:
@@ -66,4 +67,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
+  assets:
+    # Temporarily commented out to fix INSTALL_FAILED_INSUFFICIENT_STORAGE
+    # We will adb push these to the device directly for faster development:
+    # - assets/models/GOT-OCR2_0-716M-BF16.gguf
+    # - assets/models/llava-llama-3-8b-v1_1-mmproj-f16.gguf

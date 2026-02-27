@@ -109,7 +109,8 @@ class WelcomeScreen extends StatelessWidget {
                       width: double.infinity,
                       height: AppDimensions.primaryButtonHeight,
                       child: ElevatedButton(
-                        onPressed: () => context.go('/onboarding/language'),
+                        onPressed: () =>
+                            context.go('/onboarding/model-download'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.white,
                           foregroundColor: AppColors.primaryGreen,

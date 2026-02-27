@@ -46,11 +46,19 @@ class _OcrReviewScreenState extends ConsumerState<OcrReviewScreen> {
   Widget build(BuildContext context) {
     final ocrState = ref.watch(ocrInferenceProvider);
 
-    // When OCR completes, initialize editable result
+    // Use the stored editable result if available, otherwise fall back to inference state
+    final displayResult = _editableResult ?? ocrState.result;
+
+    // One-time initialization of editable result when OCR completes
     if (ocrState.status == OcrStatus.done &&
         ocrState.result != null &&
         _editableResult == null) {
-      _editableResult = ocrState.result;
+      // Use a post-frame callback to avoid setting state during build
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && _editableResult == null) {
+          setState(() => _editableResult = ocrState.result);
+        }
+      });
     }
 
     return Scaffold(
@@ -113,41 +121,49 @@ class _OcrReviewScreenState extends ConsumerState<OcrReviewScreen> {
 
                 // ── Success Banner ──────────────────────────────────────
                 if (ocrState.status == OcrStatus.done &&
-                    _editableResult != null) ...[
-                  Container(
-                    padding: const EdgeInsets.all(AppDimensions.cardPadding),
-                    decoration: BoxDecoration(
-                      color: AppColors.successLight,
-                      borderRadius: BorderRadius.circular(
-                        AppDimensions.inputRadius,
+                    displayResult != null) ...[
+                  if (displayResult.hasStructuredData ||
+                      (displayResult.rawText?.isNotEmpty ?? false))
+                    Container(
+                      padding: const EdgeInsets.all(AppDimensions.cardPadding),
+                      decoration: BoxDecoration(
+                        color: AppColors.successLight,
+                        borderRadius: BorderRadius.circular(
+                          AppDimensions.inputRadius,
+                        ),
                       ),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.check_circle_rounded,
-                          color: AppColors.success,
-                          size: 24,
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
-                            'Matagumpay na na-scan! Suriin ang mga detalye sa ibaba.',
-                            style: Theme.of(context).textTheme.bodyMedium
-                                ?.copyWith(
-                                  color: AppColors.success,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.check_circle_rounded,
+                            color: AppColors.success,
+                            size: 24,
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              'Matagumpay na na-scan! Suriin ang mga detalye sa ibaba.',
+                              style: Theme.of(context).textTheme.bodyMedium
+                                  ?.copyWith(
+                                    color: AppColors.success,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ).animate().fadeIn(duration: 400.ms)
+                  else
+                    _buildStatusCard(
+                      icon: Icons.search_off_rounded,
+                      message:
+                          'Walang detalye na nakuha. Maaaring malabo ang larawan.',
                     ),
-                  ).animate().fadeIn(duration: 400.ms),
 
                   const SizedBox(height: AppDimensions.sectionSpacing),
 
                   // ── Extracted Fields ─────────────────────────────────
-                  ..._buildFieldCards(),
+                  ..._buildFieldCards(displayResult),
                 ],
               ],
             ),
@@ -188,6 +204,14 @@ class _OcrReviewScreenState extends ConsumerState<OcrReviewScreen> {
                         child: ElevatedButton.icon(
                           onPressed: () {
                             // TODO: save to activity repository
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  'Matagumpay na na-save sa Journal!',
+                                ),
+                                backgroundColor: AppColors.primaryGreen,
+                              ),
+                            );
                             context.go('/journal');
                           },
                           icon: const Icon(Icons.check_rounded),
@@ -201,7 +225,7 @@ class _OcrReviewScreenState extends ConsumerState<OcrReviewScreen> {
             ),
 
           // Retry button on error
-          if (ocrState.status == OcrStatus.error)
+          if (ocrState.status == OcrStatus.error) ...[
             Container(
               padding: const EdgeInsets.all(AppDimensions.screenPadding),
               child: SafeArea(
@@ -235,13 +259,43 @@ class _OcrReviewScreenState extends ConsumerState<OcrReviewScreen> {
                 ),
               ),
             ),
+
+            // Debug Button for Model Setup
+            if (ocrState.error?.contains('Hindi makita') == true ||
+                ocrState.error?.contains('Partial') == true)
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppDimensions.screenPadding,
+                  vertical: 8,
+                ),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: AppDimensions.secondaryButtonHeight,
+                  child: OutlinedButton.icon(
+                    onPressed: () {
+                      context.push('/onboarding/model-download');
+                    },
+                    icon: const Icon(
+                      Icons.build_circle_outlined,
+                      color: Colors.orange,
+                    ),
+                    label: const Text(
+                      'I-setup ang AI Models (Debug)',
+                      style: TextStyle(color: Colors.orange),
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      side: const BorderSide(color: Colors.orange),
+                    ),
+                  ),
+                ),
+              ),
+          ],
         ],
       ),
     );
   }
 
-  List<Widget> _buildFieldCards() {
-    final result = _editableResult!;
+  List<Widget> _buildFieldCards(OcrResult result) {
     final fields = <_FieldEntry>[
       if (result.product != null)
         _FieldEntry(

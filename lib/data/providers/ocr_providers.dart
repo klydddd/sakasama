@@ -7,7 +7,6 @@ import 'package:sakasama/data/models/ocr_result.dart';
 /// Singleton OCR service.
 final ocrServiceProvider = Provider<OcrService>((ref) {
   final service = OcrService.instance;
-  ref.onDispose(() => service.dispose());
   return service;
 });
 

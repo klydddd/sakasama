@@ -15,6 +15,7 @@ import 'package:sakasama/features/onboarding/screens/farm_setup_screen.dart';
 import 'package:sakasama/features/onboarding/screens/language_selection_screen.dart';
 import 'package:sakasama/features/onboarding/screens/permissions_screen.dart';
 import 'package:sakasama/features/onboarding/screens/welcome_screen.dart';
+import 'package:sakasama/features/onboarding/screens/model_download_screen.dart';
 import 'package:sakasama/features/settings/screens/settings_screen.dart';
 import 'package:sakasama/features/shell/main_shell.dart';
 import 'package:sakasama/features/voice_assistant/screens/voice_assistant_screen.dart';
@@ -69,6 +70,10 @@ class AppRouter {
       GoRoute(
         path: '/onboarding',
         builder: (context, state) => const WelcomeScreen(),
+      ),
+      GoRoute(
+        path: '/onboarding/model-download',
+        builder: (context, state) => const ModelDownloadScreen(),
       ),
       GoRoute(
         path: '/onboarding/language',
