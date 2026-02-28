@@ -7,6 +7,9 @@ import 'package:sakasama/data/local/app_database.dart';
 import 'package:sakasama/data/local/daos/farm_dao.dart';
 import 'package:sakasama/data/local/daos/activity_dao.dart';
 import 'package:sakasama/data/local/daos/compliance_dao.dart';
+import 'package:sakasama/data/local/daos/expense_dao.dart';
+import 'package:sakasama/data/local/daos/harvest_dao.dart';
+import 'package:sakasama/data/local/daos/product_dao.dart';
 import 'package:sakasama/data/local/daos/user_profile_dao.dart';
 import 'package:sakasama/data/repositories/farm_repository.dart';
 import 'package:sakasama/data/repositories/activity_repository.dart';
@@ -39,6 +42,18 @@ final complianceDaoProvider = Provider<ComplianceDao>((ref) {
   return ref.watch(databaseProvider).complianceDao;
 });
 
+final expenseDaoProvider = Provider<ExpenseDao>((ref) {
+  return ref.watch(databaseProvider).expenseDao;
+});
+
+final harvestDaoProvider = Provider<HarvestDao>((ref) {
+  return ref.watch(databaseProvider).harvestDao;
+});
+
+final productDaoProvider = Provider<ProductDao>((ref) {
+  return ref.watch(databaseProvider).productDao;
+});
+
 // ── Services ──────────────────────────────────────────────────────────
 
 /// Supabase client singleton.
@@ -65,6 +80,9 @@ final syncServiceProvider = Provider<SyncService>((ref) {
     farmDao: ref.watch(farmDaoProvider),
     activityDao: ref.watch(activityDaoProvider),
     complianceDao: ref.watch(complianceDaoProvider),
+    expenseDao: ref.watch(expenseDaoProvider),
+    harvestDao: ref.watch(harvestDaoProvider),
+    productDao: ref.watch(productDaoProvider),
     connectivity: ref.watch(connectivityServiceProvider),
   );
   ref.onDispose(() => service.dispose());

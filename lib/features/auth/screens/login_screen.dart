@@ -52,11 +52,34 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         context.go('/');
       }
     } on AuthException catch (e) {
-      setState(() => _errorMessage = e.message);
+      // Check if the auth error wraps a network issue
+      final msg = e.message.toLowerCase();
+      if (msg.contains('socket') ||
+          msg.contains('host lookup') ||
+          msg.contains('clientexception') ||
+          msg.contains('connection')) {
+        setState(
+          () => _errorMessage =
+              'Walang internet connection. Suriin ang iyong WiFi o data at subukan muli.',
+        );
+      } else {
+        setState(() => _errorMessage = e.message);
+      }
     } catch (e) {
-      setState(
-        () => _errorMessage = 'May problema sa pag-login. Subukan ulit.',
-      );
+      final msg = e.toString().toLowerCase();
+      if (msg.contains('socket') ||
+          msg.contains('host lookup') ||
+          msg.contains('clientexception') ||
+          msg.contains('connection')) {
+        setState(
+          () => _errorMessage =
+              'Walang internet connection. Suriin ang iyong WiFi o data at subukan muli.',
+        );
+      } else {
+        setState(
+          () => _errorMessage = 'May problema sa pag-login. Subukan ulit.',
+        );
+      }
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }

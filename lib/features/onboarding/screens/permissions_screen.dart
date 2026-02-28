@@ -8,7 +8,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:sakasama/core/constants/app_colors.dart';
 import 'package:sakasama/core/constants/app_dimensions.dart';
 import 'package:sakasama/core/constants/app_strings.dart';
-import 'package:sakasama/core/routing/app_router.dart';
 import 'package:sakasama/data/providers/database_providers.dart';
 
 /// Permissions rationale screen — fourth and final step of onboarding.
@@ -103,13 +102,15 @@ class _PermissionsScreenState extends ConsumerState<PermissionsScreen> {
 
   /// Persist onboarding completion to SharedPreferences and local DB.
   Future<void> _completeOnboarding() async {
+    final userId = Supabase.instance.client.auth.currentUser?.id;
+
     // Save to SharedPreferences for fast router checks
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('onboarding_completed', true);
-    AppRouter.onboardingCompleted = true;
+    if (userId != null) {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool('onboarding_completed_$userId', true);
+    }
 
     // Also save to local DB
-    final userId = Supabase.instance.client.auth.currentUser?.id;
     if (userId != null) {
       await ref
           .read(userProfileDaoProvider)

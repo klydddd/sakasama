@@ -14,17 +14,17 @@ class FarmDao extends DatabaseAccessor<AppDatabase> with _$FarmDaoMixin {
   // ── Read ─────────────────────────────────────────────────────────
 
   /// Watch all non-deleted farm profiles.
-  Stream<List<FarmProfile>> watchAll() {
+  Stream<List<FarmProfile>> watchAll(String userId) {
     return (select(farmProfiles)
-          ..where((f) => f.isDeleted.equals(false))
+          ..where((f) => f.isDeleted.equals(false) & f.userId.equals(userId))
           ..orderBy([(f) => OrderingTerm.desc(f.updatedAt)]))
         .watch();
   }
 
   /// Get all non-deleted farm profiles.
-  Future<List<FarmProfile>> getAll() {
+  Future<List<FarmProfile>> getAll(String userId) {
     return (select(farmProfiles)
-          ..where((f) => f.isDeleted.equals(false))
+          ..where((f) => f.isDeleted.equals(false) & f.userId.equals(userId))
           ..orderBy([(f) => OrderingTerm.desc(f.updatedAt)]))
         .get();
   }
@@ -127,5 +127,16 @@ class FarmDao extends DatabaseAccessor<AppDatabase> with _$FarmDaoMixin {
     return (delete(
       farmProfiles,
     )..where((f) => f.isDeleted.equals(true) & f.isDirty.equals(false))).go();
+  }
+
+  /// Delete local records that were hard-deleted on the remote server.
+  Future<int> deleteMissingRemoteIds(Set<String> validRemoteIds) {
+    if (validRemoteIds.isEmpty) {
+      return (delete(farmProfiles)..where((f) => f.remoteId.isNotNull())).go();
+    }
+    return (delete(farmProfiles)..where(
+          (f) => f.remoteId.isNotNull() & f.remoteId.isNotIn(validRemoteIds),
+        ))
+        .go();
   }
 }

@@ -1,49 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sakasama/core/constants/app_colors.dart';
 import 'package:sakasama/core/constants/app_dimensions.dart';
 import 'package:sakasama/core/constants/app_strings.dart';
+import 'package:sakasama/data/providers/database_providers.dart';
 
-/// List of PhilGAP ICS compliance form types with status badges.
-class FormsListScreen extends StatelessWidget {
+/// List of PhilGAP ICS compliance form types with live status from the database.
+class FormsListScreen extends ConsumerWidget {
   const FormsListScreen({super.key});
 
-  static final List<_FormType> _formTypes = [
-    _FormType(
+  static const List<_FormDef> _formDefs = [
+    _FormDef(
       title: AppStrings.formFarmJournal,
       icon: Icons.menu_book_rounded,
-      isComplete: true,
-      entries: 12,
+      formType: AppStrings.formFarmJournal,
+      route: '/journal',
     ),
-    _FormType(
+    _FormDef(
       title: AppStrings.formPestMonitoring,
       icon: Icons.bug_report_rounded,
-      isComplete: false,
-      entries: 3,
+      formType: AppStrings.formPestMonitoring,
+      route: null,
     ),
-    _FormType(
+    _FormDef(
       title: AppStrings.formHarvestRecord,
       icon: Icons.agriculture_rounded,
-      isComplete: false,
-      entries: 2,
+      formType: AppStrings.formHarvestRecord,
+      route: '/records/harvests',
     ),
-    _FormType(
+    _FormDef(
       title: AppStrings.formInputInventory,
       icon: Icons.inventory_2_rounded,
-      isComplete: true,
-      entries: 8,
+      formType: AppStrings.formInputInventory,
+      route: '/records/products',
     ),
-    _FormType(
+    _FormDef(
       title: AppStrings.formWaterSource,
       icon: Icons.water_drop_rounded,
-      isComplete: false,
-      entries: 0,
+      formType: AppStrings.formWaterSource,
+      route: '/records/expenses',
     ),
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final complianceDao = ref.watch(complianceDaoProvider);
+
     return Scaffold(
       backgroundColor: AppColors.scaffoldBackground,
       appBar: AppBar(
@@ -54,68 +58,95 @@ class FormsListScreen extends StatelessWidget {
           onPressed: () => context.pop(),
         ),
       ),
-      body: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.all(AppDimensions.screenPadding),
-        itemCount: _formTypes.length + 1, // +1 for header
-        itemBuilder: (context, index) {
-          if (index == 0) {
-            return Padding(
-              padding: const EdgeInsets.only(bottom: AppDimensions.itemSpacing),
-              child: Container(
-                padding: const EdgeInsets.all(AppDimensions.cardPadding),
-                decoration: BoxDecoration(
-                  color: AppColors.backgroundGreen,
-                  borderRadius: BorderRadius.circular(
-                    AppDimensions.inputRadius,
+      body: FutureBuilder<Map<String, bool>>(
+        future: _loadStatus(complianceDao),
+        builder: (context, snapshot) {
+          final statusMap = snapshot.data ?? {};
+
+          return ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(AppDimensions.screenPadding),
+            itemCount: _formDefs.length + 1, // +1 for header
+            itemBuilder: (context, index) {
+              if (index == 0) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: AppDimensions.itemSpacing,
                   ),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.info_outline_rounded,
-                      color: AppColors.primaryGreen,
-                      size: 22,
-                    ),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        'Kumpletuhin ang lahat ng form para sa PhilGAP certification.',
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: AppColors.primaryGreen,
-                          fontWeight: FontWeight.w500,
-                        ),
+                  child: Container(
+                    padding: const EdgeInsets.all(AppDimensions.cardPadding),
+                    decoration: BoxDecoration(
+                      color: AppColors.backgroundGreen,
+                      borderRadius: BorderRadius.circular(
+                        AppDimensions.inputRadius,
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ).animate().fadeIn(duration: 300.ms);
-          }
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.info_outline_rounded,
+                          color: AppColors.primaryGreen,
+                          size: 22,
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            'Kumpletuhin ang lahat ng form para sa PhilGAP certification.',
+                            style: Theme.of(context).textTheme.bodySmall
+                                ?.copyWith(
+                                  color: AppColors.primaryGreen,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ).animate().fadeIn(duration: 300.ms);
+              }
 
-          final form = _formTypes[index - 1];
-          return Padding(
-                padding: const EdgeInsets.only(
-                  bottom: AppDimensions.smallSpacing + 2,
-                ),
-                child: _buildFormTile(context, form),
-              )
-              .animate()
-              .fadeIn(
-                delay: Duration(milliseconds: 100 * index),
-                duration: 400.ms,
-              )
-              .slideX(begin: 0.05, end: 0);
+              final form = _formDefs[index - 1];
+              final isComplete = statusMap[form.formType] ?? false;
+
+              return Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: AppDimensions.smallSpacing + 2,
+                    ),
+                    child: _buildFormTile(context, form, isComplete),
+                  )
+                  .animate()
+                  .fadeIn(
+                    delay: Duration(milliseconds: 100 * index),
+                    duration: 400.ms,
+                  )
+                  .slideX(begin: 0.05, end: 0);
+            },
+          );
         },
       ),
     );
   }
 
-  Widget _buildFormTile(BuildContext context, _FormType form) {
+  Future<Map<String, bool>> _loadStatus(dynamic complianceDao) async {
+    try {
+      final records = await complianceDao.getAll();
+      final Map<String, bool> result = {};
+      for (final record in records) {
+        if (record.status == 'complete') {
+          result[record.formType] = true;
+        }
+      }
+      return result;
+    } catch (_) {
+      return {};
+    }
+  }
+
+  Widget _buildFormTile(BuildContext context, _FormDef form, bool isComplete) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () => context.push('/compliance/detail'),
+        onTap: form.route != null ? () => context.push(form.route!) : null,
         borderRadius: BorderRadius.circular(AppDimensions.cardRadius),
         child: Container(
           padding: const EdgeInsets.all(AppDimensions.cardPadding),
@@ -136,38 +167,24 @@ class FormsListScreen extends StatelessWidget {
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: form.isComplete
+                  color: isComplete
                       ? AppColors.successLight
                       : AppColors.warningLight,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(
                   form.icon,
-                  color: form.isComplete
-                      ? AppColors.success
-                      : AppColors.warning,
+                  color: isComplete ? AppColors.success : AppColors.warning,
                   size: 26,
                 ),
               ),
               const SizedBox(width: AppDimensions.smallSpacing + 4),
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      form.title,
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      '${form.entries} na entry',
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: AppColors.textGrey,
-                      ),
-                    ),
-                  ],
+                child: Text(
+                  form.title,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
               Container(
@@ -176,21 +193,19 @@ class FormsListScreen extends StatelessWidget {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: form.isComplete
+                  color: isComplete
                       ? AppColors.successLight
                       : AppColors.warningLight,
                   borderRadius: BorderRadius.circular(AppDimensions.chipRadius),
                 ),
                 child: Text(
-                  form.isComplete
-                      ? '✅ ${AppStrings.statusComplete}'
-                      : '⚠️ ${AppStrings.statusIncomplete}',
+                  isComplete
+                      ? AppStrings.statusComplete
+                      : AppStrings.statusIncomplete,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     fontSize: 12,
                     fontWeight: FontWeight.w600,
-                    color: form.isComplete
-                        ? AppColors.success
-                        : AppColors.warning,
+                    color: isComplete ? AppColors.success : AppColors.warning,
                   ),
                 ),
               ),
@@ -202,16 +217,16 @@ class FormsListScreen extends StatelessWidget {
   }
 }
 
-class _FormType {
-  const _FormType({
+class _FormDef {
+  const _FormDef({
     required this.title,
     required this.icon,
-    required this.isComplete,
-    required this.entries,
+    required this.formType,
+    this.route,
   });
 
   final String title;
   final IconData icon;
-  final bool isComplete;
-  final int entries;
+  final String formType;
+  final String? route;
 }

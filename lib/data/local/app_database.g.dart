@@ -3126,6 +3126,2975 @@ class ComplianceRecordsCompanion extends UpdateCompanion<ComplianceRecord> {
   }
 }
 
+class $ExpenseRecordsTable extends ExpenseRecords
+    with TableInfo<$ExpenseRecordsTable, ExpenseRecord> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ExpenseRecordsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _localIdMeta = const VerificationMeta(
+    'localId',
+  );
+  @override
+  late final GeneratedColumn<int> localId = GeneratedColumn<int>(
+    'local_id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _remoteIdMeta = const VerificationMeta(
+    'remoteId',
+  );
+  @override
+  late final GeneratedColumn<String> remoteId = GeneratedColumn<String>(
+    'remote_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _userIdMeta = const VerificationMeta('userId');
+  @override
+  late final GeneratedColumn<String> userId = GeneratedColumn<String>(
+    'user_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _farmIdMeta = const VerificationMeta('farmId');
+  @override
+  late final GeneratedColumn<String> farmId = GeneratedColumn<String>(
+    'farm_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _expenseDateMeta = const VerificationMeta(
+    'expenseDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> expenseDate = GeneratedColumn<DateTime>(
+    'expense_date',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _descriptionMeta = const VerificationMeta(
+    'description',
+  );
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+    'description',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _quantityMeta = const VerificationMeta(
+    'quantity',
+  );
+  @override
+  late final GeneratedColumn<double> quantity = GeneratedColumn<double>(
+    'quantity',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _unitMeta = const VerificationMeta('unit');
+  @override
+  late final GeneratedColumn<String> unit = GeneratedColumn<String>(
+    'unit',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _pricePerUnitMeta = const VerificationMeta(
+    'pricePerUnit',
+  );
+  @override
+  late final GeneratedColumn<double> pricePerUnit = GeneratedColumn<double>(
+    'price_per_unit',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _totalValueMeta = const VerificationMeta(
+    'totalValue',
+  );
+  @override
+  late final GeneratedColumn<double> totalValue = GeneratedColumn<double>(
+    'total_value',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _photoPathMeta = const VerificationMeta(
+    'photoPath',
+  );
+  @override
+  late final GeneratedColumn<String> photoPath = GeneratedColumn<String>(
+    'photo_path',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _syncedAtMeta = const VerificationMeta(
+    'syncedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> syncedAt = GeneratedColumn<DateTime>(
+    'synced_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _isDirtyMeta = const VerificationMeta(
+    'isDirty',
+  );
+  @override
+  late final GeneratedColumn<bool> isDirty = GeneratedColumn<bool>(
+    'is_dirty',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_dirty" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
+  static const VerificationMeta _isDeletedMeta = const VerificationMeta(
+    'isDeleted',
+  );
+  @override
+  late final GeneratedColumn<bool> isDeleted = GeneratedColumn<bool>(
+    'is_deleted',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_deleted" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    localId,
+    remoteId,
+    userId,
+    farmId,
+    expenseDate,
+    description,
+    quantity,
+    unit,
+    pricePerUnit,
+    totalValue,
+    photoPath,
+    notes,
+    createdAt,
+    updatedAt,
+    syncedAt,
+    isDirty,
+    isDeleted,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'expense_records';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ExpenseRecord> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('local_id')) {
+      context.handle(
+        _localIdMeta,
+        localId.isAcceptableOrUnknown(data['local_id']!, _localIdMeta),
+      );
+    }
+    if (data.containsKey('remote_id')) {
+      context.handle(
+        _remoteIdMeta,
+        remoteId.isAcceptableOrUnknown(data['remote_id']!, _remoteIdMeta),
+      );
+    }
+    if (data.containsKey('user_id')) {
+      context.handle(
+        _userIdMeta,
+        userId.isAcceptableOrUnknown(data['user_id']!, _userIdMeta),
+      );
+    }
+    if (data.containsKey('farm_id')) {
+      context.handle(
+        _farmIdMeta,
+        farmId.isAcceptableOrUnknown(data['farm_id']!, _farmIdMeta),
+      );
+    }
+    if (data.containsKey('expense_date')) {
+      context.handle(
+        _expenseDateMeta,
+        expenseDate.isAcceptableOrUnknown(
+          data['expense_date']!,
+          _expenseDateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_expenseDateMeta);
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+        _descriptionMeta,
+        description.isAcceptableOrUnknown(
+          data['description']!,
+          _descriptionMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_descriptionMeta);
+    }
+    if (data.containsKey('quantity')) {
+      context.handle(
+        _quantityMeta,
+        quantity.isAcceptableOrUnknown(data['quantity']!, _quantityMeta),
+      );
+    }
+    if (data.containsKey('unit')) {
+      context.handle(
+        _unitMeta,
+        unit.isAcceptableOrUnknown(data['unit']!, _unitMeta),
+      );
+    }
+    if (data.containsKey('price_per_unit')) {
+      context.handle(
+        _pricePerUnitMeta,
+        pricePerUnit.isAcceptableOrUnknown(
+          data['price_per_unit']!,
+          _pricePerUnitMeta,
+        ),
+      );
+    }
+    if (data.containsKey('total_value')) {
+      context.handle(
+        _totalValueMeta,
+        totalValue.isAcceptableOrUnknown(data['total_value']!, _totalValueMeta),
+      );
+    }
+    if (data.containsKey('photo_path')) {
+      context.handle(
+        _photoPathMeta,
+        photoPath.isAcceptableOrUnknown(data['photo_path']!, _photoPathMeta),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    if (data.containsKey('synced_at')) {
+      context.handle(
+        _syncedAtMeta,
+        syncedAt.isAcceptableOrUnknown(data['synced_at']!, _syncedAtMeta),
+      );
+    }
+    if (data.containsKey('is_dirty')) {
+      context.handle(
+        _isDirtyMeta,
+        isDirty.isAcceptableOrUnknown(data['is_dirty']!, _isDirtyMeta),
+      );
+    }
+    if (data.containsKey('is_deleted')) {
+      context.handle(
+        _isDeletedMeta,
+        isDeleted.isAcceptableOrUnknown(data['is_deleted']!, _isDeletedMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {localId};
+  @override
+  ExpenseRecord map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ExpenseRecord(
+      localId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}local_id'],
+      )!,
+      remoteId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}remote_id'],
+      ),
+      userId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}user_id'],
+      ),
+      farmId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}farm_id'],
+      ),
+      expenseDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}expense_date'],
+      )!,
+      description: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description'],
+      )!,
+      quantity: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}quantity'],
+      ),
+      unit: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}unit'],
+      ),
+      pricePerUnit: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}price_per_unit'],
+      ),
+      totalValue: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}total_value'],
+      ),
+      photoPath: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}photo_path'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      syncedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}synced_at'],
+      ),
+      isDirty: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_dirty'],
+      )!,
+      isDeleted: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_deleted'],
+      )!,
+    );
+  }
+
+  @override
+  $ExpenseRecordsTable createAlias(String alias) {
+    return $ExpenseRecordsTable(attachedDatabase, alias);
+  }
+}
+
+class ExpenseRecord extends DataClass implements Insertable<ExpenseRecord> {
+  final int localId;
+  final String? remoteId;
+  final String? userId;
+  final String? farmId;
+  final DateTime expenseDate;
+  final String description;
+  final double? quantity;
+  final String? unit;
+  final double? pricePerUnit;
+  final double? totalValue;
+  final String? photoPath;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? syncedAt;
+  final bool isDirty;
+  final bool isDeleted;
+  const ExpenseRecord({
+    required this.localId,
+    this.remoteId,
+    this.userId,
+    this.farmId,
+    required this.expenseDate,
+    required this.description,
+    this.quantity,
+    this.unit,
+    this.pricePerUnit,
+    this.totalValue,
+    this.photoPath,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+    this.syncedAt,
+    required this.isDirty,
+    required this.isDeleted,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['local_id'] = Variable<int>(localId);
+    if (!nullToAbsent || remoteId != null) {
+      map['remote_id'] = Variable<String>(remoteId);
+    }
+    if (!nullToAbsent || userId != null) {
+      map['user_id'] = Variable<String>(userId);
+    }
+    if (!nullToAbsent || farmId != null) {
+      map['farm_id'] = Variable<String>(farmId);
+    }
+    map['expense_date'] = Variable<DateTime>(expenseDate);
+    map['description'] = Variable<String>(description);
+    if (!nullToAbsent || quantity != null) {
+      map['quantity'] = Variable<double>(quantity);
+    }
+    if (!nullToAbsent || unit != null) {
+      map['unit'] = Variable<String>(unit);
+    }
+    if (!nullToAbsent || pricePerUnit != null) {
+      map['price_per_unit'] = Variable<double>(pricePerUnit);
+    }
+    if (!nullToAbsent || totalValue != null) {
+      map['total_value'] = Variable<double>(totalValue);
+    }
+    if (!nullToAbsent || photoPath != null) {
+      map['photo_path'] = Variable<String>(photoPath);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || syncedAt != null) {
+      map['synced_at'] = Variable<DateTime>(syncedAt);
+    }
+    map['is_dirty'] = Variable<bool>(isDirty);
+    map['is_deleted'] = Variable<bool>(isDeleted);
+    return map;
+  }
+
+  ExpenseRecordsCompanion toCompanion(bool nullToAbsent) {
+    return ExpenseRecordsCompanion(
+      localId: Value(localId),
+      remoteId: remoteId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(remoteId),
+      userId: userId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(userId),
+      farmId: farmId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(farmId),
+      expenseDate: Value(expenseDate),
+      description: Value(description),
+      quantity: quantity == null && nullToAbsent
+          ? const Value.absent()
+          : Value(quantity),
+      unit: unit == null && nullToAbsent ? const Value.absent() : Value(unit),
+      pricePerUnit: pricePerUnit == null && nullToAbsent
+          ? const Value.absent()
+          : Value(pricePerUnit),
+      totalValue: totalValue == null && nullToAbsent
+          ? const Value.absent()
+          : Value(totalValue),
+      photoPath: photoPath == null && nullToAbsent
+          ? const Value.absent()
+          : Value(photoPath),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      syncedAt: syncedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syncedAt),
+      isDirty: Value(isDirty),
+      isDeleted: Value(isDeleted),
+    );
+  }
+
+  factory ExpenseRecord.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ExpenseRecord(
+      localId: serializer.fromJson<int>(json['localId']),
+      remoteId: serializer.fromJson<String?>(json['remoteId']),
+      userId: serializer.fromJson<String?>(json['userId']),
+      farmId: serializer.fromJson<String?>(json['farmId']),
+      expenseDate: serializer.fromJson<DateTime>(json['expenseDate']),
+      description: serializer.fromJson<String>(json['description']),
+      quantity: serializer.fromJson<double?>(json['quantity']),
+      unit: serializer.fromJson<String?>(json['unit']),
+      pricePerUnit: serializer.fromJson<double?>(json['pricePerUnit']),
+      totalValue: serializer.fromJson<double?>(json['totalValue']),
+      photoPath: serializer.fromJson<String?>(json['photoPath']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      syncedAt: serializer.fromJson<DateTime?>(json['syncedAt']),
+      isDirty: serializer.fromJson<bool>(json['isDirty']),
+      isDeleted: serializer.fromJson<bool>(json['isDeleted']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'localId': serializer.toJson<int>(localId),
+      'remoteId': serializer.toJson<String?>(remoteId),
+      'userId': serializer.toJson<String?>(userId),
+      'farmId': serializer.toJson<String?>(farmId),
+      'expenseDate': serializer.toJson<DateTime>(expenseDate),
+      'description': serializer.toJson<String>(description),
+      'quantity': serializer.toJson<double?>(quantity),
+      'unit': serializer.toJson<String?>(unit),
+      'pricePerUnit': serializer.toJson<double?>(pricePerUnit),
+      'totalValue': serializer.toJson<double?>(totalValue),
+      'photoPath': serializer.toJson<String?>(photoPath),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'syncedAt': serializer.toJson<DateTime?>(syncedAt),
+      'isDirty': serializer.toJson<bool>(isDirty),
+      'isDeleted': serializer.toJson<bool>(isDeleted),
+    };
+  }
+
+  ExpenseRecord copyWith({
+    int? localId,
+    Value<String?> remoteId = const Value.absent(),
+    Value<String?> userId = const Value.absent(),
+    Value<String?> farmId = const Value.absent(),
+    DateTime? expenseDate,
+    String? description,
+    Value<double?> quantity = const Value.absent(),
+    Value<String?> unit = const Value.absent(),
+    Value<double?> pricePerUnit = const Value.absent(),
+    Value<double?> totalValue = const Value.absent(),
+    Value<String?> photoPath = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> syncedAt = const Value.absent(),
+    bool? isDirty,
+    bool? isDeleted,
+  }) => ExpenseRecord(
+    localId: localId ?? this.localId,
+    remoteId: remoteId.present ? remoteId.value : this.remoteId,
+    userId: userId.present ? userId.value : this.userId,
+    farmId: farmId.present ? farmId.value : this.farmId,
+    expenseDate: expenseDate ?? this.expenseDate,
+    description: description ?? this.description,
+    quantity: quantity.present ? quantity.value : this.quantity,
+    unit: unit.present ? unit.value : this.unit,
+    pricePerUnit: pricePerUnit.present ? pricePerUnit.value : this.pricePerUnit,
+    totalValue: totalValue.present ? totalValue.value : this.totalValue,
+    photoPath: photoPath.present ? photoPath.value : this.photoPath,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    syncedAt: syncedAt.present ? syncedAt.value : this.syncedAt,
+    isDirty: isDirty ?? this.isDirty,
+    isDeleted: isDeleted ?? this.isDeleted,
+  );
+  ExpenseRecord copyWithCompanion(ExpenseRecordsCompanion data) {
+    return ExpenseRecord(
+      localId: data.localId.present ? data.localId.value : this.localId,
+      remoteId: data.remoteId.present ? data.remoteId.value : this.remoteId,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      farmId: data.farmId.present ? data.farmId.value : this.farmId,
+      expenseDate: data.expenseDate.present
+          ? data.expenseDate.value
+          : this.expenseDate,
+      description: data.description.present
+          ? data.description.value
+          : this.description,
+      quantity: data.quantity.present ? data.quantity.value : this.quantity,
+      unit: data.unit.present ? data.unit.value : this.unit,
+      pricePerUnit: data.pricePerUnit.present
+          ? data.pricePerUnit.value
+          : this.pricePerUnit,
+      totalValue: data.totalValue.present
+          ? data.totalValue.value
+          : this.totalValue,
+      photoPath: data.photoPath.present ? data.photoPath.value : this.photoPath,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      syncedAt: data.syncedAt.present ? data.syncedAt.value : this.syncedAt,
+      isDirty: data.isDirty.present ? data.isDirty.value : this.isDirty,
+      isDeleted: data.isDeleted.present ? data.isDeleted.value : this.isDeleted,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ExpenseRecord(')
+          ..write('localId: $localId, ')
+          ..write('remoteId: $remoteId, ')
+          ..write('userId: $userId, ')
+          ..write('farmId: $farmId, ')
+          ..write('expenseDate: $expenseDate, ')
+          ..write('description: $description, ')
+          ..write('quantity: $quantity, ')
+          ..write('unit: $unit, ')
+          ..write('pricePerUnit: $pricePerUnit, ')
+          ..write('totalValue: $totalValue, ')
+          ..write('photoPath: $photoPath, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncedAt: $syncedAt, ')
+          ..write('isDirty: $isDirty, ')
+          ..write('isDeleted: $isDeleted')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    localId,
+    remoteId,
+    userId,
+    farmId,
+    expenseDate,
+    description,
+    quantity,
+    unit,
+    pricePerUnit,
+    totalValue,
+    photoPath,
+    notes,
+    createdAt,
+    updatedAt,
+    syncedAt,
+    isDirty,
+    isDeleted,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ExpenseRecord &&
+          other.localId == this.localId &&
+          other.remoteId == this.remoteId &&
+          other.userId == this.userId &&
+          other.farmId == this.farmId &&
+          other.expenseDate == this.expenseDate &&
+          other.description == this.description &&
+          other.quantity == this.quantity &&
+          other.unit == this.unit &&
+          other.pricePerUnit == this.pricePerUnit &&
+          other.totalValue == this.totalValue &&
+          other.photoPath == this.photoPath &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.syncedAt == this.syncedAt &&
+          other.isDirty == this.isDirty &&
+          other.isDeleted == this.isDeleted);
+}
+
+class ExpenseRecordsCompanion extends UpdateCompanion<ExpenseRecord> {
+  final Value<int> localId;
+  final Value<String?> remoteId;
+  final Value<String?> userId;
+  final Value<String?> farmId;
+  final Value<DateTime> expenseDate;
+  final Value<String> description;
+  final Value<double?> quantity;
+  final Value<String?> unit;
+  final Value<double?> pricePerUnit;
+  final Value<double?> totalValue;
+  final Value<String?> photoPath;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> syncedAt;
+  final Value<bool> isDirty;
+  final Value<bool> isDeleted;
+  const ExpenseRecordsCompanion({
+    this.localId = const Value.absent(),
+    this.remoteId = const Value.absent(),
+    this.userId = const Value.absent(),
+    this.farmId = const Value.absent(),
+    this.expenseDate = const Value.absent(),
+    this.description = const Value.absent(),
+    this.quantity = const Value.absent(),
+    this.unit = const Value.absent(),
+    this.pricePerUnit = const Value.absent(),
+    this.totalValue = const Value.absent(),
+    this.photoPath = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncedAt = const Value.absent(),
+    this.isDirty = const Value.absent(),
+    this.isDeleted = const Value.absent(),
+  });
+  ExpenseRecordsCompanion.insert({
+    this.localId = const Value.absent(),
+    this.remoteId = const Value.absent(),
+    this.userId = const Value.absent(),
+    this.farmId = const Value.absent(),
+    required DateTime expenseDate,
+    required String description,
+    this.quantity = const Value.absent(),
+    this.unit = const Value.absent(),
+    this.pricePerUnit = const Value.absent(),
+    this.totalValue = const Value.absent(),
+    this.photoPath = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncedAt = const Value.absent(),
+    this.isDirty = const Value.absent(),
+    this.isDeleted = const Value.absent(),
+  }) : expenseDate = Value(expenseDate),
+       description = Value(description);
+  static Insertable<ExpenseRecord> custom({
+    Expression<int>? localId,
+    Expression<String>? remoteId,
+    Expression<String>? userId,
+    Expression<String>? farmId,
+    Expression<DateTime>? expenseDate,
+    Expression<String>? description,
+    Expression<double>? quantity,
+    Expression<String>? unit,
+    Expression<double>? pricePerUnit,
+    Expression<double>? totalValue,
+    Expression<String>? photoPath,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? syncedAt,
+    Expression<bool>? isDirty,
+    Expression<bool>? isDeleted,
+  }) {
+    return RawValuesInsertable({
+      if (localId != null) 'local_id': localId,
+      if (remoteId != null) 'remote_id': remoteId,
+      if (userId != null) 'user_id': userId,
+      if (farmId != null) 'farm_id': farmId,
+      if (expenseDate != null) 'expense_date': expenseDate,
+      if (description != null) 'description': description,
+      if (quantity != null) 'quantity': quantity,
+      if (unit != null) 'unit': unit,
+      if (pricePerUnit != null) 'price_per_unit': pricePerUnit,
+      if (totalValue != null) 'total_value': totalValue,
+      if (photoPath != null) 'photo_path': photoPath,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (syncedAt != null) 'synced_at': syncedAt,
+      if (isDirty != null) 'is_dirty': isDirty,
+      if (isDeleted != null) 'is_deleted': isDeleted,
+    });
+  }
+
+  ExpenseRecordsCompanion copyWith({
+    Value<int>? localId,
+    Value<String?>? remoteId,
+    Value<String?>? userId,
+    Value<String?>? farmId,
+    Value<DateTime>? expenseDate,
+    Value<String>? description,
+    Value<double?>? quantity,
+    Value<String?>? unit,
+    Value<double?>? pricePerUnit,
+    Value<double?>? totalValue,
+    Value<String?>? photoPath,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? syncedAt,
+    Value<bool>? isDirty,
+    Value<bool>? isDeleted,
+  }) {
+    return ExpenseRecordsCompanion(
+      localId: localId ?? this.localId,
+      remoteId: remoteId ?? this.remoteId,
+      userId: userId ?? this.userId,
+      farmId: farmId ?? this.farmId,
+      expenseDate: expenseDate ?? this.expenseDate,
+      description: description ?? this.description,
+      quantity: quantity ?? this.quantity,
+      unit: unit ?? this.unit,
+      pricePerUnit: pricePerUnit ?? this.pricePerUnit,
+      totalValue: totalValue ?? this.totalValue,
+      photoPath: photoPath ?? this.photoPath,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      syncedAt: syncedAt ?? this.syncedAt,
+      isDirty: isDirty ?? this.isDirty,
+      isDeleted: isDeleted ?? this.isDeleted,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (localId.present) {
+      map['local_id'] = Variable<int>(localId.value);
+    }
+    if (remoteId.present) {
+      map['remote_id'] = Variable<String>(remoteId.value);
+    }
+    if (userId.present) {
+      map['user_id'] = Variable<String>(userId.value);
+    }
+    if (farmId.present) {
+      map['farm_id'] = Variable<String>(farmId.value);
+    }
+    if (expenseDate.present) {
+      map['expense_date'] = Variable<DateTime>(expenseDate.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (quantity.present) {
+      map['quantity'] = Variable<double>(quantity.value);
+    }
+    if (unit.present) {
+      map['unit'] = Variable<String>(unit.value);
+    }
+    if (pricePerUnit.present) {
+      map['price_per_unit'] = Variable<double>(pricePerUnit.value);
+    }
+    if (totalValue.present) {
+      map['total_value'] = Variable<double>(totalValue.value);
+    }
+    if (photoPath.present) {
+      map['photo_path'] = Variable<String>(photoPath.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (syncedAt.present) {
+      map['synced_at'] = Variable<DateTime>(syncedAt.value);
+    }
+    if (isDirty.present) {
+      map['is_dirty'] = Variable<bool>(isDirty.value);
+    }
+    if (isDeleted.present) {
+      map['is_deleted'] = Variable<bool>(isDeleted.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ExpenseRecordsCompanion(')
+          ..write('localId: $localId, ')
+          ..write('remoteId: $remoteId, ')
+          ..write('userId: $userId, ')
+          ..write('farmId: $farmId, ')
+          ..write('expenseDate: $expenseDate, ')
+          ..write('description: $description, ')
+          ..write('quantity: $quantity, ')
+          ..write('unit: $unit, ')
+          ..write('pricePerUnit: $pricePerUnit, ')
+          ..write('totalValue: $totalValue, ')
+          ..write('photoPath: $photoPath, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncedAt: $syncedAt, ')
+          ..write('isDirty: $isDirty, ')
+          ..write('isDeleted: $isDeleted')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $HarvestRecordsTable extends HarvestRecords
+    with TableInfo<$HarvestRecordsTable, HarvestRecord> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $HarvestRecordsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _localIdMeta = const VerificationMeta(
+    'localId',
+  );
+  @override
+  late final GeneratedColumn<int> localId = GeneratedColumn<int>(
+    'local_id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _remoteIdMeta = const VerificationMeta(
+    'remoteId',
+  );
+  @override
+  late final GeneratedColumn<String> remoteId = GeneratedColumn<String>(
+    'remote_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _userIdMeta = const VerificationMeta('userId');
+  @override
+  late final GeneratedColumn<String> userId = GeneratedColumn<String>(
+    'user_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _farmIdMeta = const VerificationMeta('farmId');
+  @override
+  late final GeneratedColumn<String> farmId = GeneratedColumn<String>(
+    'farm_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _harvestDateMeta = const VerificationMeta(
+    'harvestDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> harvestDate = GeneratedColumn<DateTime>(
+    'harvest_date',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _cropNameMeta = const VerificationMeta(
+    'cropName',
+  );
+  @override
+  late final GeneratedColumn<String> cropName = GeneratedColumn<String>(
+    'crop_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _totalVolumeKgMeta = const VerificationMeta(
+    'totalVolumeKg',
+  );
+  @override
+  late final GeneratedColumn<double> totalVolumeKg = GeneratedColumn<double>(
+    'total_volume_kg',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _institutionalVolumeKgMeta =
+      const VerificationMeta('institutionalVolumeKg');
+  @override
+  late final GeneratedColumn<double> institutionalVolumeKg =
+      GeneratedColumn<double>(
+        'institutional_volume_kg',
+        aliasedName,
+        true,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _institutionalPricePhpMeta =
+      const VerificationMeta('institutionalPricePhp');
+  @override
+  late final GeneratedColumn<double> institutionalPricePhp =
+      GeneratedColumn<double>(
+        'institutional_price_php',
+        aliasedName,
+        true,
+        type: DriftSqlType.double,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _otherVolumeKgMeta = const VerificationMeta(
+    'otherVolumeKg',
+  );
+  @override
+  late final GeneratedColumn<double> otherVolumeKg = GeneratedColumn<double>(
+    'other_volume_kg',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _otherPricePhpMeta = const VerificationMeta(
+    'otherPricePhp',
+  );
+  @override
+  late final GeneratedColumn<double> otherPricePhp = GeneratedColumn<double>(
+    'other_price_php',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _photoPathMeta = const VerificationMeta(
+    'photoPath',
+  );
+  @override
+  late final GeneratedColumn<String> photoPath = GeneratedColumn<String>(
+    'photo_path',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _syncedAtMeta = const VerificationMeta(
+    'syncedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> syncedAt = GeneratedColumn<DateTime>(
+    'synced_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _isDirtyMeta = const VerificationMeta(
+    'isDirty',
+  );
+  @override
+  late final GeneratedColumn<bool> isDirty = GeneratedColumn<bool>(
+    'is_dirty',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_dirty" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
+  static const VerificationMeta _isDeletedMeta = const VerificationMeta(
+    'isDeleted',
+  );
+  @override
+  late final GeneratedColumn<bool> isDeleted = GeneratedColumn<bool>(
+    'is_deleted',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_deleted" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    localId,
+    remoteId,
+    userId,
+    farmId,
+    harvestDate,
+    cropName,
+    totalVolumeKg,
+    institutionalVolumeKg,
+    institutionalPricePhp,
+    otherVolumeKg,
+    otherPricePhp,
+    photoPath,
+    notes,
+    createdAt,
+    updatedAt,
+    syncedAt,
+    isDirty,
+    isDeleted,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'harvest_records';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<HarvestRecord> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('local_id')) {
+      context.handle(
+        _localIdMeta,
+        localId.isAcceptableOrUnknown(data['local_id']!, _localIdMeta),
+      );
+    }
+    if (data.containsKey('remote_id')) {
+      context.handle(
+        _remoteIdMeta,
+        remoteId.isAcceptableOrUnknown(data['remote_id']!, _remoteIdMeta),
+      );
+    }
+    if (data.containsKey('user_id')) {
+      context.handle(
+        _userIdMeta,
+        userId.isAcceptableOrUnknown(data['user_id']!, _userIdMeta),
+      );
+    }
+    if (data.containsKey('farm_id')) {
+      context.handle(
+        _farmIdMeta,
+        farmId.isAcceptableOrUnknown(data['farm_id']!, _farmIdMeta),
+      );
+    }
+    if (data.containsKey('harvest_date')) {
+      context.handle(
+        _harvestDateMeta,
+        harvestDate.isAcceptableOrUnknown(
+          data['harvest_date']!,
+          _harvestDateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_harvestDateMeta);
+    }
+    if (data.containsKey('crop_name')) {
+      context.handle(
+        _cropNameMeta,
+        cropName.isAcceptableOrUnknown(data['crop_name']!, _cropNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_cropNameMeta);
+    }
+    if (data.containsKey('total_volume_kg')) {
+      context.handle(
+        _totalVolumeKgMeta,
+        totalVolumeKg.isAcceptableOrUnknown(
+          data['total_volume_kg']!,
+          _totalVolumeKgMeta,
+        ),
+      );
+    }
+    if (data.containsKey('institutional_volume_kg')) {
+      context.handle(
+        _institutionalVolumeKgMeta,
+        institutionalVolumeKg.isAcceptableOrUnknown(
+          data['institutional_volume_kg']!,
+          _institutionalVolumeKgMeta,
+        ),
+      );
+    }
+    if (data.containsKey('institutional_price_php')) {
+      context.handle(
+        _institutionalPricePhpMeta,
+        institutionalPricePhp.isAcceptableOrUnknown(
+          data['institutional_price_php']!,
+          _institutionalPricePhpMeta,
+        ),
+      );
+    }
+    if (data.containsKey('other_volume_kg')) {
+      context.handle(
+        _otherVolumeKgMeta,
+        otherVolumeKg.isAcceptableOrUnknown(
+          data['other_volume_kg']!,
+          _otherVolumeKgMeta,
+        ),
+      );
+    }
+    if (data.containsKey('other_price_php')) {
+      context.handle(
+        _otherPricePhpMeta,
+        otherPricePhp.isAcceptableOrUnknown(
+          data['other_price_php']!,
+          _otherPricePhpMeta,
+        ),
+      );
+    }
+    if (data.containsKey('photo_path')) {
+      context.handle(
+        _photoPathMeta,
+        photoPath.isAcceptableOrUnknown(data['photo_path']!, _photoPathMeta),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    if (data.containsKey('synced_at')) {
+      context.handle(
+        _syncedAtMeta,
+        syncedAt.isAcceptableOrUnknown(data['synced_at']!, _syncedAtMeta),
+      );
+    }
+    if (data.containsKey('is_dirty')) {
+      context.handle(
+        _isDirtyMeta,
+        isDirty.isAcceptableOrUnknown(data['is_dirty']!, _isDirtyMeta),
+      );
+    }
+    if (data.containsKey('is_deleted')) {
+      context.handle(
+        _isDeletedMeta,
+        isDeleted.isAcceptableOrUnknown(data['is_deleted']!, _isDeletedMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {localId};
+  @override
+  HarvestRecord map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return HarvestRecord(
+      localId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}local_id'],
+      )!,
+      remoteId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}remote_id'],
+      ),
+      userId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}user_id'],
+      ),
+      farmId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}farm_id'],
+      ),
+      harvestDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}harvest_date'],
+      )!,
+      cropName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}crop_name'],
+      )!,
+      totalVolumeKg: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}total_volume_kg'],
+      ),
+      institutionalVolumeKg: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}institutional_volume_kg'],
+      ),
+      institutionalPricePhp: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}institutional_price_php'],
+      ),
+      otherVolumeKg: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}other_volume_kg'],
+      ),
+      otherPricePhp: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}other_price_php'],
+      ),
+      photoPath: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}photo_path'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      syncedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}synced_at'],
+      ),
+      isDirty: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_dirty'],
+      )!,
+      isDeleted: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_deleted'],
+      )!,
+    );
+  }
+
+  @override
+  $HarvestRecordsTable createAlias(String alias) {
+    return $HarvestRecordsTable(attachedDatabase, alias);
+  }
+}
+
+class HarvestRecord extends DataClass implements Insertable<HarvestRecord> {
+  final int localId;
+  final String? remoteId;
+  final String? userId;
+  final String? farmId;
+  final DateTime harvestDate;
+  final String cropName;
+  final double? totalVolumeKg;
+  final double? institutionalVolumeKg;
+  final double? institutionalPricePhp;
+  final double? otherVolumeKg;
+  final double? otherPricePhp;
+  final String? photoPath;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? syncedAt;
+  final bool isDirty;
+  final bool isDeleted;
+  const HarvestRecord({
+    required this.localId,
+    this.remoteId,
+    this.userId,
+    this.farmId,
+    required this.harvestDate,
+    required this.cropName,
+    this.totalVolumeKg,
+    this.institutionalVolumeKg,
+    this.institutionalPricePhp,
+    this.otherVolumeKg,
+    this.otherPricePhp,
+    this.photoPath,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+    this.syncedAt,
+    required this.isDirty,
+    required this.isDeleted,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['local_id'] = Variable<int>(localId);
+    if (!nullToAbsent || remoteId != null) {
+      map['remote_id'] = Variable<String>(remoteId);
+    }
+    if (!nullToAbsent || userId != null) {
+      map['user_id'] = Variable<String>(userId);
+    }
+    if (!nullToAbsent || farmId != null) {
+      map['farm_id'] = Variable<String>(farmId);
+    }
+    map['harvest_date'] = Variable<DateTime>(harvestDate);
+    map['crop_name'] = Variable<String>(cropName);
+    if (!nullToAbsent || totalVolumeKg != null) {
+      map['total_volume_kg'] = Variable<double>(totalVolumeKg);
+    }
+    if (!nullToAbsent || institutionalVolumeKg != null) {
+      map['institutional_volume_kg'] = Variable<double>(institutionalVolumeKg);
+    }
+    if (!nullToAbsent || institutionalPricePhp != null) {
+      map['institutional_price_php'] = Variable<double>(institutionalPricePhp);
+    }
+    if (!nullToAbsent || otherVolumeKg != null) {
+      map['other_volume_kg'] = Variable<double>(otherVolumeKg);
+    }
+    if (!nullToAbsent || otherPricePhp != null) {
+      map['other_price_php'] = Variable<double>(otherPricePhp);
+    }
+    if (!nullToAbsent || photoPath != null) {
+      map['photo_path'] = Variable<String>(photoPath);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || syncedAt != null) {
+      map['synced_at'] = Variable<DateTime>(syncedAt);
+    }
+    map['is_dirty'] = Variable<bool>(isDirty);
+    map['is_deleted'] = Variable<bool>(isDeleted);
+    return map;
+  }
+
+  HarvestRecordsCompanion toCompanion(bool nullToAbsent) {
+    return HarvestRecordsCompanion(
+      localId: Value(localId),
+      remoteId: remoteId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(remoteId),
+      userId: userId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(userId),
+      farmId: farmId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(farmId),
+      harvestDate: Value(harvestDate),
+      cropName: Value(cropName),
+      totalVolumeKg: totalVolumeKg == null && nullToAbsent
+          ? const Value.absent()
+          : Value(totalVolumeKg),
+      institutionalVolumeKg: institutionalVolumeKg == null && nullToAbsent
+          ? const Value.absent()
+          : Value(institutionalVolumeKg),
+      institutionalPricePhp: institutionalPricePhp == null && nullToAbsent
+          ? const Value.absent()
+          : Value(institutionalPricePhp),
+      otherVolumeKg: otherVolumeKg == null && nullToAbsent
+          ? const Value.absent()
+          : Value(otherVolumeKg),
+      otherPricePhp: otherPricePhp == null && nullToAbsent
+          ? const Value.absent()
+          : Value(otherPricePhp),
+      photoPath: photoPath == null && nullToAbsent
+          ? const Value.absent()
+          : Value(photoPath),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      syncedAt: syncedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syncedAt),
+      isDirty: Value(isDirty),
+      isDeleted: Value(isDeleted),
+    );
+  }
+
+  factory HarvestRecord.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return HarvestRecord(
+      localId: serializer.fromJson<int>(json['localId']),
+      remoteId: serializer.fromJson<String?>(json['remoteId']),
+      userId: serializer.fromJson<String?>(json['userId']),
+      farmId: serializer.fromJson<String?>(json['farmId']),
+      harvestDate: serializer.fromJson<DateTime>(json['harvestDate']),
+      cropName: serializer.fromJson<String>(json['cropName']),
+      totalVolumeKg: serializer.fromJson<double?>(json['totalVolumeKg']),
+      institutionalVolumeKg: serializer.fromJson<double?>(
+        json['institutionalVolumeKg'],
+      ),
+      institutionalPricePhp: serializer.fromJson<double?>(
+        json['institutionalPricePhp'],
+      ),
+      otherVolumeKg: serializer.fromJson<double?>(json['otherVolumeKg']),
+      otherPricePhp: serializer.fromJson<double?>(json['otherPricePhp']),
+      photoPath: serializer.fromJson<String?>(json['photoPath']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      syncedAt: serializer.fromJson<DateTime?>(json['syncedAt']),
+      isDirty: serializer.fromJson<bool>(json['isDirty']),
+      isDeleted: serializer.fromJson<bool>(json['isDeleted']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'localId': serializer.toJson<int>(localId),
+      'remoteId': serializer.toJson<String?>(remoteId),
+      'userId': serializer.toJson<String?>(userId),
+      'farmId': serializer.toJson<String?>(farmId),
+      'harvestDate': serializer.toJson<DateTime>(harvestDate),
+      'cropName': serializer.toJson<String>(cropName),
+      'totalVolumeKg': serializer.toJson<double?>(totalVolumeKg),
+      'institutionalVolumeKg': serializer.toJson<double?>(
+        institutionalVolumeKg,
+      ),
+      'institutionalPricePhp': serializer.toJson<double?>(
+        institutionalPricePhp,
+      ),
+      'otherVolumeKg': serializer.toJson<double?>(otherVolumeKg),
+      'otherPricePhp': serializer.toJson<double?>(otherPricePhp),
+      'photoPath': serializer.toJson<String?>(photoPath),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'syncedAt': serializer.toJson<DateTime?>(syncedAt),
+      'isDirty': serializer.toJson<bool>(isDirty),
+      'isDeleted': serializer.toJson<bool>(isDeleted),
+    };
+  }
+
+  HarvestRecord copyWith({
+    int? localId,
+    Value<String?> remoteId = const Value.absent(),
+    Value<String?> userId = const Value.absent(),
+    Value<String?> farmId = const Value.absent(),
+    DateTime? harvestDate,
+    String? cropName,
+    Value<double?> totalVolumeKg = const Value.absent(),
+    Value<double?> institutionalVolumeKg = const Value.absent(),
+    Value<double?> institutionalPricePhp = const Value.absent(),
+    Value<double?> otherVolumeKg = const Value.absent(),
+    Value<double?> otherPricePhp = const Value.absent(),
+    Value<String?> photoPath = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> syncedAt = const Value.absent(),
+    bool? isDirty,
+    bool? isDeleted,
+  }) => HarvestRecord(
+    localId: localId ?? this.localId,
+    remoteId: remoteId.present ? remoteId.value : this.remoteId,
+    userId: userId.present ? userId.value : this.userId,
+    farmId: farmId.present ? farmId.value : this.farmId,
+    harvestDate: harvestDate ?? this.harvestDate,
+    cropName: cropName ?? this.cropName,
+    totalVolumeKg: totalVolumeKg.present
+        ? totalVolumeKg.value
+        : this.totalVolumeKg,
+    institutionalVolumeKg: institutionalVolumeKg.present
+        ? institutionalVolumeKg.value
+        : this.institutionalVolumeKg,
+    institutionalPricePhp: institutionalPricePhp.present
+        ? institutionalPricePhp.value
+        : this.institutionalPricePhp,
+    otherVolumeKg: otherVolumeKg.present
+        ? otherVolumeKg.value
+        : this.otherVolumeKg,
+    otherPricePhp: otherPricePhp.present
+        ? otherPricePhp.value
+        : this.otherPricePhp,
+    photoPath: photoPath.present ? photoPath.value : this.photoPath,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    syncedAt: syncedAt.present ? syncedAt.value : this.syncedAt,
+    isDirty: isDirty ?? this.isDirty,
+    isDeleted: isDeleted ?? this.isDeleted,
+  );
+  HarvestRecord copyWithCompanion(HarvestRecordsCompanion data) {
+    return HarvestRecord(
+      localId: data.localId.present ? data.localId.value : this.localId,
+      remoteId: data.remoteId.present ? data.remoteId.value : this.remoteId,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      farmId: data.farmId.present ? data.farmId.value : this.farmId,
+      harvestDate: data.harvestDate.present
+          ? data.harvestDate.value
+          : this.harvestDate,
+      cropName: data.cropName.present ? data.cropName.value : this.cropName,
+      totalVolumeKg: data.totalVolumeKg.present
+          ? data.totalVolumeKg.value
+          : this.totalVolumeKg,
+      institutionalVolumeKg: data.institutionalVolumeKg.present
+          ? data.institutionalVolumeKg.value
+          : this.institutionalVolumeKg,
+      institutionalPricePhp: data.institutionalPricePhp.present
+          ? data.institutionalPricePhp.value
+          : this.institutionalPricePhp,
+      otherVolumeKg: data.otherVolumeKg.present
+          ? data.otherVolumeKg.value
+          : this.otherVolumeKg,
+      otherPricePhp: data.otherPricePhp.present
+          ? data.otherPricePhp.value
+          : this.otherPricePhp,
+      photoPath: data.photoPath.present ? data.photoPath.value : this.photoPath,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      syncedAt: data.syncedAt.present ? data.syncedAt.value : this.syncedAt,
+      isDirty: data.isDirty.present ? data.isDirty.value : this.isDirty,
+      isDeleted: data.isDeleted.present ? data.isDeleted.value : this.isDeleted,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('HarvestRecord(')
+          ..write('localId: $localId, ')
+          ..write('remoteId: $remoteId, ')
+          ..write('userId: $userId, ')
+          ..write('farmId: $farmId, ')
+          ..write('harvestDate: $harvestDate, ')
+          ..write('cropName: $cropName, ')
+          ..write('totalVolumeKg: $totalVolumeKg, ')
+          ..write('institutionalVolumeKg: $institutionalVolumeKg, ')
+          ..write('institutionalPricePhp: $institutionalPricePhp, ')
+          ..write('otherVolumeKg: $otherVolumeKg, ')
+          ..write('otherPricePhp: $otherPricePhp, ')
+          ..write('photoPath: $photoPath, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncedAt: $syncedAt, ')
+          ..write('isDirty: $isDirty, ')
+          ..write('isDeleted: $isDeleted')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    localId,
+    remoteId,
+    userId,
+    farmId,
+    harvestDate,
+    cropName,
+    totalVolumeKg,
+    institutionalVolumeKg,
+    institutionalPricePhp,
+    otherVolumeKg,
+    otherPricePhp,
+    photoPath,
+    notes,
+    createdAt,
+    updatedAt,
+    syncedAt,
+    isDirty,
+    isDeleted,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is HarvestRecord &&
+          other.localId == this.localId &&
+          other.remoteId == this.remoteId &&
+          other.userId == this.userId &&
+          other.farmId == this.farmId &&
+          other.harvestDate == this.harvestDate &&
+          other.cropName == this.cropName &&
+          other.totalVolumeKg == this.totalVolumeKg &&
+          other.institutionalVolumeKg == this.institutionalVolumeKg &&
+          other.institutionalPricePhp == this.institutionalPricePhp &&
+          other.otherVolumeKg == this.otherVolumeKg &&
+          other.otherPricePhp == this.otherPricePhp &&
+          other.photoPath == this.photoPath &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.syncedAt == this.syncedAt &&
+          other.isDirty == this.isDirty &&
+          other.isDeleted == this.isDeleted);
+}
+
+class HarvestRecordsCompanion extends UpdateCompanion<HarvestRecord> {
+  final Value<int> localId;
+  final Value<String?> remoteId;
+  final Value<String?> userId;
+  final Value<String?> farmId;
+  final Value<DateTime> harvestDate;
+  final Value<String> cropName;
+  final Value<double?> totalVolumeKg;
+  final Value<double?> institutionalVolumeKg;
+  final Value<double?> institutionalPricePhp;
+  final Value<double?> otherVolumeKg;
+  final Value<double?> otherPricePhp;
+  final Value<String?> photoPath;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> syncedAt;
+  final Value<bool> isDirty;
+  final Value<bool> isDeleted;
+  const HarvestRecordsCompanion({
+    this.localId = const Value.absent(),
+    this.remoteId = const Value.absent(),
+    this.userId = const Value.absent(),
+    this.farmId = const Value.absent(),
+    this.harvestDate = const Value.absent(),
+    this.cropName = const Value.absent(),
+    this.totalVolumeKg = const Value.absent(),
+    this.institutionalVolumeKg = const Value.absent(),
+    this.institutionalPricePhp = const Value.absent(),
+    this.otherVolumeKg = const Value.absent(),
+    this.otherPricePhp = const Value.absent(),
+    this.photoPath = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncedAt = const Value.absent(),
+    this.isDirty = const Value.absent(),
+    this.isDeleted = const Value.absent(),
+  });
+  HarvestRecordsCompanion.insert({
+    this.localId = const Value.absent(),
+    this.remoteId = const Value.absent(),
+    this.userId = const Value.absent(),
+    this.farmId = const Value.absent(),
+    required DateTime harvestDate,
+    required String cropName,
+    this.totalVolumeKg = const Value.absent(),
+    this.institutionalVolumeKg = const Value.absent(),
+    this.institutionalPricePhp = const Value.absent(),
+    this.otherVolumeKg = const Value.absent(),
+    this.otherPricePhp = const Value.absent(),
+    this.photoPath = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncedAt = const Value.absent(),
+    this.isDirty = const Value.absent(),
+    this.isDeleted = const Value.absent(),
+  }) : harvestDate = Value(harvestDate),
+       cropName = Value(cropName);
+  static Insertable<HarvestRecord> custom({
+    Expression<int>? localId,
+    Expression<String>? remoteId,
+    Expression<String>? userId,
+    Expression<String>? farmId,
+    Expression<DateTime>? harvestDate,
+    Expression<String>? cropName,
+    Expression<double>? totalVolumeKg,
+    Expression<double>? institutionalVolumeKg,
+    Expression<double>? institutionalPricePhp,
+    Expression<double>? otherVolumeKg,
+    Expression<double>? otherPricePhp,
+    Expression<String>? photoPath,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? syncedAt,
+    Expression<bool>? isDirty,
+    Expression<bool>? isDeleted,
+  }) {
+    return RawValuesInsertable({
+      if (localId != null) 'local_id': localId,
+      if (remoteId != null) 'remote_id': remoteId,
+      if (userId != null) 'user_id': userId,
+      if (farmId != null) 'farm_id': farmId,
+      if (harvestDate != null) 'harvest_date': harvestDate,
+      if (cropName != null) 'crop_name': cropName,
+      if (totalVolumeKg != null) 'total_volume_kg': totalVolumeKg,
+      if (institutionalVolumeKg != null)
+        'institutional_volume_kg': institutionalVolumeKg,
+      if (institutionalPricePhp != null)
+        'institutional_price_php': institutionalPricePhp,
+      if (otherVolumeKg != null) 'other_volume_kg': otherVolumeKg,
+      if (otherPricePhp != null) 'other_price_php': otherPricePhp,
+      if (photoPath != null) 'photo_path': photoPath,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (syncedAt != null) 'synced_at': syncedAt,
+      if (isDirty != null) 'is_dirty': isDirty,
+      if (isDeleted != null) 'is_deleted': isDeleted,
+    });
+  }
+
+  HarvestRecordsCompanion copyWith({
+    Value<int>? localId,
+    Value<String?>? remoteId,
+    Value<String?>? userId,
+    Value<String?>? farmId,
+    Value<DateTime>? harvestDate,
+    Value<String>? cropName,
+    Value<double?>? totalVolumeKg,
+    Value<double?>? institutionalVolumeKg,
+    Value<double?>? institutionalPricePhp,
+    Value<double?>? otherVolumeKg,
+    Value<double?>? otherPricePhp,
+    Value<String?>? photoPath,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? syncedAt,
+    Value<bool>? isDirty,
+    Value<bool>? isDeleted,
+  }) {
+    return HarvestRecordsCompanion(
+      localId: localId ?? this.localId,
+      remoteId: remoteId ?? this.remoteId,
+      userId: userId ?? this.userId,
+      farmId: farmId ?? this.farmId,
+      harvestDate: harvestDate ?? this.harvestDate,
+      cropName: cropName ?? this.cropName,
+      totalVolumeKg: totalVolumeKg ?? this.totalVolumeKg,
+      institutionalVolumeKg:
+          institutionalVolumeKg ?? this.institutionalVolumeKg,
+      institutionalPricePhp:
+          institutionalPricePhp ?? this.institutionalPricePhp,
+      otherVolumeKg: otherVolumeKg ?? this.otherVolumeKg,
+      otherPricePhp: otherPricePhp ?? this.otherPricePhp,
+      photoPath: photoPath ?? this.photoPath,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      syncedAt: syncedAt ?? this.syncedAt,
+      isDirty: isDirty ?? this.isDirty,
+      isDeleted: isDeleted ?? this.isDeleted,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (localId.present) {
+      map['local_id'] = Variable<int>(localId.value);
+    }
+    if (remoteId.present) {
+      map['remote_id'] = Variable<String>(remoteId.value);
+    }
+    if (userId.present) {
+      map['user_id'] = Variable<String>(userId.value);
+    }
+    if (farmId.present) {
+      map['farm_id'] = Variable<String>(farmId.value);
+    }
+    if (harvestDate.present) {
+      map['harvest_date'] = Variable<DateTime>(harvestDate.value);
+    }
+    if (cropName.present) {
+      map['crop_name'] = Variable<String>(cropName.value);
+    }
+    if (totalVolumeKg.present) {
+      map['total_volume_kg'] = Variable<double>(totalVolumeKg.value);
+    }
+    if (institutionalVolumeKg.present) {
+      map['institutional_volume_kg'] = Variable<double>(
+        institutionalVolumeKg.value,
+      );
+    }
+    if (institutionalPricePhp.present) {
+      map['institutional_price_php'] = Variable<double>(
+        institutionalPricePhp.value,
+      );
+    }
+    if (otherVolumeKg.present) {
+      map['other_volume_kg'] = Variable<double>(otherVolumeKg.value);
+    }
+    if (otherPricePhp.present) {
+      map['other_price_php'] = Variable<double>(otherPricePhp.value);
+    }
+    if (photoPath.present) {
+      map['photo_path'] = Variable<String>(photoPath.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (syncedAt.present) {
+      map['synced_at'] = Variable<DateTime>(syncedAt.value);
+    }
+    if (isDirty.present) {
+      map['is_dirty'] = Variable<bool>(isDirty.value);
+    }
+    if (isDeleted.present) {
+      map['is_deleted'] = Variable<bool>(isDeleted.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('HarvestRecordsCompanion(')
+          ..write('localId: $localId, ')
+          ..write('remoteId: $remoteId, ')
+          ..write('userId: $userId, ')
+          ..write('farmId: $farmId, ')
+          ..write('harvestDate: $harvestDate, ')
+          ..write('cropName: $cropName, ')
+          ..write('totalVolumeKg: $totalVolumeKg, ')
+          ..write('institutionalVolumeKg: $institutionalVolumeKg, ')
+          ..write('institutionalPricePhp: $institutionalPricePhp, ')
+          ..write('otherVolumeKg: $otherVolumeKg, ')
+          ..write('otherPricePhp: $otherPricePhp, ')
+          ..write('photoPath: $photoPath, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncedAt: $syncedAt, ')
+          ..write('isDirty: $isDirty, ')
+          ..write('isDeleted: $isDeleted')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ProductRecordsTable extends ProductRecords
+    with TableInfo<$ProductRecordsTable, ProductRecord> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ProductRecordsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _localIdMeta = const VerificationMeta(
+    'localId',
+  );
+  @override
+  late final GeneratedColumn<int> localId = GeneratedColumn<int>(
+    'local_id',
+    aliasedName,
+    false,
+    hasAutoIncrement: true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'PRIMARY KEY AUTOINCREMENT',
+    ),
+  );
+  static const VerificationMeta _remoteIdMeta = const VerificationMeta(
+    'remoteId',
+  );
+  @override
+  late final GeneratedColumn<String> remoteId = GeneratedColumn<String>(
+    'remote_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _userIdMeta = const VerificationMeta('userId');
+  @override
+  late final GeneratedColumn<String> userId = GeneratedColumn<String>(
+    'user_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _farmIdMeta = const VerificationMeta('farmId');
+  @override
+  late final GeneratedColumn<String> farmId = GeneratedColumn<String>(
+    'farm_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _productNameMeta = const VerificationMeta(
+    'productName',
+  );
+  @override
+  late final GeneratedColumn<String> productName = GeneratedColumn<String>(
+    'product_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _productDescriptionMeta =
+      const VerificationMeta('productDescription');
+  @override
+  late final GeneratedColumn<String> productDescription =
+      GeneratedColumn<String>(
+        'product_description',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _manufacturerMeta = const VerificationMeta(
+    'manufacturer',
+  );
+  @override
+  late final GeneratedColumn<String> manufacturer = GeneratedColumn<String>(
+    'manufacturer',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _netWeightMeta = const VerificationMeta(
+    'netWeight',
+  );
+  @override
+  late final GeneratedColumn<String> netWeight = GeneratedColumn<String>(
+    'net_weight',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _expirationDateMeta = const VerificationMeta(
+    'expirationDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> expirationDate =
+      GeneratedColumn<DateTime>(
+        'expiration_date',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _categoryMeta = const VerificationMeta(
+    'category',
+  );
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+    'category',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _photoPathMeta = const VerificationMeta(
+    'photoPath',
+  );
+  @override
+  late final GeneratedColumn<String> photoPath = GeneratedColumn<String>(
+    'photo_path',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    defaultValue: currentDateAndTime,
+  );
+  static const VerificationMeta _syncedAtMeta = const VerificationMeta(
+    'syncedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> syncedAt = GeneratedColumn<DateTime>(
+    'synced_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _isDirtyMeta = const VerificationMeta(
+    'isDirty',
+  );
+  @override
+  late final GeneratedColumn<bool> isDirty = GeneratedColumn<bool>(
+    'is_dirty',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_dirty" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
+  static const VerificationMeta _isDeletedMeta = const VerificationMeta(
+    'isDeleted',
+  );
+  @override
+  late final GeneratedColumn<bool> isDeleted = GeneratedColumn<bool>(
+    'is_deleted',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_deleted" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    localId,
+    remoteId,
+    userId,
+    farmId,
+    productName,
+    productDescription,
+    manufacturer,
+    netWeight,
+    expirationDate,
+    category,
+    photoPath,
+    notes,
+    createdAt,
+    updatedAt,
+    syncedAt,
+    isDirty,
+    isDeleted,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'product_records';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ProductRecord> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('local_id')) {
+      context.handle(
+        _localIdMeta,
+        localId.isAcceptableOrUnknown(data['local_id']!, _localIdMeta),
+      );
+    }
+    if (data.containsKey('remote_id')) {
+      context.handle(
+        _remoteIdMeta,
+        remoteId.isAcceptableOrUnknown(data['remote_id']!, _remoteIdMeta),
+      );
+    }
+    if (data.containsKey('user_id')) {
+      context.handle(
+        _userIdMeta,
+        userId.isAcceptableOrUnknown(data['user_id']!, _userIdMeta),
+      );
+    }
+    if (data.containsKey('farm_id')) {
+      context.handle(
+        _farmIdMeta,
+        farmId.isAcceptableOrUnknown(data['farm_id']!, _farmIdMeta),
+      );
+    }
+    if (data.containsKey('product_name')) {
+      context.handle(
+        _productNameMeta,
+        productName.isAcceptableOrUnknown(
+          data['product_name']!,
+          _productNameMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_productNameMeta);
+    }
+    if (data.containsKey('product_description')) {
+      context.handle(
+        _productDescriptionMeta,
+        productDescription.isAcceptableOrUnknown(
+          data['product_description']!,
+          _productDescriptionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('manufacturer')) {
+      context.handle(
+        _manufacturerMeta,
+        manufacturer.isAcceptableOrUnknown(
+          data['manufacturer']!,
+          _manufacturerMeta,
+        ),
+      );
+    }
+    if (data.containsKey('net_weight')) {
+      context.handle(
+        _netWeightMeta,
+        netWeight.isAcceptableOrUnknown(data['net_weight']!, _netWeightMeta),
+      );
+    }
+    if (data.containsKey('expiration_date')) {
+      context.handle(
+        _expirationDateMeta,
+        expirationDate.isAcceptableOrUnknown(
+          data['expiration_date']!,
+          _expirationDateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('category')) {
+      context.handle(
+        _categoryMeta,
+        category.isAcceptableOrUnknown(data['category']!, _categoryMeta),
+      );
+    }
+    if (data.containsKey('photo_path')) {
+      context.handle(
+        _photoPathMeta,
+        photoPath.isAcceptableOrUnknown(data['photo_path']!, _photoPathMeta),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    }
+    if (data.containsKey('synced_at')) {
+      context.handle(
+        _syncedAtMeta,
+        syncedAt.isAcceptableOrUnknown(data['synced_at']!, _syncedAtMeta),
+      );
+    }
+    if (data.containsKey('is_dirty')) {
+      context.handle(
+        _isDirtyMeta,
+        isDirty.isAcceptableOrUnknown(data['is_dirty']!, _isDirtyMeta),
+      );
+    }
+    if (data.containsKey('is_deleted')) {
+      context.handle(
+        _isDeletedMeta,
+        isDeleted.isAcceptableOrUnknown(data['is_deleted']!, _isDeletedMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {localId};
+  @override
+  ProductRecord map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ProductRecord(
+      localId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}local_id'],
+      )!,
+      remoteId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}remote_id'],
+      ),
+      userId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}user_id'],
+      ),
+      farmId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}farm_id'],
+      ),
+      productName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}product_name'],
+      )!,
+      productDescription: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}product_description'],
+      ),
+      manufacturer: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}manufacturer'],
+      ),
+      netWeight: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}net_weight'],
+      ),
+      expirationDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}expiration_date'],
+      ),
+      category: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category'],
+      ),
+      photoPath: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}photo_path'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      syncedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}synced_at'],
+      ),
+      isDirty: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_dirty'],
+      )!,
+      isDeleted: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_deleted'],
+      )!,
+    );
+  }
+
+  @override
+  $ProductRecordsTable createAlias(String alias) {
+    return $ProductRecordsTable(attachedDatabase, alias);
+  }
+}
+
+class ProductRecord extends DataClass implements Insertable<ProductRecord> {
+  final int localId;
+  final String? remoteId;
+  final String? userId;
+  final String? farmId;
+  final String productName;
+  final String? productDescription;
+  final String? manufacturer;
+  final String? netWeight;
+  final DateTime? expirationDate;
+  final String? category;
+  final String? photoPath;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? syncedAt;
+  final bool isDirty;
+  final bool isDeleted;
+  const ProductRecord({
+    required this.localId,
+    this.remoteId,
+    this.userId,
+    this.farmId,
+    required this.productName,
+    this.productDescription,
+    this.manufacturer,
+    this.netWeight,
+    this.expirationDate,
+    this.category,
+    this.photoPath,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+    this.syncedAt,
+    required this.isDirty,
+    required this.isDeleted,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['local_id'] = Variable<int>(localId);
+    if (!nullToAbsent || remoteId != null) {
+      map['remote_id'] = Variable<String>(remoteId);
+    }
+    if (!nullToAbsent || userId != null) {
+      map['user_id'] = Variable<String>(userId);
+    }
+    if (!nullToAbsent || farmId != null) {
+      map['farm_id'] = Variable<String>(farmId);
+    }
+    map['product_name'] = Variable<String>(productName);
+    if (!nullToAbsent || productDescription != null) {
+      map['product_description'] = Variable<String>(productDescription);
+    }
+    if (!nullToAbsent || manufacturer != null) {
+      map['manufacturer'] = Variable<String>(manufacturer);
+    }
+    if (!nullToAbsent || netWeight != null) {
+      map['net_weight'] = Variable<String>(netWeight);
+    }
+    if (!nullToAbsent || expirationDate != null) {
+      map['expiration_date'] = Variable<DateTime>(expirationDate);
+    }
+    if (!nullToAbsent || category != null) {
+      map['category'] = Variable<String>(category);
+    }
+    if (!nullToAbsent || photoPath != null) {
+      map['photo_path'] = Variable<String>(photoPath);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || syncedAt != null) {
+      map['synced_at'] = Variable<DateTime>(syncedAt);
+    }
+    map['is_dirty'] = Variable<bool>(isDirty);
+    map['is_deleted'] = Variable<bool>(isDeleted);
+    return map;
+  }
+
+  ProductRecordsCompanion toCompanion(bool nullToAbsent) {
+    return ProductRecordsCompanion(
+      localId: Value(localId),
+      remoteId: remoteId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(remoteId),
+      userId: userId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(userId),
+      farmId: farmId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(farmId),
+      productName: Value(productName),
+      productDescription: productDescription == null && nullToAbsent
+          ? const Value.absent()
+          : Value(productDescription),
+      manufacturer: manufacturer == null && nullToAbsent
+          ? const Value.absent()
+          : Value(manufacturer),
+      netWeight: netWeight == null && nullToAbsent
+          ? const Value.absent()
+          : Value(netWeight),
+      expirationDate: expirationDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(expirationDate),
+      category: category == null && nullToAbsent
+          ? const Value.absent()
+          : Value(category),
+      photoPath: photoPath == null && nullToAbsent
+          ? const Value.absent()
+          : Value(photoPath),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      syncedAt: syncedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syncedAt),
+      isDirty: Value(isDirty),
+      isDeleted: Value(isDeleted),
+    );
+  }
+
+  factory ProductRecord.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ProductRecord(
+      localId: serializer.fromJson<int>(json['localId']),
+      remoteId: serializer.fromJson<String?>(json['remoteId']),
+      userId: serializer.fromJson<String?>(json['userId']),
+      farmId: serializer.fromJson<String?>(json['farmId']),
+      productName: serializer.fromJson<String>(json['productName']),
+      productDescription: serializer.fromJson<String?>(
+        json['productDescription'],
+      ),
+      manufacturer: serializer.fromJson<String?>(json['manufacturer']),
+      netWeight: serializer.fromJson<String?>(json['netWeight']),
+      expirationDate: serializer.fromJson<DateTime?>(json['expirationDate']),
+      category: serializer.fromJson<String?>(json['category']),
+      photoPath: serializer.fromJson<String?>(json['photoPath']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      syncedAt: serializer.fromJson<DateTime?>(json['syncedAt']),
+      isDirty: serializer.fromJson<bool>(json['isDirty']),
+      isDeleted: serializer.fromJson<bool>(json['isDeleted']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'localId': serializer.toJson<int>(localId),
+      'remoteId': serializer.toJson<String?>(remoteId),
+      'userId': serializer.toJson<String?>(userId),
+      'farmId': serializer.toJson<String?>(farmId),
+      'productName': serializer.toJson<String>(productName),
+      'productDescription': serializer.toJson<String?>(productDescription),
+      'manufacturer': serializer.toJson<String?>(manufacturer),
+      'netWeight': serializer.toJson<String?>(netWeight),
+      'expirationDate': serializer.toJson<DateTime?>(expirationDate),
+      'category': serializer.toJson<String?>(category),
+      'photoPath': serializer.toJson<String?>(photoPath),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'syncedAt': serializer.toJson<DateTime?>(syncedAt),
+      'isDirty': serializer.toJson<bool>(isDirty),
+      'isDeleted': serializer.toJson<bool>(isDeleted),
+    };
+  }
+
+  ProductRecord copyWith({
+    int? localId,
+    Value<String?> remoteId = const Value.absent(),
+    Value<String?> userId = const Value.absent(),
+    Value<String?> farmId = const Value.absent(),
+    String? productName,
+    Value<String?> productDescription = const Value.absent(),
+    Value<String?> manufacturer = const Value.absent(),
+    Value<String?> netWeight = const Value.absent(),
+    Value<DateTime?> expirationDate = const Value.absent(),
+    Value<String?> category = const Value.absent(),
+    Value<String?> photoPath = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> syncedAt = const Value.absent(),
+    bool? isDirty,
+    bool? isDeleted,
+  }) => ProductRecord(
+    localId: localId ?? this.localId,
+    remoteId: remoteId.present ? remoteId.value : this.remoteId,
+    userId: userId.present ? userId.value : this.userId,
+    farmId: farmId.present ? farmId.value : this.farmId,
+    productName: productName ?? this.productName,
+    productDescription: productDescription.present
+        ? productDescription.value
+        : this.productDescription,
+    manufacturer: manufacturer.present ? manufacturer.value : this.manufacturer,
+    netWeight: netWeight.present ? netWeight.value : this.netWeight,
+    expirationDate: expirationDate.present
+        ? expirationDate.value
+        : this.expirationDate,
+    category: category.present ? category.value : this.category,
+    photoPath: photoPath.present ? photoPath.value : this.photoPath,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    syncedAt: syncedAt.present ? syncedAt.value : this.syncedAt,
+    isDirty: isDirty ?? this.isDirty,
+    isDeleted: isDeleted ?? this.isDeleted,
+  );
+  ProductRecord copyWithCompanion(ProductRecordsCompanion data) {
+    return ProductRecord(
+      localId: data.localId.present ? data.localId.value : this.localId,
+      remoteId: data.remoteId.present ? data.remoteId.value : this.remoteId,
+      userId: data.userId.present ? data.userId.value : this.userId,
+      farmId: data.farmId.present ? data.farmId.value : this.farmId,
+      productName: data.productName.present
+          ? data.productName.value
+          : this.productName,
+      productDescription: data.productDescription.present
+          ? data.productDescription.value
+          : this.productDescription,
+      manufacturer: data.manufacturer.present
+          ? data.manufacturer.value
+          : this.manufacturer,
+      netWeight: data.netWeight.present ? data.netWeight.value : this.netWeight,
+      expirationDate: data.expirationDate.present
+          ? data.expirationDate.value
+          : this.expirationDate,
+      category: data.category.present ? data.category.value : this.category,
+      photoPath: data.photoPath.present ? data.photoPath.value : this.photoPath,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      syncedAt: data.syncedAt.present ? data.syncedAt.value : this.syncedAt,
+      isDirty: data.isDirty.present ? data.isDirty.value : this.isDirty,
+      isDeleted: data.isDeleted.present ? data.isDeleted.value : this.isDeleted,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ProductRecord(')
+          ..write('localId: $localId, ')
+          ..write('remoteId: $remoteId, ')
+          ..write('userId: $userId, ')
+          ..write('farmId: $farmId, ')
+          ..write('productName: $productName, ')
+          ..write('productDescription: $productDescription, ')
+          ..write('manufacturer: $manufacturer, ')
+          ..write('netWeight: $netWeight, ')
+          ..write('expirationDate: $expirationDate, ')
+          ..write('category: $category, ')
+          ..write('photoPath: $photoPath, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncedAt: $syncedAt, ')
+          ..write('isDirty: $isDirty, ')
+          ..write('isDeleted: $isDeleted')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    localId,
+    remoteId,
+    userId,
+    farmId,
+    productName,
+    productDescription,
+    manufacturer,
+    netWeight,
+    expirationDate,
+    category,
+    photoPath,
+    notes,
+    createdAt,
+    updatedAt,
+    syncedAt,
+    isDirty,
+    isDeleted,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ProductRecord &&
+          other.localId == this.localId &&
+          other.remoteId == this.remoteId &&
+          other.userId == this.userId &&
+          other.farmId == this.farmId &&
+          other.productName == this.productName &&
+          other.productDescription == this.productDescription &&
+          other.manufacturer == this.manufacturer &&
+          other.netWeight == this.netWeight &&
+          other.expirationDate == this.expirationDate &&
+          other.category == this.category &&
+          other.photoPath == this.photoPath &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.syncedAt == this.syncedAt &&
+          other.isDirty == this.isDirty &&
+          other.isDeleted == this.isDeleted);
+}
+
+class ProductRecordsCompanion extends UpdateCompanion<ProductRecord> {
+  final Value<int> localId;
+  final Value<String?> remoteId;
+  final Value<String?> userId;
+  final Value<String?> farmId;
+  final Value<String> productName;
+  final Value<String?> productDescription;
+  final Value<String?> manufacturer;
+  final Value<String?> netWeight;
+  final Value<DateTime?> expirationDate;
+  final Value<String?> category;
+  final Value<String?> photoPath;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> syncedAt;
+  final Value<bool> isDirty;
+  final Value<bool> isDeleted;
+  const ProductRecordsCompanion({
+    this.localId = const Value.absent(),
+    this.remoteId = const Value.absent(),
+    this.userId = const Value.absent(),
+    this.farmId = const Value.absent(),
+    this.productName = const Value.absent(),
+    this.productDescription = const Value.absent(),
+    this.manufacturer = const Value.absent(),
+    this.netWeight = const Value.absent(),
+    this.expirationDate = const Value.absent(),
+    this.category = const Value.absent(),
+    this.photoPath = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncedAt = const Value.absent(),
+    this.isDirty = const Value.absent(),
+    this.isDeleted = const Value.absent(),
+  });
+  ProductRecordsCompanion.insert({
+    this.localId = const Value.absent(),
+    this.remoteId = const Value.absent(),
+    this.userId = const Value.absent(),
+    this.farmId = const Value.absent(),
+    required String productName,
+    this.productDescription = const Value.absent(),
+    this.manufacturer = const Value.absent(),
+    this.netWeight = const Value.absent(),
+    this.expirationDate = const Value.absent(),
+    this.category = const Value.absent(),
+    this.photoPath = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.syncedAt = const Value.absent(),
+    this.isDirty = const Value.absent(),
+    this.isDeleted = const Value.absent(),
+  }) : productName = Value(productName);
+  static Insertable<ProductRecord> custom({
+    Expression<int>? localId,
+    Expression<String>? remoteId,
+    Expression<String>? userId,
+    Expression<String>? farmId,
+    Expression<String>? productName,
+    Expression<String>? productDescription,
+    Expression<String>? manufacturer,
+    Expression<String>? netWeight,
+    Expression<DateTime>? expirationDate,
+    Expression<String>? category,
+    Expression<String>? photoPath,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? syncedAt,
+    Expression<bool>? isDirty,
+    Expression<bool>? isDeleted,
+  }) {
+    return RawValuesInsertable({
+      if (localId != null) 'local_id': localId,
+      if (remoteId != null) 'remote_id': remoteId,
+      if (userId != null) 'user_id': userId,
+      if (farmId != null) 'farm_id': farmId,
+      if (productName != null) 'product_name': productName,
+      if (productDescription != null) 'product_description': productDescription,
+      if (manufacturer != null) 'manufacturer': manufacturer,
+      if (netWeight != null) 'net_weight': netWeight,
+      if (expirationDate != null) 'expiration_date': expirationDate,
+      if (category != null) 'category': category,
+      if (photoPath != null) 'photo_path': photoPath,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (syncedAt != null) 'synced_at': syncedAt,
+      if (isDirty != null) 'is_dirty': isDirty,
+      if (isDeleted != null) 'is_deleted': isDeleted,
+    });
+  }
+
+  ProductRecordsCompanion copyWith({
+    Value<int>? localId,
+    Value<String?>? remoteId,
+    Value<String?>? userId,
+    Value<String?>? farmId,
+    Value<String>? productName,
+    Value<String?>? productDescription,
+    Value<String?>? manufacturer,
+    Value<String?>? netWeight,
+    Value<DateTime?>? expirationDate,
+    Value<String?>? category,
+    Value<String?>? photoPath,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? syncedAt,
+    Value<bool>? isDirty,
+    Value<bool>? isDeleted,
+  }) {
+    return ProductRecordsCompanion(
+      localId: localId ?? this.localId,
+      remoteId: remoteId ?? this.remoteId,
+      userId: userId ?? this.userId,
+      farmId: farmId ?? this.farmId,
+      productName: productName ?? this.productName,
+      productDescription: productDescription ?? this.productDescription,
+      manufacturer: manufacturer ?? this.manufacturer,
+      netWeight: netWeight ?? this.netWeight,
+      expirationDate: expirationDate ?? this.expirationDate,
+      category: category ?? this.category,
+      photoPath: photoPath ?? this.photoPath,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      syncedAt: syncedAt ?? this.syncedAt,
+      isDirty: isDirty ?? this.isDirty,
+      isDeleted: isDeleted ?? this.isDeleted,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (localId.present) {
+      map['local_id'] = Variable<int>(localId.value);
+    }
+    if (remoteId.present) {
+      map['remote_id'] = Variable<String>(remoteId.value);
+    }
+    if (userId.present) {
+      map['user_id'] = Variable<String>(userId.value);
+    }
+    if (farmId.present) {
+      map['farm_id'] = Variable<String>(farmId.value);
+    }
+    if (productName.present) {
+      map['product_name'] = Variable<String>(productName.value);
+    }
+    if (productDescription.present) {
+      map['product_description'] = Variable<String>(productDescription.value);
+    }
+    if (manufacturer.present) {
+      map['manufacturer'] = Variable<String>(manufacturer.value);
+    }
+    if (netWeight.present) {
+      map['net_weight'] = Variable<String>(netWeight.value);
+    }
+    if (expirationDate.present) {
+      map['expiration_date'] = Variable<DateTime>(expirationDate.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (photoPath.present) {
+      map['photo_path'] = Variable<String>(photoPath.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (syncedAt.present) {
+      map['synced_at'] = Variable<DateTime>(syncedAt.value);
+    }
+    if (isDirty.present) {
+      map['is_dirty'] = Variable<bool>(isDirty.value);
+    }
+    if (isDeleted.present) {
+      map['is_deleted'] = Variable<bool>(isDeleted.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ProductRecordsCompanion(')
+          ..write('localId: $localId, ')
+          ..write('remoteId: $remoteId, ')
+          ..write('userId: $userId, ')
+          ..write('farmId: $farmId, ')
+          ..write('productName: $productName, ')
+          ..write('productDescription: $productDescription, ')
+          ..write('manufacturer: $manufacturer, ')
+          ..write('netWeight: $netWeight, ')
+          ..write('expirationDate: $expirationDate, ')
+          ..write('category: $category, ')
+          ..write('photoPath: $photoPath, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('syncedAt: $syncedAt, ')
+          ..write('isDirty: $isDirty, ')
+          ..write('isDeleted: $isDeleted')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -3134,12 +6103,18 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $ActivityLogsTable activityLogs = $ActivityLogsTable(this);
   late final $ComplianceRecordsTable complianceRecords =
       $ComplianceRecordsTable(this);
+  late final $ExpenseRecordsTable expenseRecords = $ExpenseRecordsTable(this);
+  late final $HarvestRecordsTable harvestRecords = $HarvestRecordsTable(this);
+  late final $ProductRecordsTable productRecords = $ProductRecordsTable(this);
   late final UserProfileDao userProfileDao = UserProfileDao(
     this as AppDatabase,
   );
   late final FarmDao farmDao = FarmDao(this as AppDatabase);
   late final ActivityDao activityDao = ActivityDao(this as AppDatabase);
   late final ComplianceDao complianceDao = ComplianceDao(this as AppDatabase);
+  late final ExpenseDao expenseDao = ExpenseDao(this as AppDatabase);
+  late final HarvestDao harvestDao = HarvestDao(this as AppDatabase);
+  late final ProductDao productDao = ProductDao(this as AppDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -3149,6 +6124,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     farmProfiles,
     activityLogs,
     complianceRecords,
+    expenseRecords,
+    harvestRecords,
+    productRecords,
   ];
 }
 
@@ -4605,6 +7583,1325 @@ typedef $$ComplianceRecordsTableProcessedTableManager =
       ComplianceRecord,
       PrefetchHooks Function()
     >;
+typedef $$ExpenseRecordsTableCreateCompanionBuilder =
+    ExpenseRecordsCompanion Function({
+      Value<int> localId,
+      Value<String?> remoteId,
+      Value<String?> userId,
+      Value<String?> farmId,
+      required DateTime expenseDate,
+      required String description,
+      Value<double?> quantity,
+      Value<String?> unit,
+      Value<double?> pricePerUnit,
+      Value<double?> totalValue,
+      Value<String?> photoPath,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> syncedAt,
+      Value<bool> isDirty,
+      Value<bool> isDeleted,
+    });
+typedef $$ExpenseRecordsTableUpdateCompanionBuilder =
+    ExpenseRecordsCompanion Function({
+      Value<int> localId,
+      Value<String?> remoteId,
+      Value<String?> userId,
+      Value<String?> farmId,
+      Value<DateTime> expenseDate,
+      Value<String> description,
+      Value<double?> quantity,
+      Value<String?> unit,
+      Value<double?> pricePerUnit,
+      Value<double?> totalValue,
+      Value<String?> photoPath,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> syncedAt,
+      Value<bool> isDirty,
+      Value<bool> isDeleted,
+    });
+
+class $$ExpenseRecordsTableFilterComposer
+    extends Composer<_$AppDatabase, $ExpenseRecordsTable> {
+  $$ExpenseRecordsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get localId => $composableBuilder(
+    column: $table.localId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get remoteId => $composableBuilder(
+    column: $table.remoteId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get userId => $composableBuilder(
+    column: $table.userId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get farmId => $composableBuilder(
+    column: $table.farmId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get expenseDate => $composableBuilder(
+    column: $table.expenseDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get quantity => $composableBuilder(
+    column: $table.quantity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get unit => $composableBuilder(
+    column: $table.unit,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get pricePerUnit => $composableBuilder(
+    column: $table.pricePerUnit,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get totalValue => $composableBuilder(
+    column: $table.totalValue,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get photoPath => $composableBuilder(
+    column: $table.photoPath,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get syncedAt => $composableBuilder(
+    column: $table.syncedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isDirty => $composableBuilder(
+    column: $table.isDirty,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isDeleted => $composableBuilder(
+    column: $table.isDeleted,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ExpenseRecordsTableOrderingComposer
+    extends Composer<_$AppDatabase, $ExpenseRecordsTable> {
+  $$ExpenseRecordsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get localId => $composableBuilder(
+    column: $table.localId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get remoteId => $composableBuilder(
+    column: $table.remoteId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get userId => $composableBuilder(
+    column: $table.userId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get farmId => $composableBuilder(
+    column: $table.farmId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get expenseDate => $composableBuilder(
+    column: $table.expenseDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get quantity => $composableBuilder(
+    column: $table.quantity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get unit => $composableBuilder(
+    column: $table.unit,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get pricePerUnit => $composableBuilder(
+    column: $table.pricePerUnit,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get totalValue => $composableBuilder(
+    column: $table.totalValue,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get photoPath => $composableBuilder(
+    column: $table.photoPath,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get syncedAt => $composableBuilder(
+    column: $table.syncedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isDirty => $composableBuilder(
+    column: $table.isDirty,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isDeleted => $composableBuilder(
+    column: $table.isDeleted,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ExpenseRecordsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ExpenseRecordsTable> {
+  $$ExpenseRecordsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get localId =>
+      $composableBuilder(column: $table.localId, builder: (column) => column);
+
+  GeneratedColumn<String> get remoteId =>
+      $composableBuilder(column: $table.remoteId, builder: (column) => column);
+
+  GeneratedColumn<String> get userId =>
+      $composableBuilder(column: $table.userId, builder: (column) => column);
+
+  GeneratedColumn<String> get farmId =>
+      $composableBuilder(column: $table.farmId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get expenseDate => $composableBuilder(
+    column: $table.expenseDate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get quantity =>
+      $composableBuilder(column: $table.quantity, builder: (column) => column);
+
+  GeneratedColumn<String> get unit =>
+      $composableBuilder(column: $table.unit, builder: (column) => column);
+
+  GeneratedColumn<double> get pricePerUnit => $composableBuilder(
+    column: $table.pricePerUnit,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get totalValue => $composableBuilder(
+    column: $table.totalValue,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get photoPath =>
+      $composableBuilder(column: $table.photoPath, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get syncedAt =>
+      $composableBuilder(column: $table.syncedAt, builder: (column) => column);
+
+  GeneratedColumn<bool> get isDirty =>
+      $composableBuilder(column: $table.isDirty, builder: (column) => column);
+
+  GeneratedColumn<bool> get isDeleted =>
+      $composableBuilder(column: $table.isDeleted, builder: (column) => column);
+}
+
+class $$ExpenseRecordsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ExpenseRecordsTable,
+          ExpenseRecord,
+          $$ExpenseRecordsTableFilterComposer,
+          $$ExpenseRecordsTableOrderingComposer,
+          $$ExpenseRecordsTableAnnotationComposer,
+          $$ExpenseRecordsTableCreateCompanionBuilder,
+          $$ExpenseRecordsTableUpdateCompanionBuilder,
+          (
+            ExpenseRecord,
+            BaseReferences<_$AppDatabase, $ExpenseRecordsTable, ExpenseRecord>,
+          ),
+          ExpenseRecord,
+          PrefetchHooks Function()
+        > {
+  $$ExpenseRecordsTableTableManager(
+    _$AppDatabase db,
+    $ExpenseRecordsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ExpenseRecordsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ExpenseRecordsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ExpenseRecordsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> localId = const Value.absent(),
+                Value<String?> remoteId = const Value.absent(),
+                Value<String?> userId = const Value.absent(),
+                Value<String?> farmId = const Value.absent(),
+                Value<DateTime> expenseDate = const Value.absent(),
+                Value<String> description = const Value.absent(),
+                Value<double?> quantity = const Value.absent(),
+                Value<String?> unit = const Value.absent(),
+                Value<double?> pricePerUnit = const Value.absent(),
+                Value<double?> totalValue = const Value.absent(),
+                Value<String?> photoPath = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> syncedAt = const Value.absent(),
+                Value<bool> isDirty = const Value.absent(),
+                Value<bool> isDeleted = const Value.absent(),
+              }) => ExpenseRecordsCompanion(
+                localId: localId,
+                remoteId: remoteId,
+                userId: userId,
+                farmId: farmId,
+                expenseDate: expenseDate,
+                description: description,
+                quantity: quantity,
+                unit: unit,
+                pricePerUnit: pricePerUnit,
+                totalValue: totalValue,
+                photoPath: photoPath,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncedAt: syncedAt,
+                isDirty: isDirty,
+                isDeleted: isDeleted,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> localId = const Value.absent(),
+                Value<String?> remoteId = const Value.absent(),
+                Value<String?> userId = const Value.absent(),
+                Value<String?> farmId = const Value.absent(),
+                required DateTime expenseDate,
+                required String description,
+                Value<double?> quantity = const Value.absent(),
+                Value<String?> unit = const Value.absent(),
+                Value<double?> pricePerUnit = const Value.absent(),
+                Value<double?> totalValue = const Value.absent(),
+                Value<String?> photoPath = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> syncedAt = const Value.absent(),
+                Value<bool> isDirty = const Value.absent(),
+                Value<bool> isDeleted = const Value.absent(),
+              }) => ExpenseRecordsCompanion.insert(
+                localId: localId,
+                remoteId: remoteId,
+                userId: userId,
+                farmId: farmId,
+                expenseDate: expenseDate,
+                description: description,
+                quantity: quantity,
+                unit: unit,
+                pricePerUnit: pricePerUnit,
+                totalValue: totalValue,
+                photoPath: photoPath,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncedAt: syncedAt,
+                isDirty: isDirty,
+                isDeleted: isDeleted,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ExpenseRecordsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ExpenseRecordsTable,
+      ExpenseRecord,
+      $$ExpenseRecordsTableFilterComposer,
+      $$ExpenseRecordsTableOrderingComposer,
+      $$ExpenseRecordsTableAnnotationComposer,
+      $$ExpenseRecordsTableCreateCompanionBuilder,
+      $$ExpenseRecordsTableUpdateCompanionBuilder,
+      (
+        ExpenseRecord,
+        BaseReferences<_$AppDatabase, $ExpenseRecordsTable, ExpenseRecord>,
+      ),
+      ExpenseRecord,
+      PrefetchHooks Function()
+    >;
+typedef $$HarvestRecordsTableCreateCompanionBuilder =
+    HarvestRecordsCompanion Function({
+      Value<int> localId,
+      Value<String?> remoteId,
+      Value<String?> userId,
+      Value<String?> farmId,
+      required DateTime harvestDate,
+      required String cropName,
+      Value<double?> totalVolumeKg,
+      Value<double?> institutionalVolumeKg,
+      Value<double?> institutionalPricePhp,
+      Value<double?> otherVolumeKg,
+      Value<double?> otherPricePhp,
+      Value<String?> photoPath,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> syncedAt,
+      Value<bool> isDirty,
+      Value<bool> isDeleted,
+    });
+typedef $$HarvestRecordsTableUpdateCompanionBuilder =
+    HarvestRecordsCompanion Function({
+      Value<int> localId,
+      Value<String?> remoteId,
+      Value<String?> userId,
+      Value<String?> farmId,
+      Value<DateTime> harvestDate,
+      Value<String> cropName,
+      Value<double?> totalVolumeKg,
+      Value<double?> institutionalVolumeKg,
+      Value<double?> institutionalPricePhp,
+      Value<double?> otherVolumeKg,
+      Value<double?> otherPricePhp,
+      Value<String?> photoPath,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> syncedAt,
+      Value<bool> isDirty,
+      Value<bool> isDeleted,
+    });
+
+class $$HarvestRecordsTableFilterComposer
+    extends Composer<_$AppDatabase, $HarvestRecordsTable> {
+  $$HarvestRecordsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get localId => $composableBuilder(
+    column: $table.localId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get remoteId => $composableBuilder(
+    column: $table.remoteId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get userId => $composableBuilder(
+    column: $table.userId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get farmId => $composableBuilder(
+    column: $table.farmId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get harvestDate => $composableBuilder(
+    column: $table.harvestDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get cropName => $composableBuilder(
+    column: $table.cropName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get totalVolumeKg => $composableBuilder(
+    column: $table.totalVolumeKg,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get institutionalVolumeKg => $composableBuilder(
+    column: $table.institutionalVolumeKg,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get institutionalPricePhp => $composableBuilder(
+    column: $table.institutionalPricePhp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get otherVolumeKg => $composableBuilder(
+    column: $table.otherVolumeKg,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get otherPricePhp => $composableBuilder(
+    column: $table.otherPricePhp,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get photoPath => $composableBuilder(
+    column: $table.photoPath,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get syncedAt => $composableBuilder(
+    column: $table.syncedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isDirty => $composableBuilder(
+    column: $table.isDirty,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isDeleted => $composableBuilder(
+    column: $table.isDeleted,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$HarvestRecordsTableOrderingComposer
+    extends Composer<_$AppDatabase, $HarvestRecordsTable> {
+  $$HarvestRecordsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get localId => $composableBuilder(
+    column: $table.localId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get remoteId => $composableBuilder(
+    column: $table.remoteId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get userId => $composableBuilder(
+    column: $table.userId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get farmId => $composableBuilder(
+    column: $table.farmId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get harvestDate => $composableBuilder(
+    column: $table.harvestDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get cropName => $composableBuilder(
+    column: $table.cropName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get totalVolumeKg => $composableBuilder(
+    column: $table.totalVolumeKg,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get institutionalVolumeKg => $composableBuilder(
+    column: $table.institutionalVolumeKg,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get institutionalPricePhp => $composableBuilder(
+    column: $table.institutionalPricePhp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get otherVolumeKg => $composableBuilder(
+    column: $table.otherVolumeKg,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get otherPricePhp => $composableBuilder(
+    column: $table.otherPricePhp,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get photoPath => $composableBuilder(
+    column: $table.photoPath,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get syncedAt => $composableBuilder(
+    column: $table.syncedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isDirty => $composableBuilder(
+    column: $table.isDirty,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isDeleted => $composableBuilder(
+    column: $table.isDeleted,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$HarvestRecordsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $HarvestRecordsTable> {
+  $$HarvestRecordsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get localId =>
+      $composableBuilder(column: $table.localId, builder: (column) => column);
+
+  GeneratedColumn<String> get remoteId =>
+      $composableBuilder(column: $table.remoteId, builder: (column) => column);
+
+  GeneratedColumn<String> get userId =>
+      $composableBuilder(column: $table.userId, builder: (column) => column);
+
+  GeneratedColumn<String> get farmId =>
+      $composableBuilder(column: $table.farmId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get harvestDate => $composableBuilder(
+    column: $table.harvestDate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get cropName =>
+      $composableBuilder(column: $table.cropName, builder: (column) => column);
+
+  GeneratedColumn<double> get totalVolumeKg => $composableBuilder(
+    column: $table.totalVolumeKg,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get institutionalVolumeKg => $composableBuilder(
+    column: $table.institutionalVolumeKg,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get institutionalPricePhp => $composableBuilder(
+    column: $table.institutionalPricePhp,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get otherVolumeKg => $composableBuilder(
+    column: $table.otherVolumeKg,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get otherPricePhp => $composableBuilder(
+    column: $table.otherPricePhp,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get photoPath =>
+      $composableBuilder(column: $table.photoPath, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get syncedAt =>
+      $composableBuilder(column: $table.syncedAt, builder: (column) => column);
+
+  GeneratedColumn<bool> get isDirty =>
+      $composableBuilder(column: $table.isDirty, builder: (column) => column);
+
+  GeneratedColumn<bool> get isDeleted =>
+      $composableBuilder(column: $table.isDeleted, builder: (column) => column);
+}
+
+class $$HarvestRecordsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $HarvestRecordsTable,
+          HarvestRecord,
+          $$HarvestRecordsTableFilterComposer,
+          $$HarvestRecordsTableOrderingComposer,
+          $$HarvestRecordsTableAnnotationComposer,
+          $$HarvestRecordsTableCreateCompanionBuilder,
+          $$HarvestRecordsTableUpdateCompanionBuilder,
+          (
+            HarvestRecord,
+            BaseReferences<_$AppDatabase, $HarvestRecordsTable, HarvestRecord>,
+          ),
+          HarvestRecord,
+          PrefetchHooks Function()
+        > {
+  $$HarvestRecordsTableTableManager(
+    _$AppDatabase db,
+    $HarvestRecordsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$HarvestRecordsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$HarvestRecordsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$HarvestRecordsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> localId = const Value.absent(),
+                Value<String?> remoteId = const Value.absent(),
+                Value<String?> userId = const Value.absent(),
+                Value<String?> farmId = const Value.absent(),
+                Value<DateTime> harvestDate = const Value.absent(),
+                Value<String> cropName = const Value.absent(),
+                Value<double?> totalVolumeKg = const Value.absent(),
+                Value<double?> institutionalVolumeKg = const Value.absent(),
+                Value<double?> institutionalPricePhp = const Value.absent(),
+                Value<double?> otherVolumeKg = const Value.absent(),
+                Value<double?> otherPricePhp = const Value.absent(),
+                Value<String?> photoPath = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> syncedAt = const Value.absent(),
+                Value<bool> isDirty = const Value.absent(),
+                Value<bool> isDeleted = const Value.absent(),
+              }) => HarvestRecordsCompanion(
+                localId: localId,
+                remoteId: remoteId,
+                userId: userId,
+                farmId: farmId,
+                harvestDate: harvestDate,
+                cropName: cropName,
+                totalVolumeKg: totalVolumeKg,
+                institutionalVolumeKg: institutionalVolumeKg,
+                institutionalPricePhp: institutionalPricePhp,
+                otherVolumeKg: otherVolumeKg,
+                otherPricePhp: otherPricePhp,
+                photoPath: photoPath,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncedAt: syncedAt,
+                isDirty: isDirty,
+                isDeleted: isDeleted,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> localId = const Value.absent(),
+                Value<String?> remoteId = const Value.absent(),
+                Value<String?> userId = const Value.absent(),
+                Value<String?> farmId = const Value.absent(),
+                required DateTime harvestDate,
+                required String cropName,
+                Value<double?> totalVolumeKg = const Value.absent(),
+                Value<double?> institutionalVolumeKg = const Value.absent(),
+                Value<double?> institutionalPricePhp = const Value.absent(),
+                Value<double?> otherVolumeKg = const Value.absent(),
+                Value<double?> otherPricePhp = const Value.absent(),
+                Value<String?> photoPath = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> syncedAt = const Value.absent(),
+                Value<bool> isDirty = const Value.absent(),
+                Value<bool> isDeleted = const Value.absent(),
+              }) => HarvestRecordsCompanion.insert(
+                localId: localId,
+                remoteId: remoteId,
+                userId: userId,
+                farmId: farmId,
+                harvestDate: harvestDate,
+                cropName: cropName,
+                totalVolumeKg: totalVolumeKg,
+                institutionalVolumeKg: institutionalVolumeKg,
+                institutionalPricePhp: institutionalPricePhp,
+                otherVolumeKg: otherVolumeKg,
+                otherPricePhp: otherPricePhp,
+                photoPath: photoPath,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncedAt: syncedAt,
+                isDirty: isDirty,
+                isDeleted: isDeleted,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$HarvestRecordsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $HarvestRecordsTable,
+      HarvestRecord,
+      $$HarvestRecordsTableFilterComposer,
+      $$HarvestRecordsTableOrderingComposer,
+      $$HarvestRecordsTableAnnotationComposer,
+      $$HarvestRecordsTableCreateCompanionBuilder,
+      $$HarvestRecordsTableUpdateCompanionBuilder,
+      (
+        HarvestRecord,
+        BaseReferences<_$AppDatabase, $HarvestRecordsTable, HarvestRecord>,
+      ),
+      HarvestRecord,
+      PrefetchHooks Function()
+    >;
+typedef $$ProductRecordsTableCreateCompanionBuilder =
+    ProductRecordsCompanion Function({
+      Value<int> localId,
+      Value<String?> remoteId,
+      Value<String?> userId,
+      Value<String?> farmId,
+      required String productName,
+      Value<String?> productDescription,
+      Value<String?> manufacturer,
+      Value<String?> netWeight,
+      Value<DateTime?> expirationDate,
+      Value<String?> category,
+      Value<String?> photoPath,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> syncedAt,
+      Value<bool> isDirty,
+      Value<bool> isDeleted,
+    });
+typedef $$ProductRecordsTableUpdateCompanionBuilder =
+    ProductRecordsCompanion Function({
+      Value<int> localId,
+      Value<String?> remoteId,
+      Value<String?> userId,
+      Value<String?> farmId,
+      Value<String> productName,
+      Value<String?> productDescription,
+      Value<String?> manufacturer,
+      Value<String?> netWeight,
+      Value<DateTime?> expirationDate,
+      Value<String?> category,
+      Value<String?> photoPath,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> syncedAt,
+      Value<bool> isDirty,
+      Value<bool> isDeleted,
+    });
+
+class $$ProductRecordsTableFilterComposer
+    extends Composer<_$AppDatabase, $ProductRecordsTable> {
+  $$ProductRecordsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get localId => $composableBuilder(
+    column: $table.localId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get remoteId => $composableBuilder(
+    column: $table.remoteId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get userId => $composableBuilder(
+    column: $table.userId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get farmId => $composableBuilder(
+    column: $table.farmId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get productName => $composableBuilder(
+    column: $table.productName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get productDescription => $composableBuilder(
+    column: $table.productDescription,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get manufacturer => $composableBuilder(
+    column: $table.manufacturer,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get netWeight => $composableBuilder(
+    column: $table.netWeight,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get expirationDate => $composableBuilder(
+    column: $table.expirationDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get photoPath => $composableBuilder(
+    column: $table.photoPath,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get syncedAt => $composableBuilder(
+    column: $table.syncedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isDirty => $composableBuilder(
+    column: $table.isDirty,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isDeleted => $composableBuilder(
+    column: $table.isDeleted,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ProductRecordsTableOrderingComposer
+    extends Composer<_$AppDatabase, $ProductRecordsTable> {
+  $$ProductRecordsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get localId => $composableBuilder(
+    column: $table.localId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get remoteId => $composableBuilder(
+    column: $table.remoteId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get userId => $composableBuilder(
+    column: $table.userId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get farmId => $composableBuilder(
+    column: $table.farmId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get productName => $composableBuilder(
+    column: $table.productName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get productDescription => $composableBuilder(
+    column: $table.productDescription,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get manufacturer => $composableBuilder(
+    column: $table.manufacturer,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get netWeight => $composableBuilder(
+    column: $table.netWeight,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get expirationDate => $composableBuilder(
+    column: $table.expirationDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get photoPath => $composableBuilder(
+    column: $table.photoPath,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get syncedAt => $composableBuilder(
+    column: $table.syncedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isDirty => $composableBuilder(
+    column: $table.isDirty,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isDeleted => $composableBuilder(
+    column: $table.isDeleted,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ProductRecordsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ProductRecordsTable> {
+  $$ProductRecordsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get localId =>
+      $composableBuilder(column: $table.localId, builder: (column) => column);
+
+  GeneratedColumn<String> get remoteId =>
+      $composableBuilder(column: $table.remoteId, builder: (column) => column);
+
+  GeneratedColumn<String> get userId =>
+      $composableBuilder(column: $table.userId, builder: (column) => column);
+
+  GeneratedColumn<String> get farmId =>
+      $composableBuilder(column: $table.farmId, builder: (column) => column);
+
+  GeneratedColumn<String> get productName => $composableBuilder(
+    column: $table.productName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get productDescription => $composableBuilder(
+    column: $table.productDescription,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get manufacturer => $composableBuilder(
+    column: $table.manufacturer,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get netWeight =>
+      $composableBuilder(column: $table.netWeight, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get expirationDate => $composableBuilder(
+    column: $table.expirationDate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<String> get photoPath =>
+      $composableBuilder(column: $table.photoPath, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get syncedAt =>
+      $composableBuilder(column: $table.syncedAt, builder: (column) => column);
+
+  GeneratedColumn<bool> get isDirty =>
+      $composableBuilder(column: $table.isDirty, builder: (column) => column);
+
+  GeneratedColumn<bool> get isDeleted =>
+      $composableBuilder(column: $table.isDeleted, builder: (column) => column);
+}
+
+class $$ProductRecordsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ProductRecordsTable,
+          ProductRecord,
+          $$ProductRecordsTableFilterComposer,
+          $$ProductRecordsTableOrderingComposer,
+          $$ProductRecordsTableAnnotationComposer,
+          $$ProductRecordsTableCreateCompanionBuilder,
+          $$ProductRecordsTableUpdateCompanionBuilder,
+          (
+            ProductRecord,
+            BaseReferences<_$AppDatabase, $ProductRecordsTable, ProductRecord>,
+          ),
+          ProductRecord,
+          PrefetchHooks Function()
+        > {
+  $$ProductRecordsTableTableManager(
+    _$AppDatabase db,
+    $ProductRecordsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ProductRecordsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ProductRecordsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ProductRecordsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> localId = const Value.absent(),
+                Value<String?> remoteId = const Value.absent(),
+                Value<String?> userId = const Value.absent(),
+                Value<String?> farmId = const Value.absent(),
+                Value<String> productName = const Value.absent(),
+                Value<String?> productDescription = const Value.absent(),
+                Value<String?> manufacturer = const Value.absent(),
+                Value<String?> netWeight = const Value.absent(),
+                Value<DateTime?> expirationDate = const Value.absent(),
+                Value<String?> category = const Value.absent(),
+                Value<String?> photoPath = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> syncedAt = const Value.absent(),
+                Value<bool> isDirty = const Value.absent(),
+                Value<bool> isDeleted = const Value.absent(),
+              }) => ProductRecordsCompanion(
+                localId: localId,
+                remoteId: remoteId,
+                userId: userId,
+                farmId: farmId,
+                productName: productName,
+                productDescription: productDescription,
+                manufacturer: manufacturer,
+                netWeight: netWeight,
+                expirationDate: expirationDate,
+                category: category,
+                photoPath: photoPath,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncedAt: syncedAt,
+                isDirty: isDirty,
+                isDeleted: isDeleted,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> localId = const Value.absent(),
+                Value<String?> remoteId = const Value.absent(),
+                Value<String?> userId = const Value.absent(),
+                Value<String?> farmId = const Value.absent(),
+                required String productName,
+                Value<String?> productDescription = const Value.absent(),
+                Value<String?> manufacturer = const Value.absent(),
+                Value<String?> netWeight = const Value.absent(),
+                Value<DateTime?> expirationDate = const Value.absent(),
+                Value<String?> category = const Value.absent(),
+                Value<String?> photoPath = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> syncedAt = const Value.absent(),
+                Value<bool> isDirty = const Value.absent(),
+                Value<bool> isDeleted = const Value.absent(),
+              }) => ProductRecordsCompanion.insert(
+                localId: localId,
+                remoteId: remoteId,
+                userId: userId,
+                farmId: farmId,
+                productName: productName,
+                productDescription: productDescription,
+                manufacturer: manufacturer,
+                netWeight: netWeight,
+                expirationDate: expirationDate,
+                category: category,
+                photoPath: photoPath,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                syncedAt: syncedAt,
+                isDirty: isDirty,
+                isDeleted: isDeleted,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map((e) => (e.readTable(table), BaseReferences(db, table, e)))
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ProductRecordsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ProductRecordsTable,
+      ProductRecord,
+      $$ProductRecordsTableFilterComposer,
+      $$ProductRecordsTableOrderingComposer,
+      $$ProductRecordsTableAnnotationComposer,
+      $$ProductRecordsTableCreateCompanionBuilder,
+      $$ProductRecordsTableUpdateCompanionBuilder,
+      (
+        ProductRecord,
+        BaseReferences<_$AppDatabase, $ProductRecordsTable, ProductRecord>,
+      ),
+      ProductRecord,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -4617,4 +8914,10 @@ class $AppDatabaseManager {
       $$ActivityLogsTableTableManager(_db, _db.activityLogs);
   $$ComplianceRecordsTableTableManager get complianceRecords =>
       $$ComplianceRecordsTableTableManager(_db, _db.complianceRecords);
+  $$ExpenseRecordsTableTableManager get expenseRecords =>
+      $$ExpenseRecordsTableTableManager(_db, _db.expenseRecords);
+  $$HarvestRecordsTableTableManager get harvestRecords =>
+      $$HarvestRecordsTableTableManager(_db, _db.harvestRecords);
+  $$ProductRecordsTableTableManager get productRecords =>
+      $$ProductRecordsTableTableManager(_db, _db.productRecords);
 }

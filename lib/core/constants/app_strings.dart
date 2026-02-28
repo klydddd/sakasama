@@ -107,8 +107,8 @@ class AppStrings {
   static const String formFarmJournal = 'Farm Journal';
   static const String formPestMonitoring = 'Pest Monitoring Log';
   static const String formHarvestRecord = 'Harvest Record';
-  static const String formInputInventory = 'Input Inventory';
-  static const String formWaterSource = 'Water Source Record';
+  static const String formInputInventory = 'Product Inventory';
+  static const String formWaterSource = 'Expenses Record';
 
   // ── Audit Export ────────────────────────────────────────────────────────
   static const String exportTitle = 'I-export ang Ulat';

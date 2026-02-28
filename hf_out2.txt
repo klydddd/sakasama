@@ -1,0 +1,12 @@
+
+Testing: https://router.huggingface.co/hf-inference/models/espnet/kan-bayashi_ljspeech_vits
+Status Code: 404
+Body: Not Found
+
+Testing: https://router.huggingface.co/hf-inference/models/suno/bark-small
+Status Code: 404
+Body: Not Found
+
+Testing: https://api-inference.huggingface.co/models/espnet/kan-bayashi_ljspeech_vits
+Status Code: 410
+Body: {"error":"https://api-inference.huggingface.co is no longer supported. Please use https://router.huggingface.co instead."}

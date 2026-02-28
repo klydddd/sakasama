@@ -7,7 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:sakasama/core/constants/app_colors.dart';
 import 'package:sakasama/core/constants/app_dimensions.dart';
 import 'package:sakasama/core/constants/app_strings.dart';
-import 'package:sakasama/features/ocr_scan/widgets/scan_overlay_painter.dart';
+// scan overlay removed
 
 /// Camera scan screen — OCR receipt/label scanner.
 ///
@@ -192,16 +192,6 @@ class _CameraScanScreenState extends ConsumerState<CameraScanScreen>
                   _buildErrorPlaceholder()
                 else
                   _buildLoadingPlaceholder(),
-
-                // Scan overlay
-                CustomPaint(
-                  painter: ScanOverlayPainter(
-                    borderColor: AppColors.primaryGreen,
-                    borderWidth: 3,
-                    cornerLength: 35,
-                  ),
-                  size: Size.infinite,
-                ),
 
                 // Instruction text
                 Positioned(

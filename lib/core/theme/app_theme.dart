@@ -11,7 +11,7 @@ class AppTheme {
   AppTheme._();
 
   static ThemeData get lightTheme {
-    final baseTextTheme = GoogleFonts.nunitoTextTheme();
+    final baseTextTheme = GoogleFonts.interTextTheme();
 
     return ThemeData(
       useMaterial3: true,
@@ -91,7 +91,7 @@ class AppTheme {
         foregroundColor: AppColors.textDark,
         elevation: 0,
         centerTitle: true,
-        titleTextStyle: GoogleFonts.nunito(
+        titleTextStyle: GoogleFonts.inter(
           fontSize: AppDimensions.titleSize,
           fontWeight: FontWeight.w700,
           color: AppColors.textDark,
@@ -118,7 +118,7 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimensions.buttonRadius),
           ),
-          textStyle: GoogleFonts.nunito(
+          textStyle: GoogleFonts.inter(
             fontSize: AppDimensions.buttonTextSize,
             fontWeight: FontWeight.w700,
           ),
@@ -143,7 +143,7 @@ class AppTheme {
             borderRadius: BorderRadius.circular(AppDimensions.buttonRadius),
           ),
           side: const BorderSide(color: AppColors.primaryGreen, width: 2),
-          textStyle: GoogleFonts.nunito(
+          textStyle: GoogleFonts.inter(
             fontSize: AppDimensions.bodySize,
             fontWeight: FontWeight.w600,
           ),
@@ -154,7 +154,7 @@ class AppTheme {
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: AppColors.primaryGreen,
-          textStyle: GoogleFonts.nunito(
+          textStyle: GoogleFonts.inter(
             fontSize: AppDimensions.bodySize,
             fontWeight: FontWeight.w600,
           ),
@@ -199,11 +199,11 @@ class AppTheme {
           borderRadius: BorderRadius.circular(AppDimensions.inputRadius),
           borderSide: const BorderSide(color: AppColors.error),
         ),
-        labelStyle: GoogleFonts.nunito(
+        labelStyle: GoogleFonts.inter(
           fontSize: AppDimensions.captionSize,
           color: AppColors.textGrey,
         ),
-        hintStyle: GoogleFonts.nunito(
+        hintStyle: GoogleFonts.inter(
           fontSize: AppDimensions.captionSize,
           color: AppColors.textLight,
         ),
@@ -220,11 +220,11 @@ class AppTheme {
         unselectedIconTheme: const IconThemeData(
           size: AppDimensions.iconSizeSmall,
         ),
-        selectedLabelStyle: GoogleFonts.nunito(
+        selectedLabelStyle: GoogleFonts.inter(
           fontSize: AppDimensions.smallTextSize,
           fontWeight: FontWeight.w700,
         ),
-        unselectedLabelStyle: GoogleFonts.nunito(
+        unselectedLabelStyle: GoogleFonts.inter(
           fontSize: AppDimensions.smallTextSize,
           fontWeight: FontWeight.w500,
         ),
@@ -245,7 +245,7 @@ class AppTheme {
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.backgroundGreen,
         selectedColor: AppColors.primaryGreen,
-        labelStyle: GoogleFonts.nunito(
+        labelStyle: GoogleFonts.inter(
           fontSize: AppDimensions.captionSize,
           fontWeight: FontWeight.w500,
         ),
@@ -265,7 +265,7 @@ class AppTheme {
       // ── SnackBar ──────────────────────────────────────────────────────
       snackBarTheme: SnackBarThemeData(
         backgroundColor: AppColors.textDark,
-        contentTextStyle: GoogleFonts.nunito(
+        contentTextStyle: GoogleFonts.inter(
           fontSize: AppDimensions.captionSize,
           color: AppColors.white,
         ),

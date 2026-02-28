@@ -1,0 +1,120 @@
+-- WARNING: This schema is for context only and is not meant to be run.
+-- Table order and constraints may not be valid for execution.
+
+CREATE TABLE public.activity_logs (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  user_id uuid NOT NULL,
+  farm_id uuid,
+  activity_date date NOT NULL,
+  activity_type text NOT NULL,
+  product_used text,
+  quantity real,
+  unit text,
+  notes text,
+  photo_path text,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  is_deleted boolean DEFAULT false,
+  CONSTRAINT activity_logs_pkey PRIMARY KEY (id),
+  CONSTRAINT activity_logs_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id),
+  CONSTRAINT activity_logs_farm_id_fkey FOREIGN KEY (farm_id) REFERENCES public.farm_profiles(id)
+);
+CREATE TABLE public.compliance_records (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  user_id uuid NOT NULL,
+  farm_id uuid,
+  form_type text NOT NULL,
+  status text NOT NULL DEFAULT 'incomplete'::text,
+  data jsonb DEFAULT '{}'::jsonb,
+  file_path text,
+  submitted_at timestamp with time zone,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  is_deleted boolean DEFAULT false,
+  CONSTRAINT compliance_records_pkey PRIMARY KEY (id),
+  CONSTRAINT compliance_records_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id),
+  CONSTRAINT compliance_records_farm_id_fkey FOREIGN KEY (farm_id) REFERENCES public.farm_profiles(id)
+);
+CREATE TABLE public.farm_profiles (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  user_id uuid NOT NULL,
+  farmer_name text NOT NULL,
+  farm_name text NOT NULL,
+  location text,
+  crop_type text,
+  farm_size_hectares real,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  is_deleted boolean DEFAULT false,
+  CONSTRAINT farm_profiles_pkey PRIMARY KEY (id),
+  CONSTRAINT farm_profiles_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id)
+);
+CREATE TABLE public.profiles (
+  id uuid NOT NULL,
+  email text,
+  display_name text,
+  preferred_language text DEFAULT 'fil'::text,
+  onboarding_completed boolean DEFAULT false,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT profiles_pkey PRIMARY KEY (id),
+  CONSTRAINT profiles_id_fkey FOREIGN KEY (id) REFERENCES auth.users(id)
+);
+CREATE TABLE public.expense_records (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  user_id uuid NOT NULL,
+  farm_id uuid,
+  expense_date date NOT NULL DEFAULT CURRENT_DATE,
+  description text NOT NULL,
+  quantity real,
+  unit text,
+  price_per_unit real,
+  total_value real,
+  photo_path text,
+  notes text,
+  is_deleted boolean DEFAULT false,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT expense_records_pkey PRIMARY KEY (id),
+  CONSTRAINT expense_records_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id),
+  CONSTRAINT expense_records_farm_id_fkey FOREIGN KEY (farm_id) REFERENCES public.farm_profiles(id)
+);
+CREATE TABLE public.harvest_records (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  user_id uuid NOT NULL,
+  farm_id uuid,
+  harvest_date date NOT NULL DEFAULT CURRENT_DATE,
+  crop_name text NOT NULL,
+  total_volume_kg real,
+  institutional_volume_kg real,
+  institutional_price_php real,
+  other_volume_kg real,
+  other_price_php real,
+  photo_path text,
+  notes text,
+  is_deleted boolean DEFAULT false,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT harvest_records_pkey PRIMARY KEY (id),
+  CONSTRAINT harvest_records_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id),
+  CONSTRAINT harvest_records_farm_id_fkey FOREIGN KEY (farm_id) REFERENCES public.farm_profiles(id)
+);
+CREATE TABLE public.product_records (
+  id uuid NOT NULL DEFAULT uuid_generate_v4(),
+  user_id uuid NOT NULL,
+  farm_id uuid,
+  product_name text NOT NULL,
+  product_description text,
+  manufacturer text,
+  net_weight text,
+  expiration_date date,
+  category text,
+  photo_path text,
+  notes text,
+  is_deleted boolean DEFAULT false,
+  created_at timestamp with time zone DEFAULT now(),
+  updated_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT product_records_pkey PRIMARY KEY (id),
+  CONSTRAINT product_records_user_id_fkey FOREIGN KEY (user_id) REFERENCES auth.users(id),
+  CONSTRAINT product_records_farm_id_fkey FOREIGN KEY (farm_id) REFERENCES public.farm_profiles(id)
+);

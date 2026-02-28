@@ -15,17 +15,17 @@ class ComplianceDao extends DatabaseAccessor<AppDatabase>
   // ── Read ─────────────────────────────────────────────────────────
 
   /// Watch all non-deleted compliance records.
-  Stream<List<ComplianceRecord>> watchAll() {
+  Stream<List<ComplianceRecord>> watchAll(String userId) {
     return (select(complianceRecords)
-          ..where((c) => c.isDeleted.equals(false))
+          ..where((c) => c.isDeleted.equals(false) & c.userId.equals(userId))
           ..orderBy([(c) => OrderingTerm.desc(c.updatedAt)]))
         .watch();
   }
 
   /// Get all non-deleted compliance records.
-  Future<List<ComplianceRecord>> getAll() {
+  Future<List<ComplianceRecord>> getAll(String userId) {
     return (select(complianceRecords)
-          ..where((c) => c.isDeleted.equals(false))
+          ..where((c) => c.isDeleted.equals(false) & c.userId.equals(userId))
           ..orderBy([(c) => OrderingTerm.desc(c.updatedAt)]))
         .get();
   }
@@ -45,10 +45,16 @@ class ComplianceDao extends DatabaseAccessor<AppDatabase>
   }
 
   /// Watch records filtered by form type.
-  Stream<List<ComplianceRecord>> watchByFormType(String formType) {
+  Stream<List<ComplianceRecord>> watchByFormType(
+    String formType,
+    String userId,
+  ) {
     return (select(complianceRecords)
           ..where(
-            (c) => c.formType.equals(formType) & c.isDeleted.equals(false),
+            (c) =>
+                c.formType.equals(formType) &
+                c.userId.equals(userId) &
+                c.isDeleted.equals(false),
           )
           ..orderBy([(c) => OrderingTerm.desc(c.updatedAt)]))
         .watch();
@@ -138,5 +144,18 @@ class ComplianceDao extends DatabaseAccessor<AppDatabase>
     return (delete(
       complianceRecords,
     )..where((c) => c.isDeleted.equals(true) & c.isDirty.equals(false))).go();
+  }
+
+  /// Delete local records that were hard-deleted on the remote server.
+  Future<int> deleteMissingRemoteIds(Set<String> validRemoteIds) {
+    if (validRemoteIds.isEmpty) {
+      return (delete(
+        complianceRecords,
+      )..where((c) => c.remoteId.isNotNull())).go();
+    }
+    return (delete(complianceRecords)..where(
+          (c) => c.remoteId.isNotNull() & c.remoteId.isNotIn(validRemoteIds),
+        ))
+        .go();
   }
 }

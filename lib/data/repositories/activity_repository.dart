@@ -14,14 +14,15 @@ class ActivityRepository {
   final SyncService syncService;
 
   /// Watch all activities (reactive stream).
-  Stream<List<ActivityLog>> watchAll() => activityDao.watchAll();
+  Stream<List<ActivityLog>> watchAll(String userId) =>
+      activityDao.watchAll(userId);
 
   /// Get all activities (one-shot).
-  Future<List<ActivityLog>> getAll() => activityDao.getAll();
+  Future<List<ActivityLog>> getAll(String userId) => activityDao.getAll(userId);
 
   /// Watch activities for a specific farm.
-  Stream<List<ActivityLog>> watchByFarm(String farmId) =>
-      activityDao.watchByFarmId(farmId);
+  Stream<List<ActivityLog>> watchByFarm(String farmId, String userId) =>
+      activityDao.watchByFarmId(farmId, userId);
 
   /// Get a single activity by ID.
   Future<ActivityLog?> getById(int localId) => activityDao.getById(localId);

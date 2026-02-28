@@ -15,17 +15,17 @@ class ActivityDao extends DatabaseAccessor<AppDatabase>
   // ── Read ─────────────────────────────────────────────────────────
 
   /// Watch all non-deleted activity logs ordered by date (newest first).
-  Stream<List<ActivityLog>> watchAll() {
+  Stream<List<ActivityLog>> watchAll(String userId) {
     return (select(activityLogs)
-          ..where((a) => a.isDeleted.equals(false))
+          ..where((a) => a.isDeleted.equals(false) & a.userId.equals(userId))
           ..orderBy([(a) => OrderingTerm.desc(a.activityDate)]))
         .watch();
   }
 
   /// Get all non-deleted activity logs.
-  Future<List<ActivityLog>> getAll() {
+  Future<List<ActivityLog>> getAll(String userId) {
     return (select(activityLogs)
-          ..where((a) => a.isDeleted.equals(false))
+          ..where((a) => a.isDeleted.equals(false) & a.userId.equals(userId))
           ..orderBy([(a) => OrderingTerm.desc(a.activityDate)]))
         .get();
   }
@@ -45,17 +45,25 @@ class ActivityDao extends DatabaseAccessor<AppDatabase>
   }
 
   /// Get activities filtered by farm ID.
-  Stream<List<ActivityLog>> watchByFarmId(String farmId) {
+  Stream<List<ActivityLog>> watchByFarmId(String farmId, String userId) {
     return (select(activityLogs)
-          ..where((a) => a.farmId.equals(farmId) & a.isDeleted.equals(false))
+          ..where(
+            (a) =>
+                a.farmId.equals(farmId) &
+                a.userId.equals(userId) &
+                a.isDeleted.equals(false),
+          )
           ..orderBy([(a) => OrderingTerm.desc(a.activityDate)]))
         .watch();
   }
 
   /// Count non-deleted activity logs.
-  Future<int> countActivities() async {
+  Future<int> countActivities(String userId) async {
     final query = selectOnly(activityLogs)
-      ..where(activityLogs.isDeleted.equals(false))
+      ..where(
+        activityLogs.isDeleted.equals(false) &
+            activityLogs.userId.equals(userId),
+      )
       ..addColumns([activityLogs.localId.count()]);
     final result = await query.getSingle();
     return result.read(activityLogs.localId.count()) ?? 0;
@@ -143,5 +151,16 @@ class ActivityDao extends DatabaseAccessor<AppDatabase>
     return (delete(
       activityLogs,
     )..where((a) => a.isDeleted.equals(true) & a.isDirty.equals(false))).go();
+  }
+
+  /// Delete local records that were hard-deleted on the remote server.
+  Future<int> deleteMissingRemoteIds(Set<String> validRemoteIds) {
+    if (validRemoteIds.isEmpty) {
+      return (delete(activityLogs)..where((a) => a.remoteId.isNotNull())).go();
+    }
+    return (delete(activityLogs)..where(
+          (a) => a.remoteId.isNotNull() & a.remoteId.isNotIn(validRemoteIds),
+        ))
+        .go();
   }
 }

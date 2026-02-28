@@ -2,45 +2,46 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:http/http.dart' as http;
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:sakasama/data/models/ocr_result.dart';
 
-/// OCR service using Hugging Face Inference API with Qwen2.5-VL-7B-Instruct.
+/// OCR service using Google Gemini 2.5 Flash with vision capabilities.
 ///
-/// Sends a base64-encoded image to the Hugging Face model endpoint
-/// and parses the structured JSON response into an [OcrResult].
-///
-/// Requires an internet connection and a valid `HUGGINGFACE_API_KEY` in `.env`.
+/// Sends an image to Gemini, which classifies the scanned item
+/// (receipt, product, or crop) and extracts structured data.
 class OcrService {
   OcrService._();
   static final OcrService instance = OcrService._();
 
   bool _isProcessing = false;
+  GenerativeModel? _model;
 
   /// Whether an inference is currently in progress.
   bool get isProcessing => _isProcessing;
 
-  /// The Hugging Face Inference API endpoint (OpenAI-compatible).
-  static const String _modelEndpoint =
-      'https://router.huggingface.co/v1/chat/completions';
+  GenerativeModel _getModel() {
+    if (_model != null) return _model!;
 
-  /// System prompt that instructs the model to extract receipt fields as JSON.
-  static const String _systemPrompt =
-      '''You are an expert receipt/document OCR assistant. Analyze the provided image and extract the following fields from it. Return ONLY a valid JSON object with these keys:
-- "product": product name(s) found (comma-separated if multiple)
-- "price": price with currency (e.g. "150.00 PHP")
-- "quantity": quantity with unit (e.g. "3 pcs")
-- "supplier": store/supplier name
-- "date": date in YYYY-MM-DD format
-- "raw_text": all text visible in the image
+    final apiKey = dotenv.env['GEMINI_API_KEY'];
+    if (apiKey == null || apiKey.isEmpty || apiKey.contains('YOUR_')) {
+      throw StateError(
+        'GEMINI_API_KEY is not set. Add your API key to the .env file.',
+      );
+    }
 
-If a field cannot be found, set its value to null. Do not include any text outside the JSON object.''';
+    _model = GenerativeModel(
+      model: 'gemini-2.5-flash',
+      apiKey: apiKey,
+      systemInstruction: Content.system(_systemPrompt),
+      generationConfig: GenerationConfig(
+        temperature: 0.1,
+        maxOutputTokens: 2048,
+      ),
+    );
+    return _model!;
+  }
 
-  /// Run the OCR pipeline on an image file via Hugging Face API.
-  ///
-  /// 1. Reads the image and base64-encodes it.
-  /// 2. Sends it to Qwen2.5-VL-7B-Instruct via the HF Inference API.
-  /// 3. Parses the structured JSON response into [OcrResult].
+  /// Run the OCR pipeline on an image file via Gemini Vision.
   Future<OcrResult> processImage(String imagePath) async {
     if (_isProcessing) {
       throw StateError('May kasalukuyang OCR na ginagawa.');
@@ -49,24 +50,15 @@ If a field cannot be found, set its value to null. Do not include any text outsi
     _isProcessing = true;
 
     try {
-      final apiKey = dotenv.env['HUGGINGFACE_API_KEY'];
-      if (apiKey == null ||
-          apiKey.isEmpty ||
-          apiKey == 'your_huggingface_api_key_here') {
-        throw StateError(
-          'HUGGINGFACE_API_KEY is not set. Please add your API key to the .env file.',
-        );
-      }
+      final model = _getModel();
 
-      // Read and base64-encode the image
       final imageFile = File(imagePath);
       if (!await imageFile.exists()) {
         throw StateError('Image file not found: $imagePath');
       }
       final imageBytes = await imageFile.readAsBytes();
-      final base64Image = base64Encode(imageBytes);
 
-      // Determine MIME type from extension
+      // Determine MIME type
       final ext = imagePath.toLowerCase().split('.').last;
       final mimeType = switch (ext) {
         'png' => 'image/png',
@@ -75,83 +67,38 @@ If a field cannot be found, set its value to null. Do not include any text outsi
         _ => 'image/jpeg',
       };
 
-      // Build the request body for the chat completions endpoint
-      final requestBody = jsonEncode({
-        'model': 'Qwen/Qwen2.5-VL-7B-Instruct',
-        'messages': [
-          {'role': 'system', 'content': _systemPrompt},
-          {
-            'role': 'user',
-            'content': [
-              {
-                'type': 'image_url',
-                'image_url': {'url': 'data:$mimeType;base64,$base64Image'},
-              },
-              {
-                'type': 'text',
-                'text':
-                    'Extract all receipt/label information from this image and return it as JSON.',
-              },
-            ],
-          },
-        ],
-        'max_tokens': 1024,
-        'temperature': 0.1,
-      });
+      final response = await model.generateContent([
+        Content.multi([
+          DataPart(mimeType, imageBytes),
+          TextPart(
+            'Analyze this image. Classify it and extract all relevant information as JSON. '
+            'Return ONLY a valid JSON object, no markdown fences.',
+          ),
+        ]),
+      ]);
 
-      // Send request to Hugging Face
-      final response = await http.post(
-        Uri.parse(_modelEndpoint),
-        headers: {
-          'Authorization': 'Bearer $apiKey',
-          'Content-Type': 'application/json',
-        },
-        body: requestBody,
-      );
-
-      if (response.statusCode != 200) {
-        throw StateError(
-          'Hugging Face API error (${response.statusCode}): ${response.body}',
-        );
-      }
-
-      // Parse the response
-      final responseJson = jsonDecode(response.body) as Map<String, dynamic>;
-      final choices = responseJson['choices'] as List<dynamic>?;
-
-      if (choices == null || choices.isEmpty) {
+      final text = response.text;
+      if (text == null || text.trim().isEmpty) {
         return OcrResult.fromRawText(
-          '(Walang response mula sa AI model)',
+          '(Walang nakita sa image)',
           imagePath: imagePath,
         );
       }
 
-      final messageContent = choices[0]['message']['content'] as String? ?? '';
-
-      if (messageContent.trim().isEmpty) {
-        return OcrResult.fromRawText(
-          '(Walang text na nakita sa image)',
-          imagePath: imagePath,
-        );
-      }
-
-      // Try to parse the model output as JSON
-      return _parseModelResponse(messageContent, imagePath);
+      return _parseResponse(text, imagePath);
     } finally {
       _isProcessing = false;
     }
   }
 
-  /// Parse the model's text response, extracting JSON if present.
-  OcrResult _parseModelResponse(String content, String imagePath) {
+  /// Parse Gemini's text response into OcrResult.
+  OcrResult _parseResponse(String content, String imagePath) {
     try {
-      // The model might wrap JSON in markdown code fences
       String jsonStr = content.trim();
 
       // Remove markdown code fences if present
       if (jsonStr.startsWith('```')) {
         final lines = jsonStr.split('\n');
-        // Remove first line (```json) and last line (```)
         lines.removeAt(0);
         if (lines.isNotEmpty && lines.last.trim() == '```') {
           lines.removeLast();
@@ -160,29 +107,77 @@ If a field cannot be found, set its value to null. Do not include any text outsi
       }
 
       final parsed = jsonDecode(jsonStr) as Map<String, dynamic>;
-
-      // Build confidence map — all fields from the API are considered confident
-      final confidence = <String, bool>{
-        'date': parsed['date'] != null,
-        'supplier': parsed['supplier'] != null,
-        'product': parsed['product'] != null,
-        'price': parsed['price'] != null,
-        'quantity': parsed['quantity'] != null,
-      };
-
-      return OcrResult(
-        product: parsed['product'] as String?,
-        price: parsed['price'] as String?,
-        quantity: parsed['quantity'] as String?,
-        supplier: parsed['supplier'] as String?,
-        date: parsed['date'] as String?,
-        rawText: parsed['raw_text'] as String?,
-        imagePath: imagePath,
-        confidence: confidence,
-      );
+      return OcrResult.fromJson(parsed, imagePath: imagePath);
     } catch (_) {
-      // If JSON parsing fails, return the raw text
       return OcrResult.fromRawText(content, imagePath: imagePath);
     }
   }
+
+  static const String _systemPrompt = '''
+You are an expert agricultural image analyzer for Filipino farmers. When given an image, classify it into one of these categories and extract relevant information.
+
+## Classification Rules
+
+1. **receipt** — If the image is a receipt, invoice, or expense record (e.g., purchase of fertilizer, seeds, pesticides, supplies). Look for prices, store names, itemized lists, dates.
+
+2. **product** — If the image shows a product like a bag of fertilizer, pesticide bottle, seed packet, or any agricultural input product. Look for product labels, brand names, ingredients, net weight, manufacturing info.
+
+3. **crop** — If the image shows harvested crops, vegetables, fruits, or produce ready for sale/record. Look for the type of crop visible.
+
+## Response Format
+
+Return ONLY a valid JSON object. Always include `"scan_type"` as the first field.
+
+### For receipt:
+```json
+{
+  "scan_type": "receipt",
+  "date": "YYYY-MM-DD or null",
+  "supplier": "store/supplier name or null",
+  "items": [
+    {
+      "description": "item name/description",
+      "quantity": "amount or null",
+      "unit": "pcs/kg/L/etc or null",
+      "price_per_unit": "numeric value or null",
+      "total_value": "line item total or null"
+    }
+  ],
+  "total_value": "receipt grand total or null",
+  "raw_text": "all visible text"
+}
+```
+**IMPORTANT for receipts**: If the receipt lists multiple items, include ALL items in the "items" array. Each item should have its own description, quantity, unit, price_per_unit, and total_value. If there is only one item, still use the "items" array with one entry.
+
+### For product:
+```json
+{
+  "scan_type": "product",
+  "product_name": "product name",
+  "product_description": "what the product is for",
+  "manufacturer": "manufacturer/brand or null",
+  "net_weight": "weight with unit or null",
+  "expiration_date": "YYYY-MM-DD or null",
+  "category": "fertilizer|pesticide|seed|herbicide|fungicide|other",
+  "raw_text": "all visible text"
+}
+```
+
+### For crop:
+```json
+{
+  "scan_type": "crop",
+  "crop_name": "name of the crop/produce",
+  "total_volume_kg": "estimated weight in kg or null",
+  "raw_text": "any visible text or description"
+}
+```
+
+## Important
+- If you cannot determine the scan type, use "receipt" as default
+- Set fields to null if the information is not visible
+- For Filipino text, translate product names to Filipino if appropriate
+- Prices should be numeric values only (no currency symbols)
+- Dates should be in YYYY-MM-DD format
+''';
 }

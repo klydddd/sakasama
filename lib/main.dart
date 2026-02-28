@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -13,6 +14,10 @@ import 'package:sakasama/core/routing/app_router.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Prevent google_fonts from trying to download fonts at runtime
+  // (crashes when device has no internet / DNS resolution fails)
+  GoogleFonts.config.allowRuntimeFetching = false;
+
   // Load environment variables
   await dotenv.load(fileName: '.env');
 
@@ -22,10 +27,9 @@ void main() async {
     anonKey: SupabaseConfig.anonKey,
   );
 
-  // Check if onboarding has been completed
+  // Initialize SharedPreferences for AppRouter
   final prefs = await SharedPreferences.getInstance();
-  final onboardingCompleted = prefs.getBool('onboarding_completed') ?? false;
-  AppRouter.onboardingCompleted = onboardingCompleted;
+  AppRouter.prefs = prefs;
 
   runApp(const ProviderScope(child: SakasamaApp()));
 }

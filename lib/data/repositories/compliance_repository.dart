@@ -17,14 +17,18 @@ class ComplianceRepository {
   final SyncService syncService;
 
   /// Watch all compliance records (reactive stream).
-  Stream<List<ComplianceRecord>> watchAll() => complianceDao.watchAll();
+  Stream<List<ComplianceRecord>> watchAll(String userId) =>
+      complianceDao.watchAll(userId);
 
   /// Get all compliance records (one-shot).
-  Future<List<ComplianceRecord>> getAll() => complianceDao.getAll();
+  Future<List<ComplianceRecord>> getAll(String userId) =>
+      complianceDao.getAll(userId);
 
   /// Watch records by form type.
-  Stream<List<ComplianceRecord>> watchByFormType(String formType) =>
-      complianceDao.watchByFormType(formType);
+  Stream<List<ComplianceRecord>> watchByFormType(
+    String formType,
+    String userId,
+  ) => complianceDao.watchByFormType(formType, userId);
 
   /// Get a single record by ID.
   Future<ComplianceRecord?> getById(int localId) =>

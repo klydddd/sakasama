@@ -44,93 +44,99 @@ class RecentActivityCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final activitiesAsync = ref.watch(allActivitiesProvider);
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(AppDimensions.cardPadding),
-      decoration: BoxDecoration(
-        color: AppColors.white,
-        borderRadius: BorderRadius.circular(AppDimensions.cardRadius),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.cardShadow,
-            blurRadius: 6,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Header
-          Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 4, bottom: 12, right: 4),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                'Mga Kamakailang Aktibidad',
+                'Mga Aktibidad',
                 style: Theme.of(
                   context,
-                ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
+                ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900),
               ),
               GestureDetector(
                 onTap: () => context.push('/journal'),
                 child: Text(
-                  'Tingnan lahat',
+                  'Tingnan Lahat',
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: AppColors.primaryGreen,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 20),
-
-          // Content
-          activitiesAsync.when(
-            loading: () => const Center(
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: CircularProgressIndicator(strokeWidth: 2),
+        ),
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(AppDimensions.cardPadding),
+          decoration: BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(AppDimensions.cardRadius),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.cardShadow,
+                blurRadius: 6,
+                offset: const Offset(0, 2),
               ),
-            ),
-            error: (e, _) => Text('Error: $e'),
-            data: (activities) {
-              if (activities.isEmpty) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: Center(
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.menu_book_rounded,
-                          size: 32,
-                          color: AppColors.textLight,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'Wala pang entry — magsimula na!',
-                          style: Theme.of(context).textTheme.bodySmall
-                              ?.copyWith(color: AppColors.textGrey),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              }
-
-              final recent = activities.take(3).toList();
-              return Column(
-                children: [
-                  for (int i = 0; i < recent.length; i++) ...[
-                    if (i > 0) const Divider(height: 1),
-                    _ActivityRow(activity: recent[i]),
-                  ],
-                ],
-              );
-            },
+            ],
           ),
-        ],
-      ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Content
+              activitiesAsync.when(
+                loading: () => const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  ),
+                ),
+                error: (e, _) => Text('Error: $e'),
+                data: (activities) {
+                  if (activities.isEmpty) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.menu_book_rounded,
+                              size: 32,
+                              color: AppColors.textLight,
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'Wala pang entry — magsimula na!',
+                              style: Theme.of(context).textTheme.bodySmall
+                                  ?.copyWith(color: AppColors.textGrey),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+
+                  final recent = activities.take(3).toList();
+                  return Column(
+                    children: [
+                      for (int i = 0; i < recent.length; i++) ...[
+                        if (i > 0) const Divider(height: 1),
+                        _ActivityRow(activity: recent[i]),
+                      ],
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

@@ -14,10 +14,10 @@ class FarmRepository {
   final SyncService syncService;
 
   /// Watch all farms (reactive stream from local DB).
-  Stream<List<FarmProfile>> watchAll() => farmDao.watchAll();
+  Stream<List<FarmProfile>> watchAll(String userId) => farmDao.watchAll(userId);
 
   /// Get all farms (one-shot from local DB).
-  Future<List<FarmProfile>> getAll() => farmDao.getAll();
+  Future<List<FarmProfile>> getAll(String userId) => farmDao.getAll(userId);
 
   /// Get a farm by local ID.
   Future<FarmProfile?> getById(int localId) => farmDao.getById(localId);

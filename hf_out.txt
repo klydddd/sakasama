@@ -1,0 +1,20 @@
+
+Testing: https://api-inference.huggingface.co/models/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice
+Status Code: 410
+Body: {"error":"https://api-inference.huggingface.co is no longer supported. Please use https://router.huggingface.co instead."}
+
+Testing: https://router.huggingface.co/hf-inference/v1/models/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice
+Status Code: 404
+Body: Not Found
+
+Testing: https://router.huggingface.co/hf-inference/models/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice
+Status Code: 404
+Body: Not Found
+
+Testing: https://router.huggingface.co/models/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice
+Status Code: 404
+Body: Not Found
+
+Testing: https://api-inference.huggingface.co/models/Qwen/Qwen2.5-1.5B
+Status Code: 410
+Body: {"error":"https://api-inference.huggingface.co is no longer supported. Please use https://router.huggingface.co instead."}

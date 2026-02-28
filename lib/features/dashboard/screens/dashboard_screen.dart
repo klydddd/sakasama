@@ -8,13 +8,27 @@ import 'package:sakasama/core/constants/app_dimensions.dart';
 import 'package:sakasama/core/constants/app_strings.dart';
 import 'package:sakasama/data/providers/activity_providers.dart';
 import 'package:sakasama/data/providers/farm_providers.dart';
+import 'package:sakasama/data/providers/database_providers.dart';
 import 'package:sakasama/features/dashboard/widgets/compliance_overview_card.dart';
 import 'package:sakasama/features/dashboard/widgets/growth_tracker_card.dart';
-import 'package:sakasama/features/dashboard/widgets/recent_activity_card.dart';
 
 /// Main dashboard / home screen.
-class DashboardScreen extends ConsumerWidget {
+class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
+
+  @override
+  ConsumerState<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends ConsumerState<DashboardScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Trigger sync with Supabase when dashboard loads
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(syncServiceProvider).syncAll();
+    });
+  }
 
   String _getGreeting() {
     final hour = DateTime.now().hour;
@@ -24,7 +38,7 @@ class DashboardScreen extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final farmProfileAsync = ref.watch(activeFarmProfileProvider);
     final daysLoggedAsync = ref.watch(daysLoggedProvider);
 
@@ -112,7 +126,7 @@ class DashboardScreen extends ConsumerWidget {
                         Text(
                               '$farmerName!',
                               style: Theme.of(context).textTheme.displayMedium
-                                  ?.copyWith(fontWeight: FontWeight.w700),
+                                  ?.copyWith(fontWeight: FontWeight.w900),
                             )
                             .animate()
                             .fadeIn(delay: 100.ms, duration: 500.ms)
@@ -135,16 +149,21 @@ class DashboardScreen extends ConsumerWidget {
                 // ── Cards below ──────────────────────────────────────
                 SliverToBoxAdapter(
                   child: Padding(
-                    padding: const EdgeInsets.all(AppDimensions.screenPadding),
+                    padding: const EdgeInsets.fromLTRB(
+                      AppDimensions.screenPadding,
+                      8, // Decreased top gap
+                      AppDimensions.screenPadding,
+                      AppDimensions.screenPadding,
+                    ),
                     child: Column(
                       children: [
-                        // Recent Activity
-                        const RecentActivityCard().animate().fadeIn(
+                        // ── Records Section ─────────────────────────
+                        _RecordsSection().animate().fadeIn(
                           delay: 300.ms,
                           duration: 400.ms,
                         ),
 
-                        const SizedBox(height: AppDimensions.itemSpacing),
+                        const SizedBox(height: 36),
 
                         // Compliance Checklist
                         const ComplianceOverviewCard().animate().fadeIn(
@@ -160,82 +179,109 @@ class DashboardScreen extends ConsumerWidget {
               ],
             ),
           ),
+        ],
+      ),
 
-          // ── Bottom action buttons ───────────────────────────────
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Gradient fade: white → transparent
-              Container(
-                height: 16,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [AppColors.white, Color(0x00FFFFFF)],
-                  ),
+      // ── Sleek Accessible Bottom Navigation ──────────────────────────
+      extendBody:
+          true, // Allows the body to scroll behind the transparent nav bar
+      bottomNavigationBar: Container(
+        margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+        child:
+            ClipRRect(
+              borderRadius: BorderRadius.circular(32),
+              child: BackdropFilter(
+                filter: ColorFilter.mode(
+                  AppColors.white.withValues(alpha: 0.85),
+                  BlendMode.srcOver,
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
-                color: AppColors.white,
-                child: SafeArea(
-                  top: false,
+                child: Container(
+                  height: 72,
+                  decoration: BoxDecoration(
+                    color: AppColors.white.withValues(alpha: 0.9),
+                    borderRadius: BorderRadius.circular(32),
+                    border: Border.all(
+                      color: AppColors.divider.withValues(alpha: 0.5),
+                    ),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: AppColors.cardShadow,
+                        blurRadius: 16,
+                        offset: Offset(0, 8),
+                      ),
+                    ],
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      _CircleActionButton(
+                      // Left Action 1: Scan
+                      _NavAction(
                         icon: Icons.camera_alt_rounded,
-                        label: AppStrings.scanReceipt,
+                        label: 'Scan',
                         onTap: () => context.push('/scan'),
-                        delay: 400,
                       ),
-                      _CircleActionButton(
-                        icon: Icons.add_rounded,
-                        label: AppStrings.logActivity,
+
+                      // Left Action 2: Export
+                      _NavAction(
+                        icon: Icons.file_download_rounded,
+                        label: 'Export',
+                        onTap: () => context.push('/export'),
+                      ),
+
+                      // Center Action: Voice Conversation (Mic)
+                      _CenterAction(
+                        icon: Icons.mic_rounded,
+                        label: 'Saka',
+                        onTap: () => context.push('/conversation'),
+                      ),
+
+                      // Right Action 1: Add Log
+                      _NavAction(
+                        icon: Icons.add_circle_outline_rounded,
+                        label: 'Log',
                         onTap: () => context.push('/journal/add'),
-                        delay: 500,
                       ),
-                      _CircleActionButton(
-                        icon: Icons.chat_rounded,
-                        label: AppStrings.askSaka,
+
+                      // Right Action 2: Text Chat
+                      _NavAction(
+                        icon: Icons.chat_bubble_outline_rounded,
+                        label: 'Chat',
                         onTap: () => context.push('/voice'),
-                        delay: 600,
                       ),
                     ],
                   ),
                 ),
               ),
-            ],
-          ),
-        ],
+            ).animate().slideY(
+              begin: 1.0,
+              end: 0,
+              delay: 500.ms,
+              curve: Curves.easeOutCubic,
+            ),
       ),
     );
   }
 }
 
-/// A circular action button with green gradient fill and white icon.
-class _CircleActionButton extends StatefulWidget {
-  const _CircleActionButton({
+/// Standard secondary actions for the new navigation bar
+class _NavAction extends StatefulWidget {
+  const _NavAction({
     required this.icon,
     required this.label,
     required this.onTap,
-    this.delay = 0,
   });
 
   final IconData icon;
   final String label;
-  final VoidCallback? onTap;
-  final int delay;
+  final VoidCallback onTap;
 
   @override
-  State<_CircleActionButton> createState() => _CircleActionButtonState();
+  State<_NavAction> createState() => _NavActionState();
 }
 
-class _CircleActionButtonState extends State<_CircleActionButton>
+class _NavActionState extends State<_NavAction>
     with SingleTickerProviderStateMixin {
   late final AnimationController _scaleCtrl;
-  late final Animation<double> _scaleAnim;
 
   @override
   void initState() {
@@ -244,10 +290,6 @@ class _CircleActionButtonState extends State<_CircleActionButton>
       vsync: this,
       duration: const Duration(milliseconds: 100),
     );
-    _scaleAnim = Tween<double>(
-      begin: 1.0,
-      end: 0.90,
-    ).animate(CurvedAnimation(parent: _scaleCtrl, curve: Curves.easeInOut));
   }
 
   @override
@@ -258,66 +300,247 @@ class _CircleActionButtonState extends State<_CircleActionButton>
 
   @override
   Widget build(BuildContext context) {
-    return ListenableBuilder(
-          listenable: _scaleAnim,
-          builder: (context, child) {
-            return Transform.scale(scale: _scaleAnim.value, child: child);
-          },
-          child: GestureDetector(
-            onTapDown: (_) {
-              _scaleCtrl.forward();
-              HapticFeedback.lightImpact();
-            },
-            onTapUp: (_) => _scaleCtrl.reverse(),
-            onTapCancel: () => _scaleCtrl.reverse(),
-            onTap: widget.onTap,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  width: 64,
-                  height: 64,
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [AppColors.darkGreen, AppColors.primaryGreen],
-                    ),
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.primaryGreen.withValues(alpha: 0.3),
-                        blurRadius: 8,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: Icon(widget.icon, size: 28, color: AppColors.white),
+    return GestureDetector(
+      onTapDown: (_) {
+        _scaleCtrl.forward();
+        HapticFeedback.selectionClick();
+      },
+      onTapUp: (_) => _scaleCtrl.reverse(),
+      onTapCancel: () => _scaleCtrl.reverse(),
+      onTap: widget.onTap,
+      behavior: HitTestBehavior.opaque,
+      child: AnimatedBuilder(
+        animation: _scaleCtrl,
+        builder: (context, child) => Transform.scale(
+          scale: 1.0 - (_scaleCtrl.value * 0.1),
+          child: child,
+        ),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(widget.icon, color: AppColors.textMedium, size: 26),
+              const SizedBox(height: 4),
+              Text(
+                widget.label,
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: AppColors.textDark,
+                  fontWeight: FontWeight.w800, // High contrast, bold
+                  fontSize: 12,
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  widget.label,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: AppColors.textMedium,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-        )
-        .animate()
-        .fadeIn(
-          delay: Duration(milliseconds: widget.delay),
-          duration: 400.ms,
-        )
-        .scale(
-          begin: const Offset(0.8, 0.8),
-          end: const Offset(1, 1),
-          delay: Duration(milliseconds: widget.delay),
-          duration: 400.ms,
-        );
+        ),
+      ),
+    );
+  }
+}
+
+/// The prominent central action button (FAB equivalent) embedded in the nav
+class _CenterAction extends StatefulWidget {
+  const _CenterAction({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  State<_CenterAction> createState() => _CenterActionState();
+}
+
+class _CenterActionState extends State<_CenterAction>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _scaleCtrl;
+
+  @override
+  void initState() {
+    super.initState();
+    _scaleCtrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 100),
+    );
+  }
+
+  @override
+  void dispose() {
+    _scaleCtrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTapDown: (_) {
+        _scaleCtrl.forward();
+        HapticFeedback.lightImpact();
+      },
+      onTapUp: (_) => _scaleCtrl.reverse(),
+      onTapCancel: () => _scaleCtrl.reverse(),
+      onTap: widget.onTap,
+      child: AnimatedBuilder(
+        animation: _scaleCtrl,
+        builder: (context, child) => Transform.scale(
+          scale: 1.0 - (_scaleCtrl.value * 0.05),
+          child: child,
+        ),
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 56,
+                height: 56,
+                margin: const EdgeInsets.only(
+                  bottom: 6,
+                  top: 4,
+                ), // Push it up slightly
+                decoration: BoxDecoration(
+                  color: AppColors.primaryGreen,
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.primaryGreen.withValues(alpha: 0.4),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: Icon(widget.icon, color: AppColors.white, size: 28),
+              ),
+              // We integrate the label directly into the bar, highly visible
+              // Text(
+              //   widget.label,
+              //   style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              //         color: AppColors.textDark,
+              //         fontWeight: FontWeight.w800,
+              //         fontSize: 12,
+              //       ),
+              // ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Horizontal record navigation section for the dashboard.
+class _RecordsSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: _RecordNavCard(
+                icon: Icons.menu_book_rounded,
+                label: 'Activities',
+                color: AppColors.primaryGreen,
+                onTap: () => context.push('/journal'),
+              ),
+            ),
+            const SizedBox(width: AppDimensions.itemSpacing),
+            Expanded(
+              child: _RecordNavCard(
+                icon: Icons.receipt_long_rounded,
+                label: 'Expenses',
+                color: AppColors.primaryGreen,
+                onTap: () => context.push('/records/expenses'),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: AppDimensions.itemSpacing),
+        Row(
+          children: [
+            Expanded(
+              child: _RecordNavCard(
+                icon: Icons.grass_rounded,
+                label: 'Harvests',
+                color: AppColors.primaryGreen,
+                onTap: () => context.push('/records/harvests'),
+              ),
+            ),
+            const SizedBox(width: AppDimensions.itemSpacing),
+            Expanded(
+              child: _RecordNavCard(
+                icon: Icons.inventory_2_rounded,
+                label: 'Products',
+                color: AppColors.primaryGreen,
+                onTap: () => context.push('/records/products'),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+/// A single record navigation card.
+class _RecordNavCard extends StatelessWidget {
+  const _RecordNavCard({
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String label;
+  final Color color;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 236, 236, 236),
+            borderRadius: BorderRadius.circular(14),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.cardShadow,
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  label,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.w800,
+                    color: color,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomRight,
+                child: Icon(icon, color: color, size: 72),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
