@@ -223,10 +223,9 @@ class SettingsScreen extends ConsumerWidget {
                     color: AppColors.backgroundGreen,
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Icon(
-                    Icons.agriculture_rounded,
-                    color: AppColors.primaryGreen,
-                    size: 24,
+                  child: Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Image.asset('assets/logos/logo (1).png'),
                   ),
                 ),
                 const SizedBox(height: 8),

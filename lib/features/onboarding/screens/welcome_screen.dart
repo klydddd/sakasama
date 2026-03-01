@@ -44,10 +44,12 @@ class WelcomeScreen extends StatelessWidget {
                         color: AppColors.white.withValues(alpha: 0.15),
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(
-                        Icons.agriculture_rounded,
-                        size: 64,
-                        color: AppColors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Image.asset(
+                          'assets/logos/logo (1).png',
+                          color: Colors.white,
+                        ),
                       ),
                     )
                     .animate()
@@ -93,15 +95,14 @@ class WelcomeScreen extends StatelessWidget {
                 const SizedBox(height: AppDimensions.smallSpacing),
 
                 // ── Subtitle ──────────────────────────────────────────
-                Text(
-                  'Saka + Kasama',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.white.withValues(alpha: 0.7),
-                    fontStyle: FontStyle.italic,
-                  ),
-                ).animate().fadeIn(delay: 800.ms, duration: 600.ms),
-
+                // Text(
+                //   'Saka + Kasama',
+                //   textAlign: TextAlign.center,
+                //   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                //     color: AppColors.white.withValues(alpha: 0.7),
+                //     fontStyle: FontStyle.italic,
+                //   ),
+                // ).animate().fadeIn(delay: 800.ms, duration: 600.ms),
                 const Spacer(flex: 3),
 
                 // ── Get Started Button ────────────────────────────────

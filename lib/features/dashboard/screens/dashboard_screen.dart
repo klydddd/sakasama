@@ -67,10 +67,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 color: AppColors.backgroundGreen,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: const Icon(
-                Icons.agriculture_rounded,
-                color: AppColors.primaryGreen,
-                size: 22,
+              child: Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Image.asset('assets/logos/logo (1).png'),
               ),
             ),
             const SizedBox(width: 10),

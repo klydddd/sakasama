@@ -111,10 +111,14 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 child: Column(
                   children: [
-                    const Icon(
-                          Icons.agriculture_rounded,
-                          size: 56,
-                          color: AppColors.white,
+                    Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(
+                            'assets/logos/logo (1).png',
+                            width: 56,
+                            height: 56,
+                            color: Colors.white,
+                          ),
                         )
                         .animate()
                         .fadeIn(duration: 600.ms)
